@@ -1,0 +1,40 @@
+.selectBtn{
+    -fx-background-color: #FF7256; /*set สีพื้นหลัง*/
+    -fx-background-radius: 50px;     /*สีพื้นหลัง กลม ตาม*/
+    -fx-border-radius: 80px;    /*ขอบ กลม*/
+    /*-fx-text-fill: white;     สีตัวอักษร*/
+}
+.selectBtn:hover{
+    -fx-opacity: 80%; /*ความใส*/
+    -fx-background-color: #FF7256;  /*สีพื้นหลัง ตอนกระพริบ*/
+    -fx-background-radius: 80px;
+    -fx-border-radius: 20px;
+}
+
+.otherBtn{
+    -fx-background-color:  #FF7256;  /*set สีพื้นหลัง*/
+    -fx-background-radius: 20px;     /*สีพื้นหลัง กลม ตาม*/
+    -fx-border-radius: 20px;    /*ขอบ กลม*/
+    /*-fx-text-fill: white;     สีตัวอักษร*/
+}
+
+.otherBtn:hover{
+    -fx-opacity: 80%;
+    -fx-background-color: #FF7256;  /*สีพื้นหลัง ตอนกระพริบ*/
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+.textField{
+    -fx-text-fill: black;
+    /*-fx-border-color: #5A5AA8;*/
+    /*-fx-background-color: #5A5AA8;*/
+    -fx-background-radius: 10px;
+    /*-fx-border-radius: 40px;*/
+}
+.textField:hover{
+
+    -fx-text-fill: white;
+    -fx-background-color: black;
+    -fx-opacity: 80%;
+    /*-fx-background-radius: 20px;*/
+}

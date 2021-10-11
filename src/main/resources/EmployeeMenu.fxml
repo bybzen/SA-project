@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="900" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.AdminMenuController">
+   <children>
+      <Label layoutX="284.0" layoutY="54.0" text="Menu Employee">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Button layoutX="285.0" layoutY="177.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="286.0" text="create  bill of lading">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button layoutX="354.0" layoutY="295.0" mnemonicParsing="false" text="list work">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
