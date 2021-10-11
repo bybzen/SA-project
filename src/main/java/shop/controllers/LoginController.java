@@ -14,6 +14,7 @@ public class LoginController {
     @FXML TextField username_textfield;
     @FXML TextField password_textfield;
 
+    Owner ow = new Owner();
     Alert alert;
 
     @FXML
@@ -22,7 +23,8 @@ public class LoginController {
         String username_input = username_textfield.getText();
         String password_input = password_textfield.getText();
 
-        Owner ow = new Owner();
+//<<<<<<< HEAD
+        //Owner ow = new Owner();
 
         if (this.username_textfield.getText().equals("") && this.password_textfield.getText().equals("") ) {
             alert = new Alert(Alert.AlertType.ERROR);
@@ -31,15 +33,14 @@ public class LoginController {
             alert.showAndWait();
         }
         else {
-
+//=======
             if (username_input.equals(ow.getUsername()) && password_input.equals(ow.getPassword())){
-
-            try {
-                FXRouter.goTo("AdminMenu");
-            } catch (IOException e) {
-                System.err.println("ไปที่หน้า AdminMenu ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
-            }
+                try {
+                    FXRouter.goTo("AdminMenu");
+                } catch (IOException e) {
+                    System.err.println("ไปที่หน้า AdminMenu ไม่ได้");
+                    System.err.println("ให้ตรวจสอบการกำหนด route");
+                }
 
             } else if (this.username_textfield.getText().equals("") && !(this.password_textfield.getText().equals(""))) {
                 alert = new Alert(Alert.AlertType.ERROR);
@@ -59,13 +60,11 @@ public class LoginController {
                 alert.setContentText("Please check your username or password");
                 alert.showAndWait();
             }
-        }
 
+        }
     }
 
-
-    @FXML
-    public void handleBackButton(ActionEvent actionEvent) {
+    @FXML public void handleBackButton (ActionEvent actionEvent) throws IOException{
         try {
             FXRouter.goTo("Home");
         } catch (IOException var3) {
