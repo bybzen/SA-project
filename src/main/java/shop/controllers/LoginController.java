@@ -23,7 +23,16 @@ public class LoginController {
         String password_input = password_textfield.getText();
 
         Owner ow = new Owner();
-        if (username_input.equals(ow.getUsername()) && password_input.equals(ow.getPassword())){
+
+        if (this.username_textfield.getText().equals("") && this.password_textfield.getText().equals("") ) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(" ");
+            alert.setContentText("Please enter username and password");
+            alert.showAndWait();
+        }
+        else {
+
+            if (username_input.equals(ow.getUsername()) && password_input.equals(ow.getPassword())){
 
             try {
                 FXRouter.goTo("AdminMenu");
@@ -32,15 +41,25 @@ public class LoginController {
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
 
-        }
-        else{
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(" ");
-            alert.setContentText("Please check your username or password");
-            alert.showAndWait();
-        }
+            } else if (this.username_textfield.getText().equals("") && !(this.password_textfield.getText().equals(""))) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(" ");
+                alert.setContentText("Please enter username");
+                alert.showAndWait();
 
+            }else if (this.password_textfield.getText().equals("") && !(this.username_textfield.getText().equals(""))) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(" ");
+                alert.setContentText("Please enter password");
+                alert.showAndWait();
 
+            } else{
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(" ");
+                alert.setContentText("Please check your username or password");
+                alert.showAndWait();
+            }
+        }
 
     }
 
