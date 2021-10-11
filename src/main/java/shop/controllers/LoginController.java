@@ -14,6 +14,7 @@ public class LoginController {
     @FXML TextField username_textfield;
     @FXML TextField password_textfield;
 
+    Owner ow = new Owner();
     Alert alert;
 
     @FXML
@@ -22,7 +23,7 @@ public class LoginController {
         String username_input = username_textfield.getText();
         String password_input = password_textfield.getText();
 
-        Owner ow = new Owner();
+
         if (username_input.equals(ow.getUsername()) && password_input.equals(ow.getPassword())){
 
             try {
@@ -39,11 +40,7 @@ public class LoginController {
             alert.setContentText("Please check your username or password");
             alert.showAndWait();
         }
-
-
-
     }
-
 
     @FXML
     public void handleBackButton(ActionEvent actionEvent) {
