@@ -20,6 +20,7 @@ public class Run extends Application {
 
         FXRouter.when("Home", "Home.fxml");
         FXRouter.when("AdminLogin", "AdminLogin.fxml");
+        FXRouter.when("AdminMenu", "AdminMenu.fxml");
 
     }
 
