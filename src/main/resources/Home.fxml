@@ -3,26 +3,69 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="900.0" style="-fx-background-color: #333399;" styleClass="otheBtn"  xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.HomeController">
+<AnchorPane prefHeight="800.0" prefWidth="900.0" style="-fx-background-color: #41bad7;" styleClass="otheBtn" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.HomeController">
    <children>
-      <Label layoutX="182.0" layoutY="153.0" style="-fx-background-color: #FFCC66;" text="Air Conditioner System">
+      <AnchorPane fx:id="photo1" layoutX="845.0" prefHeight="800.0" prefWidth="200.0">
+         <children>
+            <AnchorPane layoutX="4.0" prefHeight="800.0" prefWidth="86.0" style="-fx-background-color: #6699CC;">
+               <children>
+                  <AnchorPane layoutY="-2.0" prefHeight="816.0" prefWidth="90.0" style="-fx-background-color: CC9966;" />
+                  <AnchorPane layoutX="-2.0" layoutY="14.0" prefHeight="802.0" prefWidth="11.0" style="-fx-background-color: CC9966;" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Label layoutX="131.0" layoutY="152.0" style="-fx-background-color: #FFCC66;" text="Air Conditioner System">
          <font>
-            <Font name="Bell MT Bold" size="52.0" />
+            <Font name="Bell MT Bold" size="62.0" />
          </font>
       </Label>
-      <Button layoutX="259.0" layoutY="414.0" mnemonicParsing="false" onAction="#adminLoginButton" style="-fx-background-color: #FFFFFF;" text="Admin">
+      <Button layoutX="159.0" layoutY="331.0" mnemonicParsing="false" onAction="#adminLoginButton" style="-fx-background-color: #fegd6a;" styleClass="otherBtn" stylesheets="@effect.css" text="Admin">
          <font>
-            <Font name="Bell MT Bold" size="25.0" />
+            <Font name="Bell MT Bold" size="37.0" />
          </font>
       </Button>
-      <Button layoutX="527.0" layoutY="414.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;"  text="Staff">
+      <Button layoutX="175.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: #fegd6a;" styleClass="otherBtn" stylesheets="@effect.css" text="Staff">
          <font>
-            <Font name="Bell MT Bold" size="25.0" />
+            <Font name="Bell MT Bold" size="37.0" />
          </font>
       </Button>
+      <Circle fill="WHITE" layoutX="538.0" layoutY="603.0" radius="153.0" stroke="#ebebeb" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="693.0" layoutY="628.0" radius="147.0" stroke="WHITE" strokeType="INSIDE" />
+      <Circle fill="LIGHTSKYBLUE" layoutX="636.0" layoutY="507.0" radius="98.0" stroke="LIGHTSKYBLUE" strokeType="INSIDE" />
+      <Circle fill="#3399cc" layoutX="749.0" layoutY="543.0" radius="93.0" stroke="#3399cc" strokeType="INSIDE" />
+      <ImageView fx:id="image2" fitHeight="69.0" fitWidth="70.0" layoutX="129.0" layoutY="606.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="image1" fitHeight="251.0" fitWidth="486.0" layoutX="413.0" layoutY="507.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/2.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-10.0" layoutY="-20.0" prefHeight="41.0" prefWidth="948.0" style="-fx-background-color: CC9966;" />
+      <Button layoutX="105.0" layoutY="682.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #669966;" styleClass="otherBtn" stylesheets="@effect.css" text="Manual" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="19.0" />
+         </font>
+      </Button>
+      <Polygon fill="#cc9966" layoutX="50.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
+      <Polygon fill="#cc9966" layoutX="142.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
+      <Polygon fill="#cc9966" layoutX="238.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
+      <Polygon fill="#cc9966" layoutX="338.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
+      <Polygon fill="#cc9966" layoutX="435.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
+      <Polygon fill="#cc9966" layoutX="529.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
+      <Polygon fill="#cc9966" layoutX="619.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
+      <Polygon fill="#cc9966" layoutX="706.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
+      <Polygon fill="#cc9966" layoutX="799.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
    </children>
    <cursor>
       <Cursor fx:constant="HAND" />

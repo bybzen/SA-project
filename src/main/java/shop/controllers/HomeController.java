@@ -3,23 +3,28 @@ package shop.controllers;
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 public class HomeController {
 
-    @FXML TextField nameTextField;
-    @FXML TextField callNumberTextField;
-    @FXML TextField id_studentTextField;
+    //@FXML TextField nameTextField;
+    //@FXML TextField callNumberTextField;
+    //@FXML TextField id_studentTextField;
+    @FXML private ImageView image1;
+    @FXML private ImageView image2;
 
-    PreparedStatement preparedStatement , preparedStatement2 , preparedStatement5;
-    ResultSet resultSet;
+    @FXML public void initialize() {
+        image1.setImage(new Image("/image/2.png"));
+        image2.setImage(new Image("/image/3.png"));
+    }
 
-    Connection con ;
+    //PreparedStatement preparedStatement , preparedStatement2 , preparedStatement5;
+    //ResultSet resultSet;
+
+    //Connection con ;
 
     public HomeController() {
         //con = ConnectDatabase.connectDB();
