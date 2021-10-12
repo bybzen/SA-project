@@ -41,4 +41,11 @@ public class Owner {
         return password;
     }
 
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

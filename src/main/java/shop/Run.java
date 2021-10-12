@@ -22,6 +22,7 @@ public class Run extends Application {
         FXRouter.when("AdminLogin", "AdminLogin.fxml");
         FXRouter.when("AdminMenu", "AdminMenu.fxml");
         FXRouter.when("CreateWorkorder", "CreateWorkorder.fxml");
+        FXRouter.when("ForgetPassword", "ForgetPassword.fxml");
 
     }
 

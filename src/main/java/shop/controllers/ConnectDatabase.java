@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class ConnectDatabase {
 
-    static String db_name = "team";
+    static String db_name = "air_conditioner_system";
     static String user = "root";
     static String pass = "";
     static String hostName = "localhost:3306";
@@ -17,7 +17,7 @@ public class ConnectDatabase {
             Class.forName(db_driver);
             String url = "jdbc:mysql://" + hostName + "/" + db_name + SSL;
             Connection connect = DriverManager.getConnection(url, user, pass);
-            System.out.println("เชื่อมต่อฐานข้อมูลเรียบร้อย");
+            System.out.println("Connect to database");
             return connect;
         } catch (Exception e) {
             System.out.println(e.getMessage());
