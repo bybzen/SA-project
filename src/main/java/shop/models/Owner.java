@@ -4,16 +4,28 @@ import java.util.ArrayList;
 
 public class Owner {
 
+    private String id_personal;
     private String username;
     private String password;
+    private String role;
     private ArrayList<Employee> listOfEmployee; //list รายชื่อพนักงาน
 
+
     public Owner (){
+        this.id_personal = "00";
         this.username = "admin2009";
         this.password = "maxmotives";
+        this.role = "Owner";
     }
 
-    public void addToEmployeeList(Employee employee){  //add พนักงานเข้า list รายชื่อ
+    public Owner(String id_personal, String username, String password, String role) {
+        this.id_personal = id_personal;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
+    public void addEmployeeToList(Employee employee){  //add พนักงานเข้า list รายชื่อ
         listOfEmployee.add(employee);
     }
 
@@ -25,6 +37,7 @@ public class Owner {
         return password.equals(password);
     }
 
+
     public void setUsername(String username){
         this.username = username;
     }
@@ -32,7 +45,9 @@ public class Owner {
     public void setPassword(String password){
         this.password = password;
     }
-    
+
+
+
     public String getUsername(){
         return username;
     }
@@ -41,4 +56,25 @@ public class Owner {
         return password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public String getId_personal() {
+        return id_personal;
+    }
+
+    public ArrayList<Employee> getListOfEmployee() {
+        return listOfEmployee;
+    }
+
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "id_personal='" + id_personal + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
+    }
 }

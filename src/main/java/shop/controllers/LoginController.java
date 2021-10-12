@@ -14,7 +14,7 @@ public class LoginController {
     @FXML TextField username_textfield;
     @FXML TextField password_textfield;
 
-    Owner ow = new Owner();
+    private Owner ow = new Owner();
     Alert alert;
 
     @FXML
@@ -23,8 +23,7 @@ public class LoginController {
         String username_input = username_textfield.getText();
         String password_input = password_textfield.getText();
 
-//<<<<<<< HEAD
-        //Owner ow = new Owner();
+
 
         if (this.username_textfield.getText().equals("") && this.password_textfield.getText().equals("") ) {
             alert = new Alert(Alert.AlertType.ERROR);
@@ -33,10 +32,12 @@ public class LoginController {
             alert.showAndWait();
         }
         else {
-//=======
+
             if (username_input.equals(ow.getUsername()) && password_input.equals(ow.getPassword())){
                 try {
                     FXRouter.goTo("AdminMenu");
+                    System.out.print(ow.toString());
+
                 } catch (IOException e) {
                     System.err.println("ไปที่หน้า AdminMenu ไม่ได้");
                     System.err.println("ให้ตรวจสอบการกำหนด route");

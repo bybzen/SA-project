@@ -2,10 +2,21 @@ package shop.controllers;
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import shop.models.Owner;
 
 import java.io.IOException;
 
 public class AdminMenuController {
+
+    private Owner ow ;
+
+//    @FXML public void initialize() {
+//
+//        System.out.print(ow.toString());
+//    }
+
+
+
 @FXML
     public void CreateworkorderButton(ActionEvent actionEvent) {
         try {
