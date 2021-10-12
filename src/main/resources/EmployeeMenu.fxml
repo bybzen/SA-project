@@ -5,15 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="900" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.AdminMenuController">
+<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.EmployeeMenuController">
    <children>
       <Label layoutX="284.0" layoutY="54.0" text="Menu Employee">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
-      <Button layoutX="285.0" layoutY="177.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="286.0" text="create  bill of lading">
+      <Button layoutX="285.0" layoutY="177.0" mnemonicParsing="false" onAction="#CreateBillOfLadingButton" prefHeight="57.0" prefWidth="286.0" text="create  bill of lading">
          <font>
             <Font size="27.0" />
          </font>
@@ -23,5 +22,6 @@
             <Font size="29.0" />
          </font>
       </Button>
+      <Button layoutX="656.0" layoutY="536.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="101.0" text="Back" />
    </children>
 </AnchorPane>

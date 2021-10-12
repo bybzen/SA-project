@@ -22,7 +22,11 @@ public class Run extends Application {
         FXRouter.when("AdminLogin", "AdminLogin.fxml");
         FXRouter.when("AdminMenu", "AdminMenu.fxml");
         FXRouter.when("CreateWorkorder", "CreateWorkorder.fxml");
-        FXRouter.when("ForgetPassword", "ForgetPassword.fxml");
+        FXRouter.when("ChangePassword", "ChangePassword.fxml");
+        FXRouter.when("EmployeeMenu", "EmployeeMenu.fxml");
+        FXRouter.when("CreateBillOfLading", "CreateBillOfLading.fxml");
+        FXRouter.when("CreateDevice", "CreateDevice.fxml");
+
 
     }
 

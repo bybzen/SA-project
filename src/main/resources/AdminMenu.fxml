@@ -19,7 +19,7 @@
                   <Font name="Bell MT Bold" size="24.0" />
                </font>
             </Button>
-            <Button layoutX="74.0" layoutY="116.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="Create device">
+            <Button layoutX="74.0" layoutY="116.0" mnemonicParsing="false" onAction="#CreateDeviceButton" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="Create device">
                <font>
                   <Font name="Bell MT Bold" size="24.0" />
                </font>

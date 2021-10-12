@@ -1,27 +1,27 @@
 package shop.models;
 
 public class Workorder {
-    private int on_order;  //เลขที่ใบงาน
+    private String on_order;  //เลขที่ใบงาน
     private String name_customer;
-    private String surname_customet;
+    private String surname_customer;
     private String address_customer;
     private String datetime; //วัน-เวลา
     private String status_order; //สถานะ order
     private String liable; //พนักงานที่รับผิดชอบ
 
-    public Workorder(int on_order, String name_customer, String surname_customet,
+    public Workorder(String on_order, String name_customer, String surname_customet,
                      String address_customer, String datetime, String status_order, String liable) {
 
         this.on_order = on_order;
         this.name_customer = name_customer;
-        this.surname_customet = surname_customet;
+        this.surname_customer = surname_customet;
         this.address_customer = address_customer;
         this.datetime = datetime;
         this.status_order = status_order;
         this.liable = "-";
     }
 
-    public void setOn_order(int on_order) {
+    public void setOn_order(String on_order) {
         this.on_order = on_order;
     }
 
@@ -30,7 +30,7 @@ public class Workorder {
     }
 
     public void setSurname_customet(String surname_customet) {
-        this.surname_customet = surname_customet;
+        this.surname_customer = surname_customet;
     }
 
     public void setAddress_customer(String address_customer) {
@@ -49,7 +49,7 @@ public class Workorder {
         this.liable = liable;
     }
 
-    public int getOn_order() {
+    public String getOnOrder() {
         return on_order;
     }
 
@@ -58,7 +58,7 @@ public class Workorder {
     }
 
     public String getSurname_customet() {
-        return surname_customet;
+        return surname_customer;
     }
 
     public String getAddress_customer() {
@@ -82,7 +82,7 @@ public class Workorder {
         return "Workorder{" +
                 "on_order=" + on_order +
                 ", name_customer='" + name_customer + '\'' +
-                ", surname_customet='" + surname_customet + '\'' +
+                ", surname_customer='" + surname_customer + '\'' +
                 ", address_customer='" + address_customer + '\'' +
                 ", datetime='" + datetime + '\'' +
                 ", status_order='" + status_order + '\'' +

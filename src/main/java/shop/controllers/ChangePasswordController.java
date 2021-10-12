@@ -21,16 +21,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 
-public class ForgetPasswordController {
+public class ChangePasswordController {
 
-    @FXML private TextField username_textField1 , id_textField2 ;
+    @FXML private TextField username_textField1 , id_textField2, newpassword_textField ;
     Connection con;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null ;
     String username_input;
     String id_input;
+    String newpassword;
 
-    public ForgetPasswordController(){
+    public ChangePasswordController(){
         con = ConnectDatabase.connectDB();
     }
 
@@ -71,38 +72,19 @@ public class ForgetPasswordController {
     public void showPassword(){
         username_input = username_textField1.getText();
         id_input = id_textField2.getText();
+        newpassword = newpassword_textField.getText();
     }
 
     public void change(){
         showPassword();
         try {
-            String sql = "Select User_password_admin FROM User WHERE User_id_admin, ID_personnal";
+            String sql = "UPDATE user SET user_password_admin = ?  WHERE User_id_admin = admin2009 , ID_personnel = 00 ";
             preparedStatement = con.prepareStatement(sql);;
-            preparedStatement.setString(1,username_input);
-            preparedStatement.setString(2,id_input);
-            resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeight(100);
-                alert.setWidth(200);
-                alert.setTitle(null);
-                alert.setHeaderText(null);
-                alert.setContentText("Your Password is " + resultSet.getString("Password"));
-                alert.showAndWait();
-                resultSet.getString("Password");
-                username_textField1.setText("");
-                id_textField2.setText("");
-            }else if (!resultSet.next()){
-                username_textField1.setText("");
-                id_textField2.setText("");
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setHeight(100);
-                alert.setWidth(200);
-                alert.setTitle("Input Error");
-                alert.setHeaderText(null);
-                alert.setContentText("Enter again");
-                alert.showAndWait();
-            }
+            preparedStatement.setString(1,newpassword);
+            preparedStatement.setString(2,username_input);
+            preparedStatement.setString(3,id_input);
+            preparedStatement.executeUpdate();
+            System.out.println("Changed password success");
         }catch (SQLException ex){
             ex.printStackTrace();
         }catch (RuntimeException ex){

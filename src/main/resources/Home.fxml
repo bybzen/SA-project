@@ -32,7 +32,7 @@
             <Font name="Bell MT Bold" size="37.0" />
          </font>
       </Button>
-      <Button layoutX="175.0" layoutY="447.0" mnemonicParsing="false" style="-fx-background-color: #fegd6a;" styleClass="otherBtn" stylesheets="@effect.css" text="Staff">
+      <Button layoutX="175.0" layoutY="447.0" mnemonicParsing="false" onAction="#EmployeeMenuButton" style="-fx-background-color: #fegd6a;" styleClass="otherBtn" stylesheets="@effect.css" text="Staff">
          <font>
             <Font name="Bell MT Bold" size="37.0" />
          </font>

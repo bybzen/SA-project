@@ -19,12 +19,11 @@ public class LoginController {
     @FXML TextField username_textfield;
     @FXML PasswordField password_field;
 
-    Owner ow = new Owner();
+    private Owner ow = new Owner();
     Alert alert;
 
     Connection con;
-    PreparedStatement preparedStatement, preparedStatement2;
-    ResultSet resultSet, resultSet2;
+    PreparedStatement preparedStatement;
 
     public void initialize(){
 
@@ -50,14 +49,11 @@ public class LoginController {
 
             if (username_input.equals(ow.getUsername()) && password_input.equals(ow.getPassword())){
                 try {
-                    String sql = "INSERT INTO user(Role_user, ID_personnal, Name_personal, User_id_admin, User_password_admin) VALUES (?,?,?,?,?)";
+                    String sql = "INSERT INTO user(User_id_admin, User_password_admin) VALUES (?,?)";
                     try {
                     preparedStatement = con.prepareStatement(sql);
-                    preparedStatement.setString(1, "Owner");
-                    preparedStatement.setString(2, "00");
-                    preparedStatement.setString(3, "ธนากร");
-                    preparedStatement.setString(4, username_input);
-                    preparedStatement.setString(5, password_input);
+                    preparedStatement.setString(1, username_input);
+                    preparedStatement.setString(2, password_input);
                     preparedStatement.executeUpdate();
                     System.out.println("Username and password save in DB");
                     } catch (SQLException se) {
@@ -65,6 +61,8 @@ public class LoginController {
                         //se.printStackTrace();
                     }
                     FXRouter.goTo("AdminMenu");
+                    System.out.print(ow.toString());
+
                 } catch (IOException e) {
                     System.err.println("ไปที่หน้า AdminMenu ไม่ได้");
                     System.err.println("ให้ตรวจสอบการกำหนด route");
@@ -104,11 +102,11 @@ public class LoginController {
     }
 
     @FXML
-    public void forgetPasswordButton(ActionEvent actionEvent)  throws IOException {
+    public void changePasswordButton(ActionEvent actionEvent)  throws IOException {
         try {
-            FXRouter.goTo("ForgetPassword");
+            FXRouter.goTo("ChangePassword");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า ForgetPassword ไม่ได้");
+            System.err.println("ไปที่หน้า ChangePassword ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

@@ -29,4 +29,14 @@ public class HomeController {
         }
     }
 
+    @FXML
+        public void EmployeeMenuButton(ActionEvent actionEvent) {
+            try {
+                FXRouter.goTo("EmployeeMenu");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า EmployeeMenu ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
+
 }
