@@ -7,11 +7,11 @@ public class Device {
     private String idDevice;
     private String nameDevice;
     private int quantity;
-    private ArrayList<Device> deviceList = new ArrayList<>();
+    private ArrayList<Device> deviceList = new ArrayList<>();;
 
-//    public Device (){
-//
-//    }
+    public Device (){
+//        deviceList = new ArrayList<>();
+    }
 
     public Device(String idDevice, String nameDevice, int quantity) {
         this.idDevice = idDevice;

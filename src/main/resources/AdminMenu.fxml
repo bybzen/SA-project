@@ -28,7 +28,7 @@
       </AnchorPane>
       <AnchorPane layoutX="458.0" layoutY="275.0" prefHeight="326.0" prefWidth="350.0" style="-fx-background-color: #6699CC;">
          <children>
-            <Button layoutX="49.0" layoutY="37.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="253.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="List of workorder">
+            <Button layoutX="49.0" layoutY="37.0" mnemonicParsing="false" onAction="#ListWorkOrderButton" prefHeight="50.0" prefWidth="253.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="List of workorder">
                <font>
                   <Font name="Bell MT Bold" size="24.0" />
                </font>
