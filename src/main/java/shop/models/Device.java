@@ -1,17 +1,32 @@
 package shop.models;
 
+import java.util.ArrayList;
+
 public class Device {
 
-    private String id_device;
-    private String name_device;
+    private String idDevice;
+    private String nameDevice;
     private int quantity;
+    private ArrayList<Device> deviceList = new ArrayList<>();;
 
-    public Device(String id_device, String name_device, int quantity) {
-        this.id_device = id_device;
-        this.name_device = name_device;
+    public Device (){
+//        deviceList = new ArrayList<>();
+    }
+
+    public Device(String idDevice, String nameDevice, int quantity) {
+        this.idDevice = idDevice;
+        this.nameDevice = nameDevice;
         this.quantity = quantity;
     }
 
+
+    public ArrayList<Device> getDeviceList() {  // Get data all device
+        return deviceList;
+    }
+
+    public void addDeviceToStock(Device device){  // add device to list
+        deviceList.add(device);
+    }
 
     public void decreaseDevice(int num){   // ลดจำนวนอุปกรณ์ใน Stock
         this.quantity-=num;
@@ -21,24 +36,24 @@ public class Device {
         this.quantity+=num;
     }
 
-    public String getId_device() {
-        return id_device;
+    public String getIdDevice() {
+        return idDevice;
     }
 
-    public void setId_device(String id_device) {
-        this.id_device = id_device;
-    }
-
-    public String getName_device() {
-        return name_device;
-    }
-
-    public void setName_device(String name_device) {
-        this.name_device = name_device;
+    public String getNameDevice() {
+        return nameDevice;
     }
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setIdDevice(String idDevice) {
+        this.idDevice = idDevice;
+    }
+
+    public void setNameDevice(String nameDevice) {
+        this.nameDevice = nameDevice;
     }
 
     public void setQuantity(int quantity) {
@@ -48,8 +63,8 @@ public class Device {
     @Override
     public String toString() {
         return "Device{" +
-                "id_device='" + id_device + '\'' +
-                ", name_device='" + name_device + '\'' +
+                "idDevice='" + idDevice + '\'' +
+                ", nameDevice='" + nameDevice + '\'' +
                 ", quantity=" + quantity +
                 '}';
     }

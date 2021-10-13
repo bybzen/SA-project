@@ -4,34 +4,29 @@ import java.util.ArrayList;
 
 public class Owner {
 
-    private String id_personal;
+    private String idPersonal;
     private String username;
     private String password;
     private String role;
-    private String name;
-    private ArrayList<Employee> listOfEmployee; //list รายชื่อพนักงาน
 
-    public Owner() {
+    
+    public Owner (){
+
+        this.idPersonal = "00";
         this.username = "admin2009";
         this.password = "1234";
+        this.role = "Owner";
     }
 
-    public Owner(String id_personal, String username, String password, String role, String name) {
-        this.id_personal = id_personal;
+
+    public Owner(String idPersonal, String username, String password, String role) {
+        this.idPersonal = idPersonal;
         this.username = username;
         this.password = password;
         this.role = role;
-        this.name = name ;
     }
     
 
-    public String getName() {
-        return name;
-    }
-
-    public void addEmployeeToList(Employee employee){  //add พนักงานเข้า list รายชื่อ
-        listOfEmployee.add(employee);
-    }
 
     public boolean checkUsername(String username){
         return username.equals(username);
@@ -62,22 +57,17 @@ public class Owner {
         return role;
     }
 
-    public String getId_personal() {
-        return id_personal;
-    }
-
-    public ArrayList<Employee> getListOfEmployee() {
-        return listOfEmployee;
+    public String getIdPersonal() {
+        return idPersonal;
     }
 
     @Override
     public String toString() {
         return "Owner{" +
-                "id_personal='" + id_personal + '\'' +
+                "id_personal='" + idPersonal + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
-                ", name='" + name + '\'' +
                 '}';
     }
 }
