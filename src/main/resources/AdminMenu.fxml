@@ -55,5 +55,10 @@
             <Font name="Bell MT Bold" size="33.0" />
          </font>
       </Label>
+      <Button layoutX="169.0" layoutY="649.0" mnemonicParsing="false" onAction="#BackButton" text="BACK">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

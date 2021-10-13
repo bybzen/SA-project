@@ -13,6 +13,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import shop.models.Owner;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -30,15 +31,23 @@ public class ChangePasswordController {
     String username_input;
     String id_input;
     String newpassword;
+    Owner ow;
+
+    public void initialize(){
+
+        String sql_role = " SELECT Role FROM User ";
+        String sql_id = " SELECT ID_personal FROM User ";
+        String sql_name = " SELECT Name_personal FROM User ";
+        String sql_username = " SELECT User_username_admin FROM User ";
+        String sql_password = " SELECT User_password_admin FROM User ";
+        ow = new Owner(sql_id,sql_username,sql_password,sql_role,sql_name);
+
+    }
 
     public ChangePasswordController(){
         con = ConnectDatabase.connectDB();
     }
 
-    //@FXML
-    //private void click(MouseEvent event) throws Exception{
-        //change();
-    //}
 
     @FXML public void handleChangeButton(ActionEvent event) throws Exception  {
         Alert alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
@@ -82,11 +91,12 @@ public class ChangePasswordController {
             System.out.println(username_input);
             System.out.println(id_input);
             System.out.println(newpassword);
-            String sql = "UPDATE user SET User_password_admin = ?  WHERE User_id_admin = ? AND ID_personnal = ? ";
-            preparedStatement = con.prepareStatement(sql);;
+            String sql_password = "UPDATE user SET User_password_admin = ?  WHERE User_id_admin = ? AND ID_personal = ? ";
+            preparedStatement = con.prepareStatement(sql_password);;
             preparedStatement.setString(1,newpassword);
             preparedStatement.setString(2,username_input);
             preparedStatement.setString(3,id_input);
+            ow.setPassword(sql_password);
             preparedStatement.executeUpdate();
             System.out.println("Changed password success");
         }catch (SQLException ex){

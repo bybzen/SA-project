@@ -8,21 +8,25 @@ public class Owner {
     private String username;
     private String password;
     private String role;
+    private String name;
     private ArrayList<Employee> listOfEmployee; //list รายชื่อพนักงาน
-    
-    public Owner (){
 
-        this.id_personal = "00";
+    public Owner() {
         this.username = "admin2009";
         this.password = "1234";
-        this.role = "Owner";
     }
 
-    public Owner(String id_personal, String username, String password, String role) {
+    public Owner(String id_personal, String username, String password, String role, String name) {
         this.id_personal = id_personal;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.name = name ;
+    }
+    
+
+    public String getName() {
+        return name;
     }
 
     public void addEmployeeToList(Employee employee){  //add พนักงานเข้า list รายชื่อ
@@ -73,6 +77,7 @@ public class Owner {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
