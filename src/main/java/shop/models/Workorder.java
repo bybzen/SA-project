@@ -1,91 +1,106 @@
 package shop.models;
 
+import java.util.ArrayList;
+
 public class Workorder {
-    private String on_order;  //เลขที่ใบงาน
-    private String name_customer;
-    private String surname_customer;
-    private String address_customer;
+    private String onOrder;  //เลขที่ใบงาน
+    private String nameCustomer;
+    private String surnameCustomer;
+    private String addressCustomer;
     private String datetime; //วัน-เวลา
-    private String status_order; //สถานะ order
+    private String statusOrder; //สถานะ order
     private String liable; //พนักงานที่รับผิดชอบ
+    private ArrayList<Workorder> workbook = new ArrayList<>();
 
-    public Workorder(String on_order, String name_customer, String surname_customet,
-                     String address_customer, String datetime, String status_order, String liable) {
-
-        this.on_order = on_order;
-        this.name_customer = name_customer;
-        this.surname_customer = surname_customet;
-        this.address_customer = address_customer;
+    public Workorder(String onOrder, String nameCustomer, String surnameCustomer,
+                     String addressCustomer, String datetime, String statusOrder, String liable) {
+        this.onOrder = onOrder;
+        this.nameCustomer = nameCustomer;
+        this.surnameCustomer = surnameCustomer;
+        this.addressCustomer = addressCustomer;
         this.datetime = datetime;
-        this.status_order = status_order;
-        this.liable = "-";
+        this.statusOrder = statusOrder;
+        this.liable = "-"; // พนักงานผู้รับผิดชอบงาน
     }
 
-    public void setOn_order(String on_order) {
-        this.on_order = on_order;
+    public ArrayList<Workorder> getWorkbook() {
+        return workbook;
     }
 
-    public void setName_customer(String name_customer) {
-        this.name_customer = name_customer;
+    public void addWorkOrderToList(Workorder order){
+        workbook.add(order);
     }
 
-    public void setSurname_customet(String surname_customet) {
-        this.surname_customer = surname_customet;
-    }
-
-    public void setAddress_customer(String address_customer) {
-        this.address_customer = address_customer;
-    }
-
-    public void setDatetime(String datetime) {
-        this.datetime = datetime;
-    }
-
-    public void setStatus_order(String status_order) {
-        this.status_order = status_order;
-    }
-
-    public void setLiable(String liable) {
-        this.liable = liable;
-    }
 
     public String getOnOrder() {
-        return on_order;
+        return onOrder;
     }
 
-    public String getName_customer() {
-        return name_customer;
+    public String getNameCustomer() {
+        return nameCustomer;
     }
 
-    public String getSurname_customet() {
-        return surname_customer;
+    public String getSurnameCustomer() {
+        return surnameCustomer;
     }
 
-    public String getAddress_customer() {
-        return address_customer;
+    public String getAddressCustomer() {
+        return addressCustomer;
     }
 
     public String getDatetime() {
         return datetime;
     }
 
-    public String getStatus_order() {
-        return status_order;
+    public String getStatusOrder() {
+        return statusOrder;
     }
 
     public String getLiable() {
         return liable;
     }
 
+    public void setOnOrder(String onOrder) {
+        this.onOrder = onOrder;
+    }
+
+    public void setNameCustomer(String nameCustomer) {
+        this.nameCustomer = nameCustomer;
+    }
+
+    public void setSurnameCustomer(String surnameCustomer) {
+        this.surnameCustomer = surnameCustomer;
+    }
+
+    public void setAddressCustomer(String addressCustomer) {
+        this.addressCustomer = addressCustomer;
+    }
+
+    public void setDatetime(String datetime) {
+        this.datetime = datetime;
+    }
+
+    public void setStatusOrder(String statusOrder) {
+        this.statusOrder = statusOrder;
+    }
+
+    public void setLiable(String liable) {
+        this.liable = liable;
+    }
+
+    public void setWorkbook(ArrayList<Workorder> workbook) {
+        this.workbook = workbook;
+    }
+
     @Override
     public String toString() {
         return "Workorder{" +
-                "on_order=" + on_order +
-                ", name_customer='" + name_customer + '\'' +
-                ", surname_customer='" + surname_customer + '\'' +
-                ", address_customer='" + address_customer + '\'' +
+                "onOrder='" + onOrder + '\'' +
+                ", nameCustomer='" + nameCustomer + '\'' +
+                ", surnameCustomer='" + surnameCustomer + '\'' +
+                ", addressCustomer='" + addressCustomer + '\'' +
                 ", datetime='" + datetime + '\'' +
-                ", status_order='" + status_order + '\'' +
+                ", statusOrder='" + statusOrder + '\'' +
                 ", liable='" + liable + '\'' +
                 '}';
     }

@@ -1,26 +1,37 @@
 package shop.models;
 
+import java.util.ArrayList;
+
 public class Employee {
 
-    private String id_personal;
+    private String idPersonal;
     private String name;
     private String surname;
     private String role;
-
+    private ArrayList<Employee> employeeList = new ArrayList<>(); //list รายชื่อพนักงาน
 
     public Employee(String id_personal, String name, String surname, String role) {
-        this.id_personal = id_personal;
+        this.idPersonal = id_personal;
         this.name = name;
         this.surname = surname;
         this.role = role;
     }
 
-    public String getId_personal() {
-        return id_personal;
+
+    public ArrayList<Employee> getEmployeesList() {  // Get all data employees
+        return employeeList;
     }
 
-    public void setId_personal(String id_personal) {
-        this.id_personal = id_personal;
+    public void addEmployeeToList(Employee emp){  // Add employee to list
+        employeeList.add(emp);
+    }
+
+    public String getIdPersonal() {
+        return idPersonal;
+    }
+
+    public void setIdPersonal(String idPersonal) {
+        this.idPersonal = idPersonal;
     }
 
     public String getName() {
@@ -45,5 +56,15 @@ public class Employee {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "idPersonal='" + idPersonal + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }

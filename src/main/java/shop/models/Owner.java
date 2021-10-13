@@ -4,29 +4,25 @@ import java.util.ArrayList;
 
 public class Owner {
 
-    private String id_personal;
+    private String idPersonal;
     private String username;
     private String password;
     private String role;
-    private ArrayList<Employee> listOfEmployee; //list รายชื่อพนักงาน
+
     
     public Owner (){
 
-        this.id_personal = "00";
+        this.idPersonal = "00";
         this.username = "admin2009";
         this.password = "1234";
         this.role = "Owner";
     }
 
-    public Owner(String id_personal, String username, String password, String role) {
-        this.id_personal = id_personal;
+    public Owner(String idPersonal, String username, String password, String role) {
+        this.idPersonal = idPersonal;
         this.username = username;
         this.password = password;
         this.role = role;
-    }
-
-    public void addEmployeeToList(Employee employee){  //add พนักงานเข้า list รายชื่อ
-        listOfEmployee.add(employee);
     }
 
     public boolean checkUsername(String username){
@@ -58,18 +54,14 @@ public class Owner {
         return role;
     }
 
-    public String getId_personal() {
-        return id_personal;
-    }
-
-    public ArrayList<Employee> getListOfEmployee() {
-        return listOfEmployee;
+    public String getIdPersonal() {
+        return idPersonal;
     }
 
     @Override
     public String toString() {
         return "Owner{" +
-                "id_personal='" + id_personal + '\'' +
+                "id_personal='" + idPersonal + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
