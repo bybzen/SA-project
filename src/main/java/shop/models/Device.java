@@ -9,9 +9,9 @@ public class Device {
     private int quantity;
     private ArrayList<Device> deviceList = new ArrayList<>();
 
-    public Device (){
-
-    }
+//    public Device (){
+//
+//    }
 
     public Device(String idDevice, String nameDevice, int quantity) {
         this.idDevice = idDevice;

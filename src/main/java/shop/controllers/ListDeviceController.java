@@ -17,6 +17,9 @@ public class ListDeviceController {
     private ObservableList<Device> deviceList;
 
     @FXML public void initialize(){
+//        device = new Device("01", "Air", 10);
+//        device.addDeviceToStock(new Device("01", "Air", 10));
+
 
 //        blockBtn.setDisable(true);
 //        unblockBtn.setDisable(true);

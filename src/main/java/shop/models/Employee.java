@@ -10,8 +10,8 @@ public class Employee {
     private String role;
     private ArrayList<Employee> employeeList = new ArrayList<>(); //list รายชื่อพนักงาน
 
-    public Employee(String id_personal, String name, String surname, String role) {
-        this.idPersonal = id_personal;
+    public Employee(String idPersonal, String name, String surname, String role) {
+        this.idPersonal = idPersonal;
         this.name = name;
         this.surname = surname;
         this.role = role;

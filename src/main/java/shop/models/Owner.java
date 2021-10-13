@@ -18,12 +18,15 @@ public class Owner {
         this.role = "Owner";
     }
 
+
     public Owner(String idPersonal, String username, String password, String role) {
         this.idPersonal = idPersonal;
         this.username = username;
         this.password = password;
         this.role = role;
     }
+    
+
 
     public boolean checkUsername(String username){
         return username.equals(username);
