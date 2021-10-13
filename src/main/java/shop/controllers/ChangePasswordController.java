@@ -35,21 +35,22 @@ public class ChangePasswordController {
         con = ConnectDatabase.connectDB();
     }
 
-    @FXML
-    private void click(MouseEvent event) throws Exception{
-        change();
-    }
+    //@FXML
+    //private void click(MouseEvent event) throws Exception{
+        //change();
+    //}
 
-    @FXML public void handleChangeButton(MouseEvent event)  {
+    @FXML public void handleChangeButton(ActionEvent event) throws Exception  {
         Alert alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
         alert.setHeight(100);
         alert.setWidth(200);
         alert.setTitle("CONFIRMATION");
         alert.setHeaderText(null);
-        alert.setContentText("Do you want to show password ? ");
+        alert.setContentText("Do you want to change password ? ");
         Optional<ButtonType> result = alert.showAndWait();
         if(result.get()== ButtonType.OK) {
             try {
+                change();
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/AdminLogin.fxml"));
                 Scene scene = new Scene(loader.load());
@@ -78,7 +79,10 @@ public class ChangePasswordController {
     public void change(){
         showPassword();
         try {
-            String sql = "UPDATE user SET user_password_admin = ?  WHERE User_id_admin = admin2009 , ID_personnel = 00 ";
+            System.out.println(username_input);
+            System.out.println(id_input);
+            System.out.println(newpassword);
+            String sql = "UPDATE user SET User_password_admin = ?  WHERE User_id_admin = ? AND ID_personnal = ? ";
             preparedStatement = con.prepareStatement(sql);;
             preparedStatement.setString(1,newpassword);
             preparedStatement.setString(2,username_input);

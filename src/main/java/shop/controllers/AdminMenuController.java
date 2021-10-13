@@ -25,5 +25,14 @@ public class AdminMenuController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+    @FXML
+        public void ListDeviceButton(ActionEvent actionEvent) {
+            try {
+                FXRouter.goTo("ListDevice");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า ListDeviceButton ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
 
 }

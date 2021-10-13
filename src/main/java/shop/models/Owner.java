@@ -9,12 +9,12 @@ public class Owner {
     private String password;
     private String role;
     private ArrayList<Employee> listOfEmployee; //list รายชื่อพนักงาน
-
-
+    
     public Owner (){
+
         this.id_personal = "00";
         this.username = "admin2009";
-        this.password = "maxmotives";
+        this.password = "1234";
         this.role = "Owner";
     }
 

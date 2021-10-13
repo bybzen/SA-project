@@ -33,7 +33,7 @@
                   <Font name="Bell MT Bold" size="24.0" />
                </font>
             </Button>
-            <Button layoutX="94.0" layoutY="130.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="List of device">
+            <Button layoutX="94.0" layoutY="130.0" mnemonicParsing="false" onAction="#ListDeviceButton" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="List of device">
                <font>
                   <Font name="Bell MT" size="24.0" />
                </font>
