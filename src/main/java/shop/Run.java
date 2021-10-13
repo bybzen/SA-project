@@ -27,6 +27,7 @@ public class Run extends Application {
         FXRouter.when("CreateBillOfLading", "CreateBillOfLading.fxml");
         FXRouter.when("CreateDevice", "CreateDevice.fxml");
         FXRouter.when("ListDevice", "ListDevice.fxml");
+        FXRouter.when("ListWorkOrder", "ListWorkOrder.fxml");
 
 
 

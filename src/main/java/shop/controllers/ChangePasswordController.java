@@ -40,7 +40,7 @@ public class ChangePasswordController {
         String sql_name = " SELECT Name_personal FROM User ";
         String sql_username = " SELECT User_username_admin FROM User ";
         String sql_password = " SELECT User_password_admin FROM User ";
-        ow = new Owner(sql_id,sql_username,sql_password,sql_role,sql_name);
+        //ow = new Owner(sql_id,sql_username,sql_password,sql_role,sql_name);
 
     }
 

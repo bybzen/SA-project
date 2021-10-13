@@ -45,4 +45,14 @@ public class AdminMenuController {
                 }
             }
 
+
+    @FXML public void ListWorkOrderButton(ActionEvent actionEvent) {
+        try {
+            FXRouter.goTo("ListWorkOrder");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า ListWorkOrder ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
 }

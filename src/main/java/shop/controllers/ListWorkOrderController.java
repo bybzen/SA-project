@@ -5,17 +5,18 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
+public class ListWorkOrderController {
+    //@FXML private TableView<> table_Work_Order;
 
-public class ListDeviceController {
 
-    //@FXML private TableView<> tableDevices;
+
 
     @FXML
     public void BackButton(ActionEvent actionEvent) {
         try {
-            FXRouter.goTo("EmployeeMenu");
+            FXRouter.goTo("AdminMenu");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า EmployeeMenu ไม่ได้");
+            System.err.println("ไปที่หน้า AdminMenu ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
