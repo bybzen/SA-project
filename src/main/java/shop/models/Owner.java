@@ -46,8 +46,6 @@ public class Owner {
         this.password = password;
     }
 
-
-
     public String getUsername(){
         return username;
     }

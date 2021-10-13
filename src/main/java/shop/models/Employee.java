@@ -1,8 +1,5 @@
 package shop.models;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 public class Employee {
 
     private String id_personal;

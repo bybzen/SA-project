@@ -4,28 +4,42 @@ import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import shop.models.Owner;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class LoginController {
 
     @FXML TextField username_textfield;
-    @FXML TextField password_textfield;
+    @FXML PasswordField password_field;
 
     private Owner ow = new Owner();
     Alert alert;
+
+    Connection con;
+    PreparedStatement preparedStatement;
+
+    public void initialize(){
+
+    }
+
+    public LoginController(){
+        con = ConnectDatabase.connectDB();
+    }
 
     @FXML
     public void ConfirmlogInAction(ActionEvent event) throws IOException {
 
         String username_input = username_textfield.getText();
-        String password_input = password_textfield.getText();
+        String password_input = password_field.getText();
 
-
-
-        if (this.username_textfield.getText().equals("") && this.password_textfield.getText().equals("") ) {
+        if (this.username_textfield.getText().equals("") && this.password_field.getText().equals("") ) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(" ");
             alert.setContentText("Please enter username and password");
@@ -35,6 +49,17 @@ public class LoginController {
 
             if (username_input.equals(ow.getUsername()) && password_input.equals(ow.getPassword())){
                 try {
+                    String sql = "INSERT INTO user(User_id_admin, User_password_admin) VALUES (?,?)";
+                    try {
+                    preparedStatement = con.prepareStatement(sql);
+                    preparedStatement.setString(1, username_input);
+                    preparedStatement.setString(2, password_input);
+                    preparedStatement.executeUpdate();
+                    System.out.println("Username and password save in DB");
+                    } catch (SQLException se) {
+                        System.out.println("Duplicate username and password");
+                        //se.printStackTrace();
+                    }
                     FXRouter.goTo("AdminMenu");
                     System.out.print(ow.toString());
 
@@ -43,13 +68,13 @@ public class LoginController {
                     System.err.println("ให้ตรวจสอบการกำหนด route");
                 }
 
-            } else if (this.username_textfield.getText().equals("") && !(this.password_textfield.getText().equals(""))) {
+            } else if (this.username_textfield.getText().equals("") && !(this.password_field.getText().equals(""))) {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(" ");
                 alert.setContentText("Please enter username");
                 alert.showAndWait();
 
-            }else if (this.password_textfield.getText().equals("") && !(this.username_textfield.getText().equals(""))) {
+            }else if (this.password_field.getText().equals("") && !(this.username_textfield.getText().equals(""))) {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(" ");
                 alert.setContentText("Please enter password");
@@ -65,6 +90,7 @@ public class LoginController {
         }
     }
 
+
     @FXML public void handleBackButton (ActionEvent actionEvent) throws IOException{
         try {
             FXRouter.goTo("Home");
@@ -74,5 +100,16 @@ public class LoginController {
         }
 
     }
+
+    @FXML
+    public void changePasswordButton(ActionEvent actionEvent)  throws IOException {
+        try {
+            FXRouter.goTo("ChangePassword");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า ChangePassword ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
 
 }
