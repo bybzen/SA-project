@@ -26,6 +26,7 @@ public class ListDeviceControllers {
         System.out.println(device.getDeviceList());
 
 
+
 //        blockBtn.setDisable(true);
 //        unblockBtn.setDisable(true);
 
