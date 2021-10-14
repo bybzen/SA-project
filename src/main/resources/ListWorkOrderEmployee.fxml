@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.ListWorkOrderEmployeeController">
+   <children>
+      <TableView fx:id="table_work_order_employee" layoutX="78.0" layoutY="116.0" prefHeight="550.0" prefWidth="771.0" />
+      <Label layoutX="351.0" layoutY="40.0" text="List Work Order">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+      <Button layoutX="725.0" layoutY="718.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="40.0" prefWidth="95.0" text="Back" />
+   </children>
+</AnchorPane>
+

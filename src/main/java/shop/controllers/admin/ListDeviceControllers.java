@@ -1,4 +1,4 @@
-package shop.controllers;
+package shop.controllers.admin;
 import com.github.saacsos.FXRouter;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -103,9 +103,9 @@ public class ListDeviceControllers {
     @FXML
     public void BackButton(ActionEvent actionEvent) {
         try {
-            FXRouter.goTo("EmployeeMenu");
+            FXRouter.goTo("AdminMenu");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า EmployeeMenu ไม่ได้");
+            System.err.println("ไปที่หน้า AdminMenu ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

@@ -1,4 +1,4 @@
-package shop.controllers;
+package shop.controllers.admin;
 
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
@@ -6,10 +6,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import shop.controllers.ConnectDatabase;
 import shop.models.Owner;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class LoginController {
 
@@ -26,6 +31,9 @@ public class LoginController {
 
     ResultSet resultSet;
 
+    ArrayList<String> arrayCount;
+
+
 
     public LoginController(){
         con = ConnectDatabase.connectDB();
@@ -34,35 +42,25 @@ public class LoginController {
 
     public void initialize() throws SQLException {
 
-        //String sql_role = "SELECT Role_user FROM User ";
-        //String sql_id = "SELECT ID_personal FROM User ";
-        //String sql_name = "SELECT Name_personal FROM User ";
-        //***String sql_username = "SELECT User_id_admin FROM User WHERE ID_personal = ?";
-        //String sql_password = "SELECT User_password_admin FROM User";
-        //try {
-            //preparedStatement_role = con.prepareStatement(sql_role);
-            //preparedStatement_role.setString(1,username_textfield.getText());
-            //preparedStatement_id = con.prepareStatement(sql_id);
-            //preparedStatement_name = con.prepareStatement(sql_name);
-            //***   preparedStatement_username = con.prepareStatement(sql_username);
-            //***   preparedStatement_username.setString(1,username_textfield.getText());
-            //***   resultSet = preparedStatement_name.executeQuery();
-            //***   while (resultSet.next()){
-                //***   arrayCount.add(resultSet.getString(1));
-            //***}
-            //preparedStatement_password = con.prepareStatement(sql_password);
-            //preparedStatement_password.setString(,password_textfield.getText());
-
-        //***}catch (SQLException e){
-
-        //***}
-
-        //ResultSet resultSet_role = preparedStatement_role.executeQuery();
-//        ResultSet resultSet_id = preparedStatement_id.executeQuery();
-//        ResultSet resultSet_name = preparedStatement_name.executeQuery();
-//        ResultSet resultSet_username = preparedStatement_username.executeQuery();
-//        ResultSet resultSet_password = preparedStatement_password.executeQuery();
+//        String sql_username = "SELECT User_id_admin FROM User WHERE ID_personal = ?";
+//        //***String sql_password = "SELECT User_password_admin FROM User";
+//        try {
+//               preparedStatement_username = con.prepareStatement(sql_username);
+//               preparedStatement_username.setString(1,username_textfield.getText());
+//               resultSet = preparedStatement_username.executeQuery();
+//               while (resultSet.next()){
+//                   arrayCount.add(resultSet.getString(1));
+//                   owt = new OwnerTest(arrayCount);
+//                   System.out.print(owt.getUsername());
 //
+//            }
+//            //preparedStatement_password = con.prepareStatement(sql_password);
+//            //preparedStatement_password.setString(,password_textfield.getText());
+//
+//        }catch (SQLException e){
+//            e.fillInStackTrace();
+//        }
+
 //        ow = new Owner(resultSetMetaData_id,resultSetMetaData_username,resultSet_password,resultSetMetaData_role,resultSetMetaData_name);
 //        System.out.println(ow.getUsername());
 
@@ -143,7 +141,6 @@ public class LoginController {
                         //se.printStackTrace();
                     }
                     FXRouter.goTo("AdminMenu");
-                    System.out.print(ow.toString());
 
                 } catch (IOException e) {
                     System.err.println("ไปที่หน้า AdminMenu ไม่ได้");

@@ -1,4 +1,4 @@
-package shop.controllers;
+package shop.controllers.admin;
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
