@@ -25,6 +25,7 @@ public class ListDeviceControllers {
     TextField Withdraw_Of_Device_Textfield;
     @FXML
     Label Name_device_label;
+    @FXML TextField add_device_textfield;
 
     @FXML public void initialize(){
         device = new Device("01", "Air", 10);
@@ -115,6 +116,11 @@ public class ListDeviceControllers {
             System.err.println("ไปที่หน้า AdminMenu ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
+    }
+
+    @FXML //ปุ่ม update
+    public void update_button(ActionEvent actionEvent) {
+
     }
 
 }
