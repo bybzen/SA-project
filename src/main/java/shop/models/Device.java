@@ -29,7 +29,7 @@ public class Device {
     }
 
     public void decreaseDevice(int num){   // ลดจำนวนอุปกรณ์ใน Stock
-        this.quantity-=num;
+            this.quantity -= num;
     }
 
     public void increaseDevice(int num){  // เพิ่มอุปกรณ์ใน Stock
