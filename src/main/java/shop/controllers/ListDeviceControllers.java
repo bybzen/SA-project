@@ -11,19 +11,23 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import shop.models.Device;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ListDeviceControllers {
 
 
-    private Device device, selectDevice;
+    private Device devices , selectDevice;
 
     @FXML private TableView<Device> tableDevices;
     private ObservableList<Device> deviceList;
 
     @FXML public void initialize(){
-        device = new Device("01", "Air", 10);
-        device.addDeviceToStock(new Device("01", "Air", 10));
-        System.out.println(device.getDeviceList());
+        devices = new Device("01", "Air", 10);
+        devices.addDeviceToStock(devices);
+        System.out.println(devices.getDeviceList());
+        Device device1 = new Device("02", "PVC", 20);
+        devices.addDeviceToStock(device1);
+        System.out.println(devices.getDeviceList());
 
 
 
@@ -38,7 +42,7 @@ public class ListDeviceControllers {
 
         tableDevices.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                showSelectedStaff(newValue);
+                showSelectedDevice(newValue);
             }
         });
 
@@ -46,7 +50,7 @@ public class ListDeviceControllers {
 //
     public void showTableView(){
 
-        deviceList = FXCollections.observableArrayList(device.getDeviceList());
+        deviceList = FXCollections.observableArrayList(devices.getDeviceList());
 
         tableDevices.setItems(deviceList);
 
@@ -71,8 +75,25 @@ public class ListDeviceControllers {
 
     }
 
-    private void showSelectedStaff(Device staff) {
-        selectDevice = staff;
+    private void showSelectedDevice(Device device) {
+        selectDevice = device;
+
+       if (selectDevice.getNameDevice().equals("Air")){
+        System.out.println("True");
+
+        selectDevice.setQuantity(selectDevice.getQuantity()-1);
+
+        System.out.println(selectDevice.getQuantity());
+
+//       clearSelectedDevice();
+//       tableDevices.refresh();
+//       tableDevices.getSelectionModel().clearSelection();
+       }
+       else {
+           System.out.println("False");
+       }
+
+
 
 //        countLabel.setText(String.valueOf(staff.getCount()));
 //

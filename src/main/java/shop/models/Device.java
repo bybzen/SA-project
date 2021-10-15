@@ -7,7 +7,7 @@ public class Device {
     private String idDevice;
     private String nameDevice;
     private int quantity;
-    private ArrayList<Device> deviceList = new ArrayList<>();;
+    private ArrayList<Device> deviceList = new ArrayList<>();
 
     public Device (){
 //        deviceList = new ArrayList<>();
