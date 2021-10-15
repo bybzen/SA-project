@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shop.models.Device;
 
+import javax.xml.soap.Name;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -21,11 +22,10 @@ public class ListDeviceControllers {
     private Device devices , selectDevice;
 
     @FXML private TableView<Device> tableDevices;
+    @FXML TextField Withdraw_Of_Device_Textfield;
+    @FXML Label Name_device_label;
+
     private ObservableList<Device> deviceList;
-    @FXML
-    TextField Withdraw_Of_Device_Textfield;
-    @FXML
-    Label Name_device_label;
 
     @FXML public void initialize(){
         devices = new Device("01", "Air", 10);
@@ -84,10 +84,13 @@ public class ListDeviceControllers {
     private void showSelectedDevice(Device device) {
         selectDevice = device;
 
+        Name_device_label.setText(selectDevice.getNameDevice());
+        System.out.println(selectDevice.toString());
+
        if (selectDevice.getNameDevice().equals("Air")){
         System.out.println("True");
 
-        selectDevice.setQuantity(selectDevice.getQuantity()-1);
+        selectDevice.setQuantity(selectDevice.getQuantity()-1);      // Test ลดจน.อุปกรณ์
 
         System.out.println(selectDevice.getQuantity());
 
@@ -116,6 +119,7 @@ public class ListDeviceControllers {
 
     private void clearSelectedDevice() {
 
+        Withdraw_Of_Device_Textfield.clear();
 //        countLabel.setText("-");
 //        if (selectStaff.getStatus().equals("Available")) {
 //            unblockBtn.setDisable(true); // ปิดปุ่ม
