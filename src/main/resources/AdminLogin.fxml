@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="900" style="-fx-background-color: #333399;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.LoginController">
+<AnchorPane fx:id="idPersonalText1" prefHeight="800.0" prefWidth="900" style="-fx-background-color: #333399;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.LoginController">
    <children>
       <TextField fx:id="username_textfield" layoutX="286.0" layoutY="238.0" prefHeight="45.0" prefWidth="361.0" />
       <Label layoutX="373.0" layoutY="95.0" style="-fx-background-color: #FFCC66;" text="Login">

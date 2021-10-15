@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.CreateDeviceController">
+<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.CreateDeviceController">
    <children>
       <Label layoutX="378.0" layoutY="76.0" text="Create Device">
          <font>
@@ -37,7 +36,7 @@
             <Font size="21.0" />
          </font>
       </Button>
-      <Button layoutX="711.0" layoutY="666.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="99.0" text="Back">
+      <Button layoutX="711.0" layoutY="666.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="45.0" prefWidth="99.0" text="Back">
          <font>
             <Font size="21.0" />
          </font>

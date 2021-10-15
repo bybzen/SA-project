@@ -1,18 +1,19 @@
-package shop.controllers;
+package shop.controllers.employee;
+
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class EmployeeMenuController {
+public class CreateBillOfLadingController {
 
 @FXML
-    public void CreateBillOfLadingButton(ActionEvent actionEvent) {
+    public void BackButton(ActionEvent actionEvent) {
         try {
-            FXRouter.goTo("CreateBillOfLading");
+            FXRouter.goTo("EmployeeMenu");
         } catch (IOException e) {
-            System.err.println("ไปที่หน้า CreateBillOfLading ไม่ได้");
+            System.err.println("ไปที่หน้า EmployeeMenu ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }

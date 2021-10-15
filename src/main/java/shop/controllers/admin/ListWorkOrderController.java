@@ -1,4 +1,4 @@
-package shop.controllers;
+package shop.controllers.admin;
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,4 +20,14 @@ public class ListWorkOrderController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+    
+    @FXML
+        public void EditButton(ActionEvent actionEvent) {
+            try {
+                FXRouter.goTo("EditWorkOrder");
+            } catch (IOException e) {
+                System.err.println("ไปที่หน้า EditWorkOrder ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+        }
 }

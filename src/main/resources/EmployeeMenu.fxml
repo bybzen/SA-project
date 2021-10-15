@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.EmployeeMenuController">
+<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.EmployeeMenuController">
    <children>
       <Label layoutX="284.0" layoutY="54.0" text="Menu Employee">
          <font>
@@ -17,11 +17,11 @@
             <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutX="354.0" layoutY="295.0" mnemonicParsing="false" text="list work">
+      <Button layoutX="354.0" layoutY="295.0" mnemonicParsing="false" onAction="#ListWorkOrderEmployeeButton" text="list work">
          <font>
             <Font size="29.0" />
          </font>
       </Button>
-      <Button layoutX="656.0" layoutY="536.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="101.0" text="Back" />
+      <Button layoutX="656.0" layoutY="536.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="49.0" prefWidth="101.0" text="Back" />
    </children>
 </AnchorPane>

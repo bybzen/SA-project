@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.ListWorkOrderController">
+<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.ListWorkOrderController">
     <children>
         <TableView fx:id="table_Work_Order" layoutX="68.0" layoutY="106.0" prefHeight="550.0" prefWidth="771.0" />
         <Label layoutX="341.0" layoutY="30.0" text="List Work Order">
@@ -15,6 +15,6 @@
             </font>
         </Label>
         <Button layoutX="715.0" layoutY="708.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="40.0" prefWidth="95.0" text="Back" />
-        <Button layoutX="419.0" layoutY="708.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" text="Edit" />
+        <Button layoutX="419.0" layoutY="708.0" mnemonicParsing="false" onAction="#EditButton" prefHeight="40.0" prefWidth="95.0" text="Edit" />
     </children>
 </AnchorPane>

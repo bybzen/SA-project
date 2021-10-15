@@ -39,4 +39,14 @@ public class HomeController {
             }
         }
 
+    @FXML
+    public void TestButton(ActionEvent actionEvent) {
+        try {
+            FXRouter.goTo("Test");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า Test ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
 }
