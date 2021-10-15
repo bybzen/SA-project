@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import shop.controllers.ConnectDatabase;
 import shop.models.Owner;
+import shop.models.OwnerTest;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -22,6 +23,7 @@ public class LoginController {
     @FXML PasswordField password_field;
 
     Owner ow = new Owner();
+    OwnerTest owt;
     Alert alert;
 
 
@@ -46,14 +48,14 @@ public class LoginController {
 //        //***String sql_password = "SELECT User_password_admin FROM User";
 //        try {
 //               preparedStatement_username = con.prepareStatement(sql_username);
-//               preparedStatement_username.setString(1,username_textfield.getText());
+//               preparedStatement_username.setString(1, "00");
 //               resultSet = preparedStatement_username.executeQuery();
 //               while (resultSet.next()){
 //                   arrayCount.add(resultSet.getString(1));
-//                   owt = new OwnerTest(arrayCount);
-//                   System.out.print(owt.getUsername());
-//
+//                   System.out.println(arrayCount);
+//                   System.out.println("******");
 //            }
+//            System.out.println("-------");
 //            //preparedStatement_password = con.prepareStatement(sql_password);
 //            //preparedStatement_password.setString(,password_textfield.getText());
 //
@@ -129,6 +131,7 @@ public class LoginController {
 
             if (username_input.equals(ow.getUsername()) && password_input.equals(ow.getPassword())){
                 try {
+
                     String sql = "INSERT INTO user(User_username_admin, User_password_admin) VALUES (?,?)";
                     try {
                     preparedStatement = con.prepareStatement(sql);

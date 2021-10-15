@@ -10,37 +10,32 @@
 <AnchorPane prefHeight="800" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.ListDeviceControllers">
     <children>
         <TableView fx:id="tableDevices" layoutX="53.0" layoutY="85.0" prefHeight="594.0" prefWidth="559.0" />
-        <Button layoutX="695.0" layoutY="515.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" text="Comfirm" />
+        <Button layoutX="695.0" layoutY="515.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" text="Update" />
         <Label layoutX="385.0" layoutY="14.0" text="List Device">
             <font>
                 <Font size="34.0" />
             </font>
         </Label>
-        <Button layoutX="169.0" layoutY="721.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" text="Edit" />
         <Label layoutX="654.0" layoutY="180.0" prefHeight="46.0" prefWidth="197.0" text="Name Device">
             <font>
                 <Font size="31.0" />
             </font>
         </Label>
-        <TextField layoutX="634.0" layoutY="254.0">
+        <TextField fx:id="Withdraw_Of_Device_Textfield" layoutX="654.0" layoutY="418.0" prefHeight="42.0" prefWidth="230.0">
             <font>
                 <Font size="19.0" />
             </font>
         </TextField>
-        <TextField layoutX="634.0" layoutY="418.0">
+        <Label layoutX="647.0" layoutY="359.0" prefHeight="46.0" prefWidth="246.0" text="Withdraw Of Device">
             <font>
-                <Font size="19.0" />
-            </font>
-        </TextField>
-        <Label layoutX="647.0" layoutY="361.0" text="Quantity">
-            <font>
-                <Font size="31.0" />
+                <Font size="23.0" />
             </font>
         </Label>
-      <Button layoutX="695.0" layoutY="709.0" mnemonicParsing="false" onAction="#BackButton" text="Back">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Button>
+        <Button layoutX="695.0" layoutY="709.0" mnemonicParsing="false" onAction="#BackButton" text="Back">
+            <font>
+                <Font size="22.0" />
+            </font>
+        </Button>
+        <Label fx:id="Name_device_label" layoutX="654.0" layoutY="266.0" prefHeight="50.0" prefWidth="230.0" />
     </children>
 </AnchorPane>

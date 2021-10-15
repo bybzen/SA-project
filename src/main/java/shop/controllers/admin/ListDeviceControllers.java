@@ -5,8 +5,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shop.models.Device;
 
@@ -19,6 +21,10 @@ public class ListDeviceControllers {
 
     @FXML private TableView<Device> tableDevices;
     private ObservableList<Device> deviceList;
+    @FXML
+    TextField Withdraw_Of_Device_Textfield;
+    @FXML
+    Label Name_device_label;
 
     @FXML public void initialize(){
         device = new Device("01", "Air", 10);
