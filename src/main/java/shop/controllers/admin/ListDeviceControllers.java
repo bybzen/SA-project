@@ -12,9 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shop.models.Device;
 
-import javax.xml.soap.Name;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class ListDeviceControllers {
 
