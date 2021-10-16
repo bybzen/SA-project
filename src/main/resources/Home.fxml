@@ -66,11 +66,6 @@
       <Polygon fill="#cc9966" layoutX="619.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
       <Polygon fill="#cc9966" layoutX="706.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
       <Polygon fill="#cc9966" layoutX="799.0" layoutY="-26.0" points="-50.0, 40.0, 50.0, 40.0, 2.0, 117.0" stroke="#cc9966" strokeType="INSIDE" />
-      <Button layoutX="529.0" layoutY="319.0" mnemonicParsing="false" onAction="#TestButton" text="Test">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Button>
    </children>
    <cursor>
       <Cursor fx:constant="HAND" />

@@ -18,29 +18,52 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class ChangePasswordController {
 
     @FXML private TextField username_textField1 , id_textField2, newpassword_textField ;
-    Connection con;
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null ;
+
+
     String username_input;
     String id_input;
     String newpassword;
-    Owner ow;
+    ArrayList<Owner> arrayCount = new ArrayList<>();
+
+    Owner ow = new Owner();
+    Connection con;
+    private PreparedStatement preparedStatement_all;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
 
     public void initialize(){
 
-        String sql_role = " SELECT Role FROM User ";
-        String sql_id = " SELECT ID_personal FROM User ";
-        String sql_name = " SELECT Name_personal FROM User ";
-        String sql_username = " SELECT User_username_admin FROM User ";
-        String sql_password = " SELECT User_password_admin FROM User ";
+        System.out.println("-----------------  เข้าหน้าเปลี่ยนรหัส -------------------------");
 
-        //ow = new Owner(sql_id,sql_username,sql_password,sql_role,sql_name);
+        String sql_all = "SELECT * FROM User WHERE ID_personal = ?";    // Set data admin from database
+        try {
+            preparedStatement_all = con.prepareStatement(sql_all);
+            preparedStatement_all.setString(1, "00");
+            resultSet = preparedStatement_all.executeQuery();           // fึงข้อมูลจาก database
+            //System.out.println(resultSet);
+            if (resultSet.next()) {
 
+                ow.setRole(resultSet.getString(1));
+                ow.setIdPersonal(resultSet.getString(2));
+                ow.setName(resultSet.getString(3));
+                ow.setUsername(resultSet.getString(4));
+                ow.setPassword(resultSet.getString(5));
+                System.out.println(ow.toString());
+
+                arrayCount.add(ow);
+                //System.out.println(arrayCount);
+            }
+            System.out.println("Set all");
+
+        } catch (SQLException e) {
+            e.fillInStackTrace();
+        }
 
     }
 
@@ -59,7 +82,7 @@ public class ChangePasswordController {
         Optional<ButtonType> result = alert.showAndWait();
         if(result.get()== ButtonType.OK) {
             try {
-                change();
+                changePassword();
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/AdminLogin.fxml"));
                 Scene scene = new Scene(loader.load());
@@ -85,9 +108,11 @@ public class ChangePasswordController {
         newpassword = newpassword_textField.getText();
     }
 
-    public void change(){
+    public void changePassword(){
         showPassword();
         try {
+
+            preparedStatement = null;
             System.out.println(username_input);
             System.out.println(id_input);
             System.out.println(newpassword);
@@ -96,10 +121,15 @@ public class ChangePasswordController {
             preparedStatement.setString(1,newpassword);
             preparedStatement.setString(2,username_input);
             preparedStatement.setString(3,id_input);
-            ow.setPassword(sql_password);
-            preparedStatement.executeUpdate();
-            System.out.println("Changed password success");
-        }catch (SQLException ex){
+
+            ow.setPassword(sql_password);     // set ค่าได้ไงไม่รู้งงเหมือนกัน ???
+            System.out.println(sql_password);
+
+            preparedStatement.executeUpdate();   // update password in database
+            System.out.println("----------------------------- Changed password success -----------------------");
+        }
+
+        catch (SQLException ex){
             ex.printStackTrace();
         }catch (RuntimeException ex){
             ex.printStackTrace();

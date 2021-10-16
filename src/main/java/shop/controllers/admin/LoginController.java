@@ -8,7 +8,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import shop.controllers.ConnectDatabase;
 import shop.models.Owner;
-import shop.models.OwnerTest;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -22,20 +21,15 @@ public class LoginController {
     @FXML TextField username_textfield;
     @FXML PasswordField password_field;
 
-    Owner ow = new Owner();
-    OwnerTest owt;
     Alert alert;
+    ArrayList<Owner> arrayCount = new ArrayList<>();
 
-
+    // Field ที่ใช้ set data ----> Object ***********************************
+    Owner ow = new Owner();
     Connection con;
-    PreparedStatement preparedStatement, preparedStatement_role, preparedStatement_id, preparedStatement_name,
-            preparedStatement_username, preparedStatement_password;
-
+    PreparedStatement preparedStatement, preparedStatement_all;
     ResultSet resultSet;
-
-    ArrayList<String> arrayCount;
-
-
+    // ****************************************
 
     public LoginController(){
         con = ConnectDatabase.connectDB();
@@ -44,72 +38,75 @@ public class LoginController {
 
     public void initialize() throws SQLException {
 
-//        String sql_username = "SELECT User_id_admin FROM User WHERE ID_personal = ?";
-//        //***String sql_password = "SELECT User_password_admin FROM User";
+        String sql_all = "SELECT * FROM User WHERE ID_personal = ?";    // Set data admin from database
+        try {
+            preparedStatement_all = con.prepareStatement(sql_all);
+            preparedStatement_all.setString(1, "00");
+            resultSet = preparedStatement_all.executeQuery();
+            //System.out.println(resultSet);
+            if (resultSet.next()) {
+
+                ow.setRole(resultSet.getString(1));
+                ow.setIdPersonal(resultSet.getString(2));
+                ow.setName(resultSet.getString(3));
+                ow.setUsername(resultSet.getString(4));
+                ow.setPassword(resultSet.getString(5));
+                arrayCount.add(ow);
+
+                System.out.println(ow.toString());
+                //System.out.println(arrayCount);
+            }
+            System.out.println("Set all");
+
+        } catch (SQLException e) {
+            e.fillInStackTrace();
+        }
+
+
+//        String sql = "INSERT INTO User(Role_user, ID_personal, Name_personal) VALUES (?,?,?)";
 //        try {
-//               preparedStatement_username = con.prepareStatement(sql_username);
-//               preparedStatement_username.setString(1, "00");
-//               resultSet = preparedStatement_username.executeQuery();
-//               while (resultSet.next()){
-//                   arrayCount.add(resultSet.getString(1));
-//                   System.out.println(arrayCount);
-//                   System.out.println("******");
-//            }
-//            System.out.println("-------");
-//            //preparedStatement_password = con.prepareStatement(sql_password);
-//            //preparedStatement_password.setString(,password_textfield.getText());
-//
-//        }catch (SQLException e){
-//            e.fillInStackTrace();
+//            preparedStatement = con.prepareStatement(sql);
+//            preparedStatement.setString(1, "Employee");
+//            preparedStatement.setString(2, "04");
+//            preparedStatement.setString(3, "Wachara Arbging");
+//            preparedStatement.executeUpdate();
+//            System.out.println("Employee save in DB");
+//        } catch (SQLException se) {
+//            //se.printStackTrace();
 //        }
-
-//        ow = new Owner(resultSetMetaData_id,resultSetMetaData_username,resultSet_password,resultSetMetaData_role,resultSetMetaData_name);
-//        System.out.println(ow.getUsername());
-
-        String sql = "INSERT INTO User(Role_user, ID_personal, Name_personal) VALUES (?,?,?)";
-        try {
-            preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setString(1, "Employee");
-            preparedStatement.setString(2, "04");
-            preparedStatement.setString(3, "Wachara Arbging");
-            preparedStatement.executeUpdate();
-            System.out.println("Employee save in DB");
-        } catch (SQLException se) {
-            //se.printStackTrace();
-        }
-
-        String sql1 = "INSERT INTO User(Role_user, ID_personal, Name_personal) VALUES (?,?,?)";
-        try {
-            preparedStatement = con.prepareStatement(sql1);
-            preparedStatement.setString(1, "Employee");
-            preparedStatement.setString(2, "01");
-            preparedStatement.setString(3, "Manat Noisai");
-            preparedStatement.executeUpdate();
-        } catch (SQLException se) {
-            //se.printStackTrace();
-        }
-
-        String sql2 = "INSERT INTO User(Role_user, ID_personal, Name_personal) VALUES (?,?,?)";
-        try {
-            preparedStatement = con.prepareStatement(sql2);
-            preparedStatement.setString(1, "Employee");
-            preparedStatement.setString(2, "02");
-            preparedStatement.setString(3, "Amornthep Anaphitak");
-            preparedStatement.executeUpdate();
-        } catch (SQLException se) {
-            //se.printStackTrace();
-        }
-
-        String sql3 = "INSERT INTO User(Role_user, ID_personal, Name_personal) VALUES (?,?,?)";
-        try {
-            preparedStatement = con.prepareStatement(sql3);
-            preparedStatement.setString(1, "Employee");
-            preparedStatement.setString(2, "03");
-            preparedStatement.setString(3, "Warakorn Bootsing");
-            preparedStatement.executeUpdate();
-        } catch (SQLException se) {
-            //se.printStackTrace();
-        }
+//
+//        String sql1 = "INSERT INTO User(Role_user, ID_personal, Name_personal) VALUES (?,?,?)";
+//        try {
+//            preparedStatement = con.prepareStatement(sql1);
+//            preparedStatement.setString(1, "Employee");
+//            preparedStatement.setString(2, "01");
+//            preparedStatement.setString(3, "Manat Noisai");
+//            preparedStatement.executeUpdate();
+//        } catch (SQLException se) {
+//            //se.printStackTrace();
+//        }
+//
+//        String sql2 = "INSERT INTO User(Role_user, ID_personal, Name_personal) VALUES (?,?,?)";
+//        try {
+//            preparedStatement = con.prepareStatement(sql2);
+//            preparedStatement.setString(1, "Employee");
+//            preparedStatement.setString(2, "02");
+//            preparedStatement.setString(3, "Amornthep Anaphitak");
+//            preparedStatement.executeUpdate();
+//        } catch (SQLException se) {
+//            //se.printStackTrace();
+//        }
+//
+//        String sql3 = "INSERT INTO User(Role_user, ID_personal, Name_personal) VALUES (?,?,?)";
+//        try {
+//            preparedStatement = con.prepareStatement(sql3);
+//            preparedStatement.setString(1, "Employee");
+//            preparedStatement.setString(2, "03");
+//            preparedStatement.setString(3, "Warakorn Bootsing");
+//            preparedStatement.executeUpdate();
+//        } catch (SQLException se) {
+//            //se.printStackTrace();
+//        }
 
 
     }
