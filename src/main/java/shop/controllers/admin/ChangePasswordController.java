@@ -126,7 +126,7 @@ public class ChangePasswordController {
             preparedStatement.setString(3,id_input);
 
             ow.setPassword(sql_password);     // set ค่าได้ไงไม่รู้งงเหมือนกัน ???
-            System.out.println(sql_password);
+//            System.out.println(sql_password);
 
             preparedStatement.executeUpdate();   // update password in database
             System.out.println("----------------------------- Changed password success -----------------------");

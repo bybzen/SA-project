@@ -63,8 +63,7 @@ public class ListDeviceControllers {
         TableColumn nameDevice = new TableColumn("Name");
         TableColumn quantity = new TableColumn("Quantity");
 
-
-
+        
         idDevice.setCellValueFactory(
                 new PropertyValueFactory<Device, String>("idDevice")
         );

@@ -27,18 +27,13 @@ public class Workorder {
         this.liable = "-"; // พนักงานผู้รับผิดชอบงาน
     }
 
-    public int getLengthArrayList(){
+    public int getLengthArrayList(){   // get ความยาว arraylist
         return workbook.size();
-    }
-
-    public ArrayList<Workorder> getWorkbook() {
-        return workbook;
     }
 
     public void addWorkOrderToList(Workorder order){
         workbook.add(order);
     }
-
     public String getOnOrder() {
         return onOrder;
     }
@@ -73,6 +68,10 @@ public class Workorder {
 
     public String getLiable() {
         return liable;
+    }
+
+    public ArrayList<Workorder> getWorkbook() {
+        return workbook;
     }
 
     public void setNameCustomer(String nameCustomer) {
