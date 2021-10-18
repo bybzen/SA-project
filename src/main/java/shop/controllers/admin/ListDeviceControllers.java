@@ -36,6 +36,8 @@ public class ListDeviceControllers {
         devices.addDeviceToStock(device1);
         System.out.println(devices.getDeviceList());
 
+        System.out.println("len = " + devices.getLengthArrayList()); // ความยาว ArrayList
+
 
         Platform.runLater(() -> {
 

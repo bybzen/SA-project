@@ -19,6 +19,9 @@ public class Device {
         this.quantity = quantity;
     }
 
+    public int getLengthArrayList(){
+        return deviceList.size();
+    }
 
     public ArrayList<Device> getDeviceList() {  // Get data all device
         return deviceList;
