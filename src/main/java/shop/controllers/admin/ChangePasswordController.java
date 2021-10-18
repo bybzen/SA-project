@@ -45,7 +45,7 @@ public class ChangePasswordController {
         try {
             preparedStatement_all = con.prepareStatement(sql_all);
             preparedStatement_all.setString(1, "00");
-            resultSet = preparedStatement_all.executeQuery();           // fึงข้อมูลจาก database
+            resultSet = preparedStatement_all.executeQuery();           // ดึงงข้อมูลจาก database
             //System.out.println(resultSet);
             if (resultSet.next()) {
 
@@ -116,8 +116,11 @@ public class ChangePasswordController {
             System.out.println(username_input);
             System.out.println(id_input);
             System.out.println(newpassword);
+
             String sql_password = "UPDATE user SET User_password_admin = ?  WHERE User_id_admin = ? AND ID_personal = ? ";
-            preparedStatement = con.prepareStatement(sql_password);;
+
+            System.out.println(preparedStatement = con.prepareStatement(sql_password));
+
             preparedStatement.setString(1,newpassword);
             preparedStatement.setString(2,username_input);
             preparedStatement.setString(3,id_input);
@@ -135,9 +138,6 @@ public class ChangePasswordController {
             ex.printStackTrace();
         }
     }
-
-
-
 
 
     @FXML public void handleBackButton (ActionEvent actionEvent) throws IOException {
