@@ -10,33 +10,42 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import shop.controllers.ConnectDatabase;
 import shop.models.Device;
+import shop.models.Owner;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ListDeviceControllers {
 
 
-    private Device devices , selectDevice;
+    private Device selectDevice;
+    private ObservableList<Device> deviceList;
+    private Device dList = new Device();
+
+    private PreparedStatement preparedStatement, preparedStatement_all;
+    private ResultSet resultSet;
+    private Connection con;
+    private Owner ow = new Owner();
+    private Device obj;
 
     @FXML private TableView<Device> tableDevices;
     @FXML TextField Withdraw_Of_Device_Textfield;  // ช่องลด device
     @FXML TextField add_device_textfield; // ช่องเพิ่ม device
     @FXML Label Name_device_label;
 
-    private ObservableList<Device> deviceList;
 
+    public ListDeviceControllers(){
+        con = ConnectDatabase.connectDB();
+    }
 
+    @FXML public void initialize() throws SQLException {
 
-    @FXML public void initialize(){
-        devices = new Device("01", "Air", 10);
-        devices.addDeviceToStock(devices);
-        System.out.println(devices.getDeviceList());
-        Device device1 = new Device("02", "PVC", 20);
-        devices.addDeviceToStock(device1);
-        System.out.println(devices.getDeviceList());
-
-        System.out.println("len = " + devices.getLengthArrayList()); // ความยาว ArrayList
+//        System.out.println("len = " + devices.getLengthArrayList()); // ความยาว ArrayList
 
 
         Platform.runLater(() -> {
@@ -51,11 +60,42 @@ public class ListDeviceControllers {
             }
         });
 
+        String sql_all = "SELECT * FROM User WHERE ID_personal = ?";    // Set data admin from database
+        preparedStatement_all = con.prepareStatement(sql_all);
+        preparedStatement_all.setString(1, "00");
+        resultSet = preparedStatement_all.executeQuery();
+
+        if (resultSet.next()) {
+
+            ow.setRole(resultSet.getString(1));
+            ow.setIdPersonal(resultSet.getString(2));
+            ow.setName(resultSet.getString(3));
+            ow.setUsername(resultSet.getString(4));
+            ow.setPassword(resultSet.getString(5));
+
+        }
+
+        String sql_all_device = "SELECT * FROM Device ";
+        preparedStatement_all = con.prepareStatement(sql_all_device);
+        resultSet = preparedStatement_all.executeQuery();
+
+        while (resultSet.next()) {
+
+            obj = new Device(resultSet.getString(2),
+                    resultSet.getString(1),
+                    resultSet.getInt(3));
+            dList.addDeviceToStock(obj);
+
+        }
+        System.out.println(dList.getDeviceList());
+        System.out.println("Set all device");
+
+
     }
 
     public void showTableView(){
 
-        deviceList = FXCollections.observableArrayList(devices.getDeviceList());
+        deviceList = FXCollections.observableArrayList(dList.getDeviceList());
 
         tableDevices.setItems(deviceList);
 

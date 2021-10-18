@@ -16,7 +16,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Optional;
 
 public class CreateDeviceController {
@@ -28,11 +27,10 @@ public class CreateDeviceController {
     CheckAndAlert ch = new CheckAndAlert();
     Connection con;
     PreparedStatement preparedStatement, preparedStatement_all;
-    ResultSet resultSet;
+    ResultSet resultSet, resultSet2;
 
-    Device obj = new Device();
-
-    ArrayList<Device> deviceList = new ArrayList<>();
+    Device obj ;
+    Device deviceList = new Device();
 
     public CreateDeviceController(){
         con = ConnectDatabase.connectDB();
@@ -53,42 +51,52 @@ public class CreateDeviceController {
             ow.setUsername(resultSet.getString(4));
             ow.setPassword(resultSet.getString(5));
 
-            System.out.println(ow.toString());
+//            System.out.println(ow.toString());
         }
-        System.out.println("Set all");
+//        System.out.println("Set all owner");
+
+        String sql_all_device = "SELECT * FROM Device ";
+        preparedStatement_all = con.prepareStatement(sql_all_device);
+        resultSet = preparedStatement_all.executeQuery();
+
+
+
+        while (resultSet.next()) {
+
+            obj = new Device(resultSet.getString(2),
+                    resultSet.getString(1),
+                    resultSet.getInt(3));
+
+//            obj.setNameDevice(resultSet.getString(1));
+//            obj.setIdDevice(resultSet.getString(2));
+//            obj.setQuantity(Integer.parseInt(resultSet.getString(3)));
+
+            deviceList.addDeviceToStock(obj);
+
+        }
+        System.out.println(deviceList.getDeviceList());
+        System.out.println("Set all device");
 
     }
 
     @FXML public void ConfirmCreateDeviceAction(ActionEvent event) throws IOException {
 
-        if (this.id_deviceTextField.getText().isEmpty()) {
+        if (this.id_deviceTextField.getText().isEmpty() || this.name_deviceTextField.getText().isEmpty() ||
+                this.quantity_TextField.getText().isEmpty()) {
 
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(" ");
-            alert.setContentText("Please enter ID device");
-            alert.showAndWait();
-        } else if (this.name_deviceTextField.getText().isEmpty()) {
-
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(" ");
-            alert.setContentText("Please enter name of device");
+            alert.setContentText("Please enter all data of device to complete");
             alert.showAndWait();
 
-        } else if (this.quantity_TextField.getText().isEmpty()) {
-
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(" ");
-            alert.setContentText("Please enter quantity of device");
-            alert.showAndWait();
-
-        }else if(!ch.validateId(this.id_deviceTextField.getText())){
+        }else if(!ch.validateId(this.id_deviceTextField.getText())){   // เช็ค pattern ID
 
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(" ");
             alert.setContentText("Please check your pattern of ID device!");
             alert.showAndWait();
 
-        }else if(!ch.validateName(this.name_deviceTextField.getText())){
+        }else if(!ch.validateName(this.name_deviceTextField.getText())){   // เช็ค pattern ชื่อ device
 
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(" ");
@@ -97,34 +105,67 @@ public class CreateDeviceController {
 
         }else{
 
-            for(int i = 0 ; i < deviceList.size() ; ++i) {
-                if ((deviceList.get(i)).getNameDevice().equals(this.name_deviceTextField.getText())) {
+//            System.out.println(deviceList.get(0).getNameDevice());
+
+            int check = 0;
+            for (Device i : deviceList.getDeviceList()) {
+                if (i.getIdDevice().equals(id_deviceTextField.getText()) && i.getNameDevice().equals(name_deviceTextField.getText())) {
+
+
+                    check = 1 ;
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
-                    alert.setContentText("Duplicate name of device !");
+                    alert.setContentText("ID และ ชื่อ Device ซ้ำ");
                     alert.showAndWait();
                     break;
-                }
-                if ((deviceList.get(i)).getIdDevice().equals(this.id_deviceTextField.getText())) {
+                } else if (i.getNameDevice().equals(name_deviceTextField.getText())) {
+
+                    check = 1;
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
-                    alert.setContentText("Duplicate ID of device !");
+                    alert.setContentText("ชื่อ Device ซ้ำ");
+                    alert.showAndWait();
+                    break;
+                } else if (i.getIdDevice().equals(id_deviceTextField.getText())) {
+
+                    check = 1;
+                    alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(" ");
+                    alert.setContentText("ID ซ้ำ");
                     alert.showAndWait();
                     break;
                 }
             }
 
-            Alert alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
-            alert.setHeight(100);
-            alert.setWidth(200);
-            alert.setTitle("CONFIRMATION");
-            alert.setHeaderText(null);
-            alert.setContentText("Do you want to create device ? ");
-            Optional<ButtonType> result = alert.showAndWait();
+              if (check == 0) {
+                    Alert alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+                    alert.setHeight(100);
+                    alert.setWidth(200);
+                    alert.setTitle("CONFIRMATION");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Do you want to create device ? ");
+                    Optional<ButtonType> result = alert.showAndWait();
 
-            if (result.get() == ButtonType.OK) {
-                    create();
-            }
+                    if (result.get() == ButtonType.OK) {
+                        create();
+                    }
+                }
+
+//            for(int i = 0 ; i < deviceList.size() ; i++) {
+//                if ((deviceList.get(i)).getNameDevice().equals(this.name_deviceTextField.getText())) {
+//                    alert = new Alert(Alert.AlertType.ERROR);
+//                    alert.setHeaderText(" ");
+//                    alert.setContentText("Duplicate name of device !");
+//                    alert.showAndWait();
+//                    break;
+//                }
+//                if ((deviceList.get(i)).getIdDevice().equals(this.id_deviceTextField.getText())) {
+//                    alert = new Alert(Alert.AlertType.ERROR);
+//                    alert.setHeaderText(" ");
+//                    alert.setContentText("Duplicate ID of device !");
+//                    alert.showAndWait();
+//                    break;
+//                }
 
         }
 
@@ -147,17 +188,7 @@ public class CreateDeviceController {
             preparedStatement.setString(3, quantity_TextField.getText());
             preparedStatement.executeUpdate();
             System.out.println("Save data of device in DB");
-            if (resultSet.next()) {
-                obj.setIdDevice(resultSet.getString(1));
-                obj.setNameDevice(resultSet.getString(2));
-                obj.setQuantity(Integer.parseInt(resultSet.getString(3)));
-                deviceList.add(obj);
-                System.out.println(obj.toString());
-                System.out.println(deviceList);
-            }
         }catch (SQLException ex){
-            ex.printStackTrace();
-        }catch (RuntimeException ex){
             ex.printStackTrace();
         }
     }
