@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CheckAndAlert {
-    
+
     public boolean validatePhone(CharSequence Phone){
         Pattern p = Pattern.compile("\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}");
         Matcher m = p.matcher(Phone);
@@ -27,16 +27,9 @@ public class CheckAndAlert {
     public boolean validateName(String name){
         Pattern p = Pattern.compile("[A-Za-z_]+");
         Matcher m = p.matcher(name);
-        if(m.find() && m.group().equals(name)){
+        if(m.find()){
             return true ;
         }else{
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeight(100);
-            alert.setWidth(200);
-            alert.setTitle("Validate Name");
-            alert.setHeaderText(null);
-            alert.setContentText("Please Enter Valid Name");
-            alert.showAndWait();
             return false ;
         }
     }
@@ -57,19 +50,12 @@ public class CheckAndAlert {
             return false ;
         }
     }
-    public boolean validateUsername(String username){
-        Pattern p = Pattern.compile("[A-Za-z0-9_]+");
-        Matcher m = p.matcher(username);
-        if(m.find() && m.group().equals(username)){
+    public boolean validateId(String id){
+        Pattern p = Pattern.compile("[A-Za-z0-9]+");
+        Matcher m = p.matcher(id);
+        if(m.find()){
             return true ;
         }else{
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeight(100);
-            alert.setWidth(200);
-            alert.setTitle("Validate Username");
-            alert.setHeaderText(null);
-            alert.setContentText("Please Enter Valid Username");
-            alert.showAndWait();
             return false ;
         }
     }

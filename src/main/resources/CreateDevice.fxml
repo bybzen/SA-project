@@ -8,13 +8,9 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.CreateDeviceController">
    <children>
-      <Label layoutX="378.0" layoutY="76.0" text="Create Device">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <TextField layoutX="367.0" layoutY="296.0" prefHeight="31.0" prefWidth="261.0" />
-      <TextField layoutX="367.0" layoutY="379.0" prefHeight="31.0" prefWidth="261.0" />
+      <TextField fx:id="id_deviceTextField" layoutX="367.0" layoutY="207.0" prefHeight="31.0" prefWidth="261.0" />
+      <TextField fx:id="name_deviceTextField" layoutX="367.0" layoutY="296.0" prefHeight="31.0" prefWidth="261.0" />
+      <TextField fx:id="quantity_TextField" layoutX="367.0" layoutY="379.0" prefHeight="31.0" prefWidth="261.0" />
       <Label layoutX="197.0" layoutY="294.0" text="Name Device">
          <font>
             <Font size="24.0" />
@@ -30,16 +26,20 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <TextField layoutX="367.0" layoutY="207.0" prefHeight="31.0" prefWidth="261.0" />
-      <Button layoutX="431.0" layoutY="513.0" mnemonicParsing="false" text="confirm">
+      <Button layoutX="431.0" layoutY="517.0" mnemonicParsing="false" onAction="#ConfirmCreateDeviceAction" text="confirm">
          <font>
             <Font size="21.0" />
          </font>
       </Button>
-      <Button layoutX="711.0" layoutY="666.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="45.0" prefWidth="99.0" text="Back">
+      <Button layoutX="659.0" layoutY="578.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="45.0" prefWidth="99.0" text="Back">
          <font>
             <Font size="21.0" />
          </font>
       </Button>
+      <Label layoutX="378.0" layoutY="76.0" text="Create Device">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

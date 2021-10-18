@@ -30,6 +30,7 @@ public class ChangePasswordController {
     String id_input;
     String newpassword;
     ArrayList<Owner> arrayCount = new ArrayList<>();
+    Alert alert;
 
     Owner ow = new Owner();
     Connection con;
@@ -72,82 +73,116 @@ public class ChangePasswordController {
     }
 
 
-    @FXML public void handleChangeButton(ActionEvent event) throws Exception  {
-        Alert alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
-        alert.setHeight(100);
-        alert.setWidth(200);
-        alert.setTitle("CONFIRMATION");
-        alert.setHeaderText(null);
-        alert.setContentText("Do you want to change password ? ");
-        Optional<ButtonType> result = alert.showAndWait();
-        if(result.get()== ButtonType.OK) {
-            try {
-                changePassword();
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/AdminLogin.fxml"));
-                Scene scene = new Scene(loader.load());
+    @FXML public void handleChangeButton(ActionEvent event) throws Exception {
 
-                Button b = (Button) event.getSource();
-                Stage stage = (Stage) b.getScene().getWindow();
+        String username_input = username_textField1.getText();
+        String newpassword_input = newpassword_textField.getText();
+        String id_input = id_textField2.getText();
 
-                LoginController controller = loader.getController();
-                controller.initialize();
 
-                stage.setTitle("Admin Login");
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                ex.printStackTrace();
+        if (this.username_textField1.getText().equals("") && this.newpassword_textField.getText().equals("") || !(this.id_textField2.getText().equals(""))) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(" ");
+            alert.setContentText("Please enter username and password");
+            alert.showAndWait();
+        } else {
+
+            if (username_input.equals(ow.getUsername()) && id_input.equals(ow.getIdPersonal())) {
+
+                Alert alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+                alert.setHeight(100);
+                alert.setWidth(200);
+                alert.setTitle("CONFIRMATION");
+                alert.setHeaderText(null);
+                alert.setContentText("Do you want to change password ? ");
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+                    try {
+                        changePassword();
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/AdminLogin.fxml"));
+                        Scene scene = new Scene(loader.load());
+
+                        Button b = (Button) event.getSource();
+                        Stage stage = (Stage) b.getScene().getWindow();
+
+                        LoginController controller = loader.getController();
+                        controller.initialize();
+
+                        stage.setTitle("Admin Login");
+                        stage.setScene(scene);
+                        stage.show();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
+            } else if (this.username_textField1.getText().equals("") && !(this.id_textField2.getText().equals(""))) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(" ");
+            alert.setContentText("Please enter username");
+            alert.showAndWait();
+
+            }else if (this.username_textField1.getText().equals("") && !(this.id_textField2.getText().equals(""))) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(" ");
+            alert.setContentText("Please enter ID of personal");
+            alert.showAndWait();
+
+            } else{
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(" ");
+                alert.setContentText("Please check your username or ID personal");
+                alert.showAndWait();
             }
         }
     }
 
-    public void showPassword(){
-        username_input = username_textField1.getText();
-        id_input = id_textField2.getText();
-        newpassword = newpassword_textField.getText();
-    }
-
-    public void changePassword(){
-        showPassword();
-        try {
-
-            preparedStatement = null;
-            System.out.println(username_input);
-            System.out.println(id_input);
-            System.out.println(newpassword);
-
-            String sql_password = "UPDATE user SET User_password_admin = ?  WHERE User_id_admin = ? AND ID_personal = ? ";
-
-            System.out.println(preparedStatement = con.prepareStatement(sql_password));
-
-            preparedStatement.setString(1,newpassword);
-            preparedStatement.setString(2,username_input);
-            preparedStatement.setString(3,id_input);
-
-            ow.setPassword(sql_password);     // set ค่าได้ไงไม่รู้งงเหมือนกัน ???
-//            System.out.println(sql_password);
-
-            preparedStatement.executeUpdate();   // update password in database
-            System.out.println("----------------------------- Changed password success -----------------------");
+        public void showPassword() {
+            username_input = username_textField1.getText();
+            id_input = id_textField2.getText();
+            newpassword = newpassword_textField.getText();
         }
 
-        catch (SQLException ex){
-            ex.printStackTrace();
-        }catch (RuntimeException ex){
-            ex.printStackTrace();
+        public void changePassword () {
+            showPassword();
+            try {
+
+                preparedStatement = null;
+                System.out.println(username_input);
+                System.out.println(id_input);
+                System.out.println(newpassword);
+
+                String sql_password = "UPDATE user SET User_password_admin = ?  WHERE User_id_admin = ? AND ID_personal = ? ";
+
+                System.out.println(preparedStatement = con.prepareStatement(sql_password));
+
+                preparedStatement.setString(1, newpassword);
+                preparedStatement.setString(2, username_input);
+                preparedStatement.setString(3, id_input);
+
+                ow.setPassword(sql_password);     // set ค่าได้ไงไม่รู้งงเหมือนกัน ???
+
+                preparedStatement.executeUpdate();   // update password in database
+                System.out.println("----------------------------- Changed password success -----------------------");
+            }
+            catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            catch (RuntimeException ex) {
+                ex.printStackTrace();
+            }
         }
-    }
 
 
-    @FXML public void handleBackButton (ActionEvent actionEvent) throws IOException {
-        try {
-            FXRouter.goTo("Home");
-        } catch (IOException var3) {
-            System.err.println("ไปที่หน้า Home ไม่ได้");
-            System.err.println("ให้ตรวจสอบการกำหนด route");
+        @FXML public void handleBackButton (ActionEvent actionEvent) throws IOException {
+            try {
+                FXRouter.goTo("Home");
+            } catch (IOException var3) {
+                System.err.println("ไปที่หน้า Home ไม่ได้");
+                System.err.println("ให้ตรวจสอบการกำหนด route");
+            }
+
         }
-
-    }
 
 }
