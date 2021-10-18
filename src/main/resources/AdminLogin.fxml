@@ -30,13 +30,13 @@
             <Font name="Bell MT Bold" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="82.0" layoutY="625.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="61.0" prefWidth="120.0" style="-fx-background-color: #006633;" styleClass="otherBtn" text="BACK" textFill="WHITE">
+      <Button layoutX="82.0" layoutY="625.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="61.0" prefWidth="120.0" style="-fx-background-color: #006633;" styleClass="otherBtn" text="Log out" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="24.0" />
          </font>
       </Button>
       <PasswordField fx:id="password_field" layoutX="286.0" layoutY="352.0" prefHeight="45.0" prefWidth="361.0" />
-      <Button layoutX="560.0" layoutY="615.0" mnemonicParsing="false" onAction="#changePasswordButton" prefHeight="61.0" prefWidth="259.0" style="-fx-background-color: #000000;" styleClass="otherBtn" text="Forget Password" textFill="WHITE">
+      <Button layoutX="560.0" layoutY="615.0" mnemonicParsing="false" onAction="#changePasswordButton" prefHeight="61.0" prefWidth="259.0" style="-fx-background-color: #000000;" styleClass="otherBtn" text="Change password" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="24.0" />
          </font>
