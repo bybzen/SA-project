@@ -36,7 +36,7 @@
             <Font name="Bell MT Bold" size="26.0" />
          </font>
       </Label>
-      <Button layoutX="82.0" layoutY="625.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="61.0" prefWidth="120.0" style="-fx-background-color: #006633;" styleClass="otherBtn" text="Log out" textFill="WHITE">
+      <Button layoutX="82.0" layoutY="625.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="61.0" prefWidth="120.0" style="-fx-background-color: #006633;" styleClass="otherBtn" text="Back" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="24.0" />
          </font>
