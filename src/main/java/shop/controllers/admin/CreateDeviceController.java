@@ -147,6 +147,9 @@ public class CreateDeviceController {
 
                     if (result.get() == ButtonType.OK) {
                         create();
+                        id_deviceTextField.clear();
+                        name_deviceTextField.clear();
+                        quantity_TextField.clear();
                     }
                 }
 
