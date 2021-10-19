@@ -120,7 +120,6 @@ public class CreateDeviceController {
 
             int check = 0;
             for (Device i : deviceList.getDeviceList()) {
-
                 if (i.getIdDevice().contentEquals(id_deviceTextField.getText()) &&
                         i.getNameDevice().contentEquals(name_deviceTextField.getText())) {
                     check = 1 ;

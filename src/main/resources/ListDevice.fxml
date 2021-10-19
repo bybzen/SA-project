@@ -36,7 +36,10 @@
                 <Font size="22.0" />
             </font>
         </Button>
-        <Label fx:id="Name_device_label" layoutX="654.0" layoutY="248.0" prefHeight="50.0" prefWidth="230.0" />
+        <Label fx:id="Name_device_label" layoutX="654.0" layoutY="248.0" prefHeight="50.0" prefWidth="230.0">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
       <TextField fx:id="add_device_textfield" layoutX="655.0" layoutY="533.0" prefHeight="50.0" prefWidth="230.0" />
       <Label />
       <Label layoutX="654.0" layoutY="479.0" prefHeight="17.0" prefWidth="230.0" text="Add Device">
