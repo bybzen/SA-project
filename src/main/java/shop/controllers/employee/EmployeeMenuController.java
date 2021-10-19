@@ -39,4 +39,14 @@ public class EmployeeMenuController {
             }
 
 
+    @FXML public void ListBillOfLadingEmployeeButton(ActionEvent actionEvent) {
+        try {
+            FXRouter.goTo("ListBillOfLadingEmployee");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า ListBillOfLadingEmployee ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
+
+
 }

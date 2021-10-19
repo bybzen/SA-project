@@ -38,7 +38,7 @@
                   <Font name="Bell MT" size="24.0" />
                </font>
             </Button>
-            <Button layoutX="65.0" layoutY="216.0" mnemonicParsing="false" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="List bill of lading">
+            <Button layoutX="65.0" layoutY="216.0" mnemonicParsing="false" onAction="#ListBillOfLadingAdminButton" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="List bill of lading">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>

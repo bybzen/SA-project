@@ -23,5 +23,10 @@
          </font>
       </Button>
       <Button layoutX="656.0" layoutY="536.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="49.0" prefWidth="101.0" text="Back" />
+      <Button layoutX="219.0" layoutY="400.0" mnemonicParsing="false" onAction="#ListBillOfLadingEmployeeButton" prefHeight="92.0" prefWidth="462.0" text="List Bill Of Lading">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

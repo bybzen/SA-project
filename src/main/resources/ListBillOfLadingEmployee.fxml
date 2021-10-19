@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.ListBillOfLadingEmployeeController">
+    <children>
+        <TableView fx:id="table_list_bill_of_lading_E" layoutX="73.0" layoutY="89.0" prefHeight="607.0" prefWidth="768.0" />
+        <Label layoutX="304.0" layoutY="22.0" prefHeight="51.0" prefWidth="293.0" text="List Bill Of Lading">
+            <font>
+                <Font size="35.0" />
+            </font>
+        </Label>
+        <Button layoutX="729.0" layoutY="723.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="41.0" prefWidth="82.0" text="Back" />
+    </children>
+</AnchorPane>

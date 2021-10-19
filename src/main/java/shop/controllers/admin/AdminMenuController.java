@@ -54,5 +54,13 @@ public class AdminMenuController {
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
     }
+    @FXML public void ListBillOfLadingAdminButton(ActionEvent actionEvent) {
+        try {
+            FXRouter.goTo("ListBillOfLadingAdmin");
+        } catch (IOException e) {
+            System.err.println("ไปที่หน้า ListBillOfLadingAdmin ไม่ได้");
+            System.err.println("ให้ตรวจสอบการกำหนด route");
+        }
+    }
 
 }
