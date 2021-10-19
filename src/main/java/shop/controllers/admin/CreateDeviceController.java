@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class CreateDeviceController {
@@ -102,32 +103,44 @@ public class CreateDeviceController {
             alert.setHeaderText(" ");
             alert.setContentText("Please check your pattern of name of device!");
             alert.showAndWait();
-
         }else{
 
-//            System.out.println(deviceList.get(0).getNameDevice());
+
+
+            ArrayList<String> nameListDevice = new ArrayList<>();
+            ArrayList<String> idListDevice = new ArrayList<>();
+
+            for (Device n : deviceList.getDeviceList()) {
+                nameListDevice.add(n.getNameDevice());
+                idListDevice.add(n.getIdDevice());
+            }
+
+            System.out.println("list id = " + idListDevice);
+            System.out.println("list ชื่อ = " + nameListDevice);
 
             int check = 0;
             for (Device i : deviceList.getDeviceList()) {
-                if (i.getIdDevice().equals(id_deviceTextField.getText()) && i.getNameDevice().equals(name_deviceTextField.getText())) {
 
-
+                if (i.getIdDevice().contentEquals(id_deviceTextField.getText()) &&
+                        i.getNameDevice().contentEquals(name_deviceTextField.getText())) {
                     check = 1 ;
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
                     alert.setContentText("ID และ ชื่อ Device ซ้ำ");
                     alert.showAndWait();
                     break;
-                } else if (i.getNameDevice().equals(name_deviceTextField.getText())) {
-
+                }
+                else if (i.getNameDevice().contentEquals(name_deviceTextField.getText()) &&
+                        !(i.getIdDevice().contentEquals(id_deviceTextField.getText()))) {
                     check = 1;
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
                     alert.setContentText("ชื่อ Device ซ้ำ");
                     alert.showAndWait();
                     break;
-                } else if (i.getIdDevice().equals(id_deviceTextField.getText())) {
-
+                }
+                else if (!(i.getNameDevice().contentEquals(name_deviceTextField.getText())) &&
+                        i.getIdDevice().contentEquals(id_deviceTextField.getText())) {
                     check = 1;
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
@@ -150,23 +163,6 @@ public class CreateDeviceController {
                         create();
                     }
                 }
-
-//            for(int i = 0 ; i < deviceList.size() ; i++) {
-//                if ((deviceList.get(i)).getNameDevice().equals(this.name_deviceTextField.getText())) {
-//                    alert = new Alert(Alert.AlertType.ERROR);
-//                    alert.setHeaderText(" ");
-//                    alert.setContentText("Duplicate name of device !");
-//                    alert.showAndWait();
-//                    break;
-//                }
-//                if ((deviceList.get(i)).getIdDevice().equals(this.id_deviceTextField.getText())) {
-//                    alert = new Alert(Alert.AlertType.ERROR);
-//                    alert.setHeaderText(" ");
-//                    alert.setContentText("Duplicate ID of device !");
-//                    alert.showAndWait();
-//                    break;
-//                }
-
         }
 
     }
