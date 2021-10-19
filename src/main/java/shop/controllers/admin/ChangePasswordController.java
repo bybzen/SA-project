@@ -162,13 +162,14 @@ public class ChangePasswordController {
                 preparedStatement.setString(3, id_input);
 
                 ow.setPassword(sql_password);     // set ค่าได้ไงไม่รู้งงเหมือนกัน ???
-                System.out.println(sql_password);
 
                 preparedStatement.executeUpdate();   // update password in database
                 System.out.println("----------------------------- Changed password success -----------------------");
-            } catch (SQLException ex) {
+            }
+            catch (SQLException ex) {
                 ex.printStackTrace();
-            } catch (RuntimeException ex) {
+            }
+            catch (RuntimeException ex) {
                 ex.printStackTrace();
             }
         }
@@ -183,6 +184,5 @@ public class ChangePasswordController {
             }
 
         }
-
 
 }
