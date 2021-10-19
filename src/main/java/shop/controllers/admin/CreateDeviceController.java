@@ -110,7 +110,7 @@ public class CreateDeviceController {
             int check = 0;
             for (Device i : deviceList.getDeviceList()) {
                 if (i.getIdDevice().equals(id_deviceTextField.getText()) && i.getNameDevice().equals(name_deviceTextField.getText())) {
-                    
+
                     check = 1 ;
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");

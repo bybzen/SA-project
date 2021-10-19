@@ -145,7 +145,6 @@ public class ListDeviceControllers {
     public void update_button(ActionEvent actionEvent) throws SQLException {   // *** ยังเช็ค String ไม่ได้ ***
         int input = 0;
 
-        String name_device = Name_device_label.toString();
 
         if (selectDevice == null) { // ยังไม่เลือกรายการ
 
@@ -200,11 +199,12 @@ public class ListDeviceControllers {
                     selectDevice.decreaseDevice(input);      // Test ลดจน.อุปกรณ์
                     System.out.println("หลังลด = " + selectDevice.getQuantity());
 
-                    String sql = "UPDATE device SET Quantity_of_device = ?  WHERE Device_name = ?";
+                    String sql_de = "UPDATE device SET Quantity_of_device = ?  WHERE Device_name = ?";
                     try {
-                        preparedStatement = con.prepareStatement(sql);
-                        preparedStatement.setInt(1, input);
-                        preparedStatement.setString(2, name_device);
+
+                        preparedStatement = con.prepareStatement(sql_de);
+                        preparedStatement.setInt(1, selectDevice.getQuantity());
+                        preparedStatement.setString(2, selectDevice.getNameDevice());
                         preparedStatement.executeUpdate();
                         System.out.println("Quantity save in DB");
 
@@ -213,9 +213,9 @@ public class ListDeviceControllers {
                         se.printStackTrace();
                     }
 
-                    String sql_all_device = "SELECT * FROM Device ";
-                    preparedStatement_all = con.prepareStatement(sql_all_device);
-                    resultSet = preparedStatement_all.executeQuery();
+                    String sql_all_device_re = "SELECT * FROM Device ";
+                    preparedStatement = con.prepareStatement(sql_all_device_re);
+                    resultSet = preparedStatement.executeQuery();
 
                     while (resultSet.next()) {
 
@@ -226,7 +226,7 @@ public class ListDeviceControllers {
 
                     }
                     System.out.println(dList.getDeviceList());
-                    System.out.println("Set all device");
+                    System.out.println("Set all device after reduce");
 
                     clearSelectedDevice();
                     tableDevices.refresh();
@@ -253,21 +253,24 @@ public class ListDeviceControllers {
                     selectDevice.increaseDevice(input);      // Test เพิ่มจน.อุปกรณ์
                     System.out.println("หลังเพิ่ม = " + selectDevice.getQuantity());
 
-                    String sql = "UPDATE device SET Quantity_of_device = ?  WHERE Device_name = ?";
+                    String sql_add = "UPDATE device SET Quantity_of_device = ? WHERE Device_name = ?";
 
                     try {
-                        preparedStatement = con.prepareStatement(sql);
-                        preparedStatement.setInt(1, input);
-                        preparedStatement.setString(2, name_device);
+
+                        preparedStatement = con.prepareStatement(sql_add);
+                        preparedStatement.setInt(1, selectDevice.getQuantity());
+                        preparedStatement.setString(2, selectDevice.getNameDevice());
                         preparedStatement.executeUpdate();
                         System.out.println("Quantity save in DB");
 
                     } catch (SQLException se) {
-                        se.printStackTrace();}
+                        se.printStackTrace();
+                    }
 
-                        String sql_all_device = "SELECT * FROM Device ";
-                        preparedStatement_all = con.prepareStatement(sql_all_device);
-                        resultSet = preparedStatement_all.executeQuery();
+
+                        String sql_all_device_add = "SELECT * FROM Device ";
+                        preparedStatement = con.prepareStatement(sql_all_device_add);
+                        resultSet = preparedStatement.executeQuery();
 
                         while (resultSet.next()) {
 
@@ -278,7 +281,7 @@ public class ListDeviceControllers {
 
                         }
                         System.out.println(dList.getDeviceList());
-                        System.out.println("Set all device");
+                        System.out.println("Set all device after add");
 
                     clearSelectedDevice();
                     tableDevices.refresh();
