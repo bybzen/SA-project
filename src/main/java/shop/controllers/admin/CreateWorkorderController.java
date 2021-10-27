@@ -137,7 +137,7 @@ public class CreateWorkorderController {
                 tel_textfield.clear();
                 date_picker.getEditor().clear();
                 time_textfield.clear();
-                price_textfield.clear();
+                price_textfield.clear();}
 
 
 
@@ -148,7 +148,7 @@ public class CreateWorkorderController {
 
 
         }
-    }
+
 
         public void showDataOfWO () {
 
