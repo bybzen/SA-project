@@ -10,16 +10,9 @@ public class CheckAndAlert {
     public boolean validatePhone(CharSequence Phone){
         Pattern p = Pattern.compile("\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}");
         Matcher m = p.matcher(Phone);
-        if(m.find() && m.group().equals(Phone)){
+        if(m.find()){
             return true ;
         }else{
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeight(100);
-            alert.setWidth(200);
-            alert.setTitle("Validate PhoneNumber");
-            alert.setHeaderText(null);
-            alert.setContentText("Please Enter Valid PhoneNumber");
-            alert.showAndWait();
             return false ;
         }
     }
@@ -86,6 +79,16 @@ public class CheckAndAlert {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public boolean checkPrice(String name){
+        Pattern p = Pattern.compile("[0-9]");
+        Matcher m = p.matcher(name);
+        if(m.find()){
+            return true ;
+        }else{
+            return false ;
         }
     }
 }
