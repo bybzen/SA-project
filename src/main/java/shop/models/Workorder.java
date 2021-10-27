@@ -14,9 +14,12 @@ public class Workorder {
     private String liable; //พนักงานที่รับผิดชอบ
     private ArrayList<Workorder> workbook = new ArrayList<>();
 
+    public Workorder(){}
 
-    public Workorder(String nameCustomer, String addressCustomer, String phoneCustomer,
-                     float price, String date, String time, String statusOrder, String liable) {
+    // Constructor from create workorder
+    public Workorder(String onOrder, String nameCustomer, String addressCustomer, String phoneCustomer,
+                     float price, String date, String time, String statusOrder) {
+        this.onOrder = onOrder;
         this.nameCustomer = nameCustomer;
         this.addressCustomer = addressCustomer;
         this.phoneCustomer = phoneCustomer;
@@ -24,7 +27,22 @@ public class Workorder {
         this.date = date;
         this.time = time;
         this.statusOrder = statusOrder;
-        this.liable = "-"; // พนักงานผู้รับผิดชอบงาน
+        this.liable = "ยังไม่ได้ระบุ"; // พนักงานผู้รับผิดชอบงาน
+    }
+
+
+    // Constructor from Database
+    public Workorder(String onOrder, String nameCustomer, String addressCustomer, String phoneCustomer,
+                     float price, String date, String time, String statusOrder, String liable) {
+        this.onOrder = onOrder;
+        this.nameCustomer = nameCustomer;
+        this.addressCustomer = addressCustomer;
+        this.phoneCustomer = phoneCustomer;
+        this.price = price;
+        this.date = date;
+        this.time = time;
+        this.statusOrder = statusOrder;
+        this.liable = liable; // พนักงานผู้รับผิดชอบงาน
     }
 
     public int getLengthArrayList(){   // get ความยาว arraylist
@@ -104,7 +122,7 @@ public class Workorder {
 
     public void setLiable(String liable) {
         this.liable = liable;
-    }
+    } // ระบุพนักงานรับผิดชอบ
 
     @Override
     public String toString() {
