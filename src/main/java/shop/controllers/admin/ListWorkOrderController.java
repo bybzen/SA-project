@@ -11,8 +11,7 @@ public class ListWorkOrderController {
 
 
 
-    @FXML
-    public void BackButton(ActionEvent actionEvent) {
+    @FXML public void BackButton(ActionEvent actionEvent) {
         try {
             FXRouter.goTo("AdminMenu");
         } catch (IOException e) {
@@ -21,8 +20,7 @@ public class ListWorkOrderController {
         }
     }
     
-    @FXML
-        public void EditButton(ActionEvent actionEvent) {
+    @FXML public void EditButton(ActionEvent actionEvent) {
             try {
                 FXRouter.goTo("EditWorkOrder");
             } catch (IOException e) {
