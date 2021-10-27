@@ -74,6 +74,18 @@ public class CheckAndAlert {
             alert.showAndWait();
             return false ;
         }
+    }
 
+    public boolean checkTime(String time){
+        Pattern VALID_TIME_REGEX =
+                Pattern.compile("^(?:0?[0-9]|1[0-2])[-:][0-5][0-9]\\s*[ap]m$", Pattern.CASE_INSENSITIVE);
+
+        Matcher matcher = VALID_TIME_REGEX.matcher(time);
+
+        if (matcher.find()){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
