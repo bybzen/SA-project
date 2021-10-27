@@ -46,6 +46,11 @@ public class CreateWorkorderController {
     CheckAndAlert ch = new CheckAndAlert();
     Connection con;
 
+//<<<<<<< HEAD
+//
+//    @FXML public void initialize() {
+//=======
+//>>>>>>> 13b1d1d2b2da084e524c8eadc6e3835359229736
 
     @FXML
     public void initialize() throws SQLException {

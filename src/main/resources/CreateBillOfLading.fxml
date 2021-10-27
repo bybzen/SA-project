@@ -10,20 +10,18 @@
 
 <AnchorPane prefHeight="800" prefWidth="900" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.CreateBillOfLadingController">
    <children>
-      <TextField layoutX="103.0" layoutY="208.0" prefHeight="238.0" prefWidth="640.0" />
-      <TextField layoutX="574.0" layoutY="491.0" />
-      <TextField layoutX="236.0" layoutY="581.0" prefHeight="31.0" prefWidth="218.0" />
+      <TextField fx:id="timeText" layoutX="574.0" layoutY="491.0" />
       <Label layoutX="297.0" layoutY="62.0" text="Create Bill Of Lading">
          <font>
             <Font size="34.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="145.0" text="Name Device and quantity">
+      <Label layoutX="103.0" layoutY="145.0" text="Name Device : ">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <DatePicker layoutX="236.0" layoutY="491.0" />
+      <DatePicker fx:id="datePicker" layoutX="236.0" layoutY="491.0" />
       <Label layoutX="154.0" layoutY="487.0" text="Date">
          <font>
             <Font size="27.0" />
@@ -39,7 +37,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="386.0" layoutY="663.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" text="Confirm">
+      <Button layoutX="386.0" layoutY="663.0" mnemonicParsing="false" onAction="#ConfirmButton" prefHeight="50.0" prefWidth="110.0" text="Confirm">
          <font>
             <Font size="20.0" />
          </font>
@@ -55,5 +53,13 @@
             <Font size="21.0" />
          </font>
       </Label>
+      <TextField fx:id="nameText" layoutX="297.0" layoutY="149.0" prefHeight="31.0" prefWidth="218.0" />
+      <Label layoutX="103.0" layoutY="245.0" text="Quantity :">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quantityText" layoutX="297.0" layoutY="249.0" prefHeight="31.0" prefWidth="218.0" />
+      <ComboBox fx:id="namePickerCBB" layoutX="236.0" layoutY="583.0" prefHeight="31.0" prefWidth="187.0" />
    </children>
 </AnchorPane>
