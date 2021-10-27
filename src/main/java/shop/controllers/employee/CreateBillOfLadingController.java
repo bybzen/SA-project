@@ -48,8 +48,16 @@ public class CreateBillOfLadingController {
                     Integer.parseInt(quantityText.getText()),datePicker.getEditor().getText(),
                     timeText.getText(), namePickerCBB.getValue());
 
+            System.out.println("สร้าง Bill ได้");
+
             billList.addBillToList(bill);
 
+            System.out.println(billList.getBillList());
+
+        }
+
+        else {
+            System.out.println("สร้างไม่ได้");
         }
 
 

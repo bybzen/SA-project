@@ -5,8 +5,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import shop.controllers.ConnectDatabase;
 import shop.models.Device;
 import shop.models.Owner;
@@ -16,6 +19,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class ListDeviceControllers {
 
@@ -36,6 +40,7 @@ public class ListDeviceControllers {
     @FXML Label Name_device_label;
 
     Alert alert;
+    ActionEvent event;
 
 
     public ListDeviceControllers(){
@@ -142,7 +147,7 @@ public class ListDeviceControllers {
     }
 
     @FXML //ปุ่ม update
-    public void update_button(ActionEvent actionEvent) throws SQLException {   // *** ยังเช็ค String ไม่ได้ ***
+    public void update_button(ActionEvent event) throws Exception {   // *** ยังเช็ค String ไม่ได้ ***
         int input = 0;
 
 
@@ -151,13 +156,13 @@ public class ListDeviceControllers {
             if (Withdraw_Of_Device_Textfield.getText().equals("") && add_device_textfield.getText().equals("")) {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(" ");
-                alert.setContentText("กรุณาเลือกรายการก่อน Update");
+                alert.setContentText("Please select an item before update");
                 alert.showAndWait();
                 //System.out.println("กรุณาเลือกรายการก่อน Update");
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(" ");
-                alert.setContentText("ใส่ข้อมูลผิดพลาด");
+                alert.setContentText("Wrong input!");
                 alert.showAndWait();
                 //System.out.println("inputผิดพลาด");
             }
@@ -165,7 +170,7 @@ public class ListDeviceControllers {
             if (Withdraw_Of_Device_Textfield.getText().isEmpty() && add_device_textfield.getText().isEmpty()) {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(" ");
-                alert.setContentText("กรุณาระบุจำนวน");
+                alert.setContentText("Please enter quantity");
                 alert.showAndWait();
                 //System.out.println("กรุณาระบุจำนวน");
             }
@@ -179,19 +184,19 @@ public class ListDeviceControllers {
                 if (input < 0) {
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
-                    alert.setContentText("ใส่ข้อมูลจำนวนติดลบ ไม่สามารถเบิกอุปกรณ์ได้");
+                    alert.setContentText("Enter a negative number and can't withdraw the device.");
                     alert.showAndWait();
                     //System.out.println("inputติดลบ ไม่สามารถเบิก device ได้");
                 } else if (selectDevice.getQuantity() == 0) {
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
-                    alert.setContentText("ไม่สามารถเบิกอุปกรณ์ได้ เพราะในคลังไม่มีอุปกรณ์นี้");
+                    alert.setContentText("Unable to withdraw the device because no device in warehouse");
                     alert.showAndWait();
                     //System.out.println("ไม่สามารถเบิก device ได้เพราะในคลังไม่มี device");
                 } else if (input > selectDevice.getQuantity()) {
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
-                    alert.setContentText("ไม่สามารถเบิกอุปกรณ์ได้ เพราะในคลังมีจำนวนอุปกรณ์ไม่พอ");
+                    alert.setContentText("Unable to withdraw the device because not enough device");
                     alert.showAndWait();
                     //System.out.println("ไม่สามารถเบิก deviec ได้เพราะในคลังมี device ไม่พอ");
                 } else {
@@ -199,38 +204,33 @@ public class ListDeviceControllers {
                     selectDevice.decreaseDevice(input);      // Test ลดจน.อุปกรณ์
                     System.out.println("หลังลด = " + selectDevice.getQuantity());
 
-                    String sql_de = "UPDATE device SET Quantity_of_device = ?  WHERE Device_name = ?";
-                    try {
+                    Alert alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+                    alert.setHeight(100);
+                    alert.setWidth(200);
+                    alert.setTitle("CONFIRMATION");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Do you confirm to withdraw device ? ");
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.get() == ButtonType.OK) {
+                        try {
+                            changeWithdraw();
+                            FXMLLoader loader = new FXMLLoader();
+                            loader.setLocation(getClass().getResource("/ListDevice.fxml"));
+                            Scene scene = new Scene(loader.load());
 
-                        preparedStatement = con.prepareStatement(sql_de);
-                        preparedStatement.setInt(1, selectDevice.getQuantity());
-                        preparedStatement.setString(2, selectDevice.getNameDevice());
-                        preparedStatement.executeUpdate();
-                        System.out.println("Quantity save in DB");
+                            Button b = (Button) event.getSource();
+                            Stage stage = (Stage) b.getScene().getWindow();
 
+                           //ListDeviceControllers controller = loader.getController();
+                            // controller.initialize();
 
-                    } catch (SQLException se) {
-                        se.printStackTrace();
+                            stage.setTitle("List Device");
+                            stage.setScene(scene);
+                            stage.show();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
                     }
-
-                    String sql_all_device_re = "SELECT * FROM Device ";
-                    preparedStatement = con.prepareStatement(sql_all_device_re);
-                    resultSet = preparedStatement.executeQuery();
-
-                    while (resultSet.next()) {
-
-                        obj = new Device(resultSet.getString(2),
-                                resultSet.getString(1),
-                                resultSet.getInt(3));
-                        dList.addDeviceToStock(obj);
-
-                    }
-                    System.out.println(dList.getDeviceList());
-                    System.out.println("Set all device after reduce");
-
-                    clearSelectedDevice();
-                    tableDevices.refresh();
-                    tableDevices.getSelectionModel().clearSelection();
                 }
             }
 
@@ -245,7 +245,7 @@ public class ListDeviceControllers {
                 if (input < 0) {
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
-                    alert.setContentText("ใส่ข้อมูลจำนวนติดลบ ไม่สามารถเบิกอุปกรณ์ได้");
+                    alert.setContentText("Enter a negative number and can't add the device.");
                     alert.showAndWait();
                     //System.out.println("inputติดลบ เพิ่ม device ไม่ได้");
                 } else {
@@ -253,42 +253,111 @@ public class ListDeviceControllers {
                     selectDevice.increaseDevice(input);      // Test เพิ่มจน.อุปกรณ์
                     System.out.println("หลังเพิ่ม = " + selectDevice.getQuantity());
 
-                    String sql_add = "UPDATE device SET Quantity_of_device = ? WHERE Device_name = ?";
+                    Alert alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+                    alert.setHeight(100);
+                    alert.setWidth(200);
+                    alert.setTitle("CONFIRMATION");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Do you confirm to add device ? ");
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.get() == ButtonType.OK) {
+                        try {
+                            changeAdd();
+                            FXMLLoader loader = new FXMLLoader();
+                            loader.setLocation(getClass().getResource("/ListDevice.fxml"));
+                            Scene scene = new Scene(loader.load());
 
-                    try {
+                            Button b = (Button) event.getSource();
+                            Stage stage = (Stage) b.getScene().getWindow();
 
-                        preparedStatement = con.prepareStatement(sql_add);
-                        preparedStatement.setInt(1, selectDevice.getQuantity());
-                        preparedStatement.setString(2, selectDevice.getNameDevice());
-                        preparedStatement.executeUpdate();
-                        System.out.println("Quantity save in DB");
+                            //ListDeviceControllers controller = loader.getController();
+                            //controller.initialize();
 
-                    } catch (SQLException se) {
-                        se.printStackTrace();
-                    }
-
-
-                        String sql_all_device_add = "SELECT * FROM Device ";
-                        preparedStatement = con.prepareStatement(sql_all_device_add);
-                        resultSet = preparedStatement.executeQuery();
-
-                        while (resultSet.next()) {
-
-                            obj = new Device(resultSet.getString(2),
-                                    resultSet.getString(1),
-                                    resultSet.getInt(3));
-                            dList.addDeviceToStock(obj);
-
+                            stage.setTitle("List Device");
+                            stage.setScene(scene);
+                            stage.show();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
                         }
-                        System.out.println(dList.getDeviceList());
-                        System.out.println("Set all device after add");
-
-                    clearSelectedDevice();
-                    tableDevices.refresh();
-                    tableDevices.getSelectionModel().clearSelection();
+                    }
                 }
             }
         }
+    }
+
+    public void changeWithdraw() throws SQLException {
+
+        String sql_de = "UPDATE device SET Quantity_of_device = ?  WHERE Device_name = ?";
+        try {
+
+            preparedStatement = con.prepareStatement(sql_de);
+            preparedStatement.setInt(1, selectDevice.getQuantity());
+            preparedStatement.setString(2, selectDevice.getNameDevice());
+            preparedStatement.executeUpdate();
+            System.out.println("Quantity save in DB");
+
+
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        String sql_all_device_re = "SELECT * FROM Device ";
+        preparedStatement = con.prepareStatement(sql_all_device_re);
+        resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+
+            obj = new Device(resultSet.getString(2),
+                    resultSet.getString(1),
+                    resultSet.getInt(3));
+            dList.addDeviceToStock(obj);
+
+        }
+        System.out.println(dList.getDeviceList());
+        System.out.println("Set all device after reduce");
+
+        clearSelectedDevice();
+        tableDevices.refresh();
+        tableDevices.getSelectionModel().clearSelection();
+
+    }
+
+    public void changeAdd() throws SQLException {
+
+        String sql_add = "UPDATE device SET Quantity_of_device = ? WHERE Device_name = ?";
+
+        try {
+
+            preparedStatement = con.prepareStatement(sql_add);
+            preparedStatement.setInt(1, selectDevice.getQuantity());
+            preparedStatement.setString(2, selectDevice.getNameDevice());
+            preparedStatement.executeUpdate();
+            System.out.println("Quantity save in DB");
+
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+
+        String sql_all_device_add = "SELECT * FROM Device ";
+        preparedStatement = con.prepareStatement(sql_all_device_add);
+        resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+
+            obj = new Device(resultSet.getString(2),
+                    resultSet.getString(1),
+                    resultSet.getInt(3));
+            dList.addDeviceToStock(obj);
+
+        }
+        System.out.println(dList.getDeviceList());
+        System.out.println("Set all device after add");
+
+        clearSelectedDevice();
+        tableDevices.refresh();
+        tableDevices.getSelectionModel().clearSelection();
+
     }
 }
 
