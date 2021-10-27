@@ -46,12 +46,6 @@ public class CreateWorkorderController {
     CheckAndAlert ch = new CheckAndAlert();
     Connection con;
 
-//<<<<<<< HEAD
-//
-//    @FXML public void initialize() {
-//=======
-//>>>>>>> 13b1d1d2b2da084e524c8eadc6e3835359229736
-
     @FXML
     public void initialize() throws SQLException {
 
@@ -154,7 +148,7 @@ public class CreateWorkorderController {
                 tel_textfield.clear();
                 date_picker.getEditor().clear();
                 time_textfield.clear();
-                price_textfield.clear();
+                price_textfield.clear();}
 
 
 //            System.out.println(date_picker.getEditor().getText()); get เวลาจาก DatePicker
@@ -164,7 +158,7 @@ public class CreateWorkorderController {
 
 
         }
-    }
+
 
         public void showDataOfWO () {
 
