@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -15,8 +16,8 @@
             <Font size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="name_costomer_textfield" layoutX="329.0" layoutY="107.0" prefHeight="31.0" prefWidth="227.0" />
-      <TextField fx:id="address_textfield" layoutX="329.0" layoutY="185.0" prefHeight="78.0" prefWidth="433.0" />
+      <TextField fx:id="name_costomer_textfield" layoutX="322.0" layoutY="107.0" prefHeight="31.0" prefWidth="234.0" />
+      <TextArea fx:id="address_textfield" layoutX="323.0" layoutY="157.0" prefHeight="137.0" prefWidth="234.0" />
       <TextField fx:id="tel_textfield" layoutX="329.0" layoutY="309.0" prefHeight="31.0" prefWidth="227.0" />
       <TextField fx:id="time_textfield" layoutX="332.0" layoutY="464.0" prefHeight="31.0" prefWidth="227.0" />
       <ComboBox fx:id="assign_person_name_combobox" layoutX="329.0" layoutY="535.0" prefHeight="31.0" prefWidth="227.0" />
