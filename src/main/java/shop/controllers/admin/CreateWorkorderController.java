@@ -21,7 +21,7 @@ public class CreateWorkorderController {
     @FXML
     TextField name_costomer_textfield;
     @FXML
-    TextField address_textfield;
+    TextArea address_textfield;
     @FXML
     TextField tel_textfield;
     @FXML
@@ -68,7 +68,7 @@ public class CreateWorkorderController {
         }
 //        System.out.println("Set all owner");
 
-        String sql_all_workorder = "SELECT * FROM Workorder ";
+        String sql_all_workorder = "SELECT * FROM Work_order ";
         preparedStatement_all = con.prepareStatement(sql_all_workorder);
         resultSet = preparedStatement_all.executeQuery();
 
@@ -147,9 +147,9 @@ public class CreateWorkorderController {
                 address_textfield.clear();
                 tel_textfield.clear();
                 date_picker.getEditor().clear();
-                tel_textfield.clear();
+                time_textfield.clear();
                 price_textfield.clear();
-                status_combobox.getItems().clear();
+
 
 //            System.out.println(date_picker.getEditor().getText()); get เวลาจาก DatePicker
             } else {
