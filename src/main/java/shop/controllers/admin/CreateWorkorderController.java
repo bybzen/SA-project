@@ -27,6 +27,7 @@ public class CreateWorkorderController {
     Workorder workorderList = new Workorder();
 
 
+
     @FXML public void initialize() {
 
         status_combobox.getItems().addAll("รอดำเนินการ", "ยอมรับ", "รอแก้ไข", "ออกไปติดตั้ง", "เสร็จสิ้น");
