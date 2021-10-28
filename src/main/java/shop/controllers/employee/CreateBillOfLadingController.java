@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class CreateBillOfLadingController {
@@ -26,6 +27,8 @@ public class CreateBillOfLadingController {
 
     BillLading bill;
     BillLading billList = new BillLading();
+    ArrayList<String> arrayCount = new ArrayList<>();
+
 
     PreparedStatement preparedStatement, preparedStatement_all;
     ResultSet resultSet;
@@ -76,9 +79,44 @@ public class CreateBillOfLadingController {
         System.out.println(workorderList.getWorkbook());
         System.out.println("Set all workorder");
 
+        String sql_all_bill = "SELECT * FROM bill_of_lading ";
+        preparedStatement_all = con.prepareStatement(sql_all_bill);
+        resultSet = preparedStatement_all.executeQuery();
+
+        while (resultSet.next()) {
+
+            bill = new BillLading(resultSet.getString(1),resultSet.getString(3)
+                    ,resultSet.getString(4),resultSet.getString(5),
+                    resultSet.getString(2));
+
+            billList.addBillToList(bill);
+
+        }
+        System.out.println(billList.getBillList());
+        System.out.println("Set all bill of lading");
+
+
+        String sql_picker = "SELECT Name_personal FROM User WHERE Role_user = ? ";
+        preparedStatement_all = con.prepareStatement(sql_picker);
+        preparedStatement_all.setString(1, "Employee");
+        resultSet = preparedStatement_all.executeQuery();
+
+        Owner staff = new Owner();
+
+        while (resultSet.next()){
+            arrayCount.add(resultSet.getString(1));
+            //System.out.println(arrayCount);
+        }
+        System.out.println(arrayCount);
+
+       for(int i = 0; i < arrayCount.size(); i++) {
+            namePickerCBB.getItems().addAll(arrayCount.get(i));
+
+       }
+
+
 
     }
-
     public CreateBillOfLadingController() {
 
         con = ConnectDatabase.connectDB();
@@ -131,8 +169,6 @@ public class CreateBillOfLadingController {
 
             }
 
-
-
         } else {
             System.out.println("สร้างไม่ได้");
         }
@@ -153,11 +189,11 @@ public class CreateBillOfLadingController {
 
         showDataOfBill();
 
-        String sql = "INSERT INTO Bill_of_lading(ID_bill_of_lading, picker_name, bill_of_lading_Device_name, pick_date, pick_time, Quantity_bill_of_lading) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO Bill_of_lading(ID_bill_of_lading, picker_name, Device_nameAndQty, pick_date, pick_time) VALUES (?,?,?,?,?)";
         try {
 
             preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setString(1, "W" + billList.getLengthArrayList());
+            preparedStatement.setString(1, "B" + billList.getLengthArrayList());
             preparedStatement.setString(2, namePickerCBB.getValue());
             preparedStatement.setString(3, nameAndQuantityText.getText());
             preparedStatement.setString(4, datePicker.getEditor().getText());
@@ -191,4 +227,5 @@ public class CreateBillOfLadingController {
         }
     }
 }
+
 

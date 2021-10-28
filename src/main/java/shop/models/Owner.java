@@ -25,7 +25,7 @@ public class Owner {
         this.role = role;
         this.name = name;
     }
-    
+
 
 
     public boolean checkUsername(String username){
@@ -66,6 +66,10 @@ public class Owner {
 
     public String getRole() {
         return role;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getIdPersonal() {
