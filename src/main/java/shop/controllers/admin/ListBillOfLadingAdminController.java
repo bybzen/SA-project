@@ -52,49 +52,34 @@ public class ListBillOfLadingAdminController {
 
         tableBillOfLading.setItems(billList);
 
-        TableColumn onOrder = new TableColumn("ID Bill");
-        TableColumn nameCustomer = new TableColumn("Name");
-        TableColumn addressCustomer = new TableColumn("Address");
-        TableColumn phoneCustomer = new TableColumn("Phone");
-        TableColumn price = new TableColumn("Price");
+        TableColumn idBillLading = new TableColumn("ID Bill");
+        TableColumn nameAndQuantityDevice = new TableColumn("Detail");
         TableColumn date = new TableColumn("Date");
         TableColumn time = new TableColumn("Time");
-        TableColumn statusOrder = new TableColumn("Status");
-        TableColumn liable = new TableColumn("Liable");
+        TableColumn pickName = new TableColumn("Name");
 
 
-        onOrder.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("onOrder")
+        idBillLading.setCellValueFactory(
+                new PropertyValueFactory<Workorder, String>("idBillLading")
         );
-        nameCustomer.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("nameCustomer")
+        nameAndQuantityDevice.setCellValueFactory(
+                new PropertyValueFactory<Workorder, String>("nameAndQuantityDevice")
         );
-        addressCustomer.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("addressCustomer")
-        );
-        phoneCustomer.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("phoneCustomer")
-        );
-        price.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("price")
-        );
+
         date.setCellValueFactory(
                 new PropertyValueFactory<Workorder, String>("date")
         );
         time.setCellValueFactory(
                 new PropertyValueFactory<Workorder, String>("time")
         );
-        statusOrder.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("statusOrder")
-        );
-        liable.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("liable")
+        pickName.setCellValueFactory(
+                new PropertyValueFactory<Workorder, String>("pickName")
         );
 
 
-        tableBillOfLading.getColumns().addAll(onOrder, nameCustomer, addressCustomer
-                , phoneCustomer, price, date, time, statusOrder
-                , liable);
+
+        tableBillOfLading.getColumns().addAll(idBillLading, nameAndQuantityDevice, date
+                                                , time, pickName);
 
 
     }
@@ -111,9 +96,6 @@ public class ListBillOfLadingAdminController {
 //        Withdraw_Of_Device_Textfield.clear(); // เคลียร์ช่องลด
 //        add_device_textfield.clear(); // เคลียร์ช่องเพิ่ม
     }
-
-
-
 
 
     @FXML

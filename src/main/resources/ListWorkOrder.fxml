@@ -15,6 +15,6 @@
             </font>
         </Label>
         <Button layoutX="715.0" layoutY="708.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="40.0" prefWidth="95.0" text="Back" />
-        <Button layoutX="419.0" layoutY="708.0" mnemonicParsing="false" onAction="#EditButton" prefHeight="40.0" prefWidth="95.0" text="Edit" />
+        <Button fx:id="editBtn" layoutX="419.0" layoutY="708.0" mnemonicParsing="false" onAction="#EditButton" prefHeight="40.0" prefWidth="95.0" text="Edit" />
     </children>
 </AnchorPane>
