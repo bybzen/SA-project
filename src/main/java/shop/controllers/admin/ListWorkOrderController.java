@@ -33,7 +33,7 @@ public class ListWorkOrderController {
 
         tableWorkorder.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                showSelectedDevice(newValue);
+                showSelectedWorkorder(newValue);
             }
         });
 
@@ -95,7 +95,7 @@ public class ListWorkOrderController {
 
     }
 
-    private void showSelectedDevice(Workorder workorder) {
+    private void showSelectedWorkorder(Workorder workorder) {
         selectWorkorder = workorder;
 
 
@@ -103,7 +103,7 @@ public class ListWorkOrderController {
 
     }
 
-    private void clearSelectedDevice() {
+    private void clearSelectedWorkorder() {
 //        Withdraw_Of_Device_Textfield.clear(); // เคลียร์ช่องลด
 //        add_device_textfield.clear(); // เคลียร์ช่องเพิ่ม
     }

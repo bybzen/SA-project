@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class BillLading {
 
     String idBillLading; // เลขที่ใบเบิก
-    String nameDevice;
-    int quantity;
+    String nameAndQuantityDevice;
+//    int quantity;
     String date;
     String time;
     String pickName;
@@ -16,10 +16,10 @@ public class BillLading {
     public BillLading(){}
 
 
-    public BillLading(String idBillLading, String nameDevice, int quantity, String date, String time, String pickName) {
+    public BillLading(String idBillLading, String nameAndQuantityDevice, String date, String time, String pickName) {
         this.idBillLading = idBillLading;
-        this.nameDevice = nameDevice;
-        this.quantity = quantity;
+        this.nameAndQuantityDevice = nameAndQuantityDevice;
+//        this.quantity = quantity;
         this.date = date;
         this.time = time;
         this.pickName = pickName;
@@ -37,13 +37,13 @@ public class BillLading {
         this.idBillLading = idBillLading;
     }
 
-    public void setNameDevice(String nameDevice) {
-        this.nameDevice = nameDevice;
+    public void setNameAndQuantityDevice(String nameAndQuantityDevice) {
+        this.nameAndQuantityDevice = nameAndQuantityDevice;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+//    public void setQuantity(int quantity) {
+//        this.quantity = quantity;
+//    }
 
     public void setDate(String date) {
         this.date = date;
@@ -65,13 +65,13 @@ public class BillLading {
         return idBillLading;
     }
 
-    public String getNameDevice() {
-        return nameDevice;
+    public String getNameAndQuantityDevice() {
+        return nameAndQuantityDevice;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
+//    public int getQuantity() {
+//        return quantity;
+//    }
 
     public String getDate() {
         return date;
@@ -87,5 +87,16 @@ public class BillLading {
 
     public ArrayList<BillLading> getBillList() {
         return billList;
+    }
+
+    @Override
+    public String toString() {
+        return "BillLading{" +
+                "idBillLading='" + idBillLading + '\'' +
+                ", nameAndQuantityDevice='" + nameAndQuantityDevice + '\'' +
+                ", date='" + date + '\'' +
+                ", time='" + time + '\'' +
+                ", pickName='" + pickName + '\'' +
+                '}';
     }
 }

@@ -19,8 +19,7 @@ import java.util.Optional;
 
 public class CreateBillOfLadingController {
 
-    @FXML TextArea nameText;
-    @FXML TextField quantityText;
+    @FXML TextArea nameAndQuantityText;
     @FXML DatePicker datePicker;
     @FXML TextField timeText;
     @FXML ComboBox<String> namePickerCBB;
@@ -91,14 +90,14 @@ public class CreateBillOfLadingController {
 
     @FXML public void ConfirmButton(ActionEvent actionEvent)throws IOException {
 
-        if (this.nameText.getText().isEmpty() || quantityText.getText().isEmpty() || datePicker.getEditor().getText().isEmpty() ||
+        if (this.nameAndQuantityText.getText().isEmpty()  || datePicker.getEditor().getText().isEmpty() ||
         timeText.getText().isEmpty() || namePickerCBB == null) {
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(" ");
             alert.setContentText("Please enter all data of bill of lading to complete");
             alert.showAndWait();
 
-        }else if(!ch.validateName(this.nameText.getText())){
+        }else if(!ch.validateName(this.nameAndQuantityText.getText())){
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(" ");
             alert.setContentText("Please check your pattern of name device!");
@@ -111,7 +110,7 @@ public class CreateBillOfLadingController {
             alert.setContentText("Please check your pattern of time bill!");
             alert.showAndWait();
         }
-        else if (!(nameText.getText().equals("")) && !(quantityText.getText().equals("")) && datePicker != null
+        else if (!(nameAndQuantityText.getText().equals("")) && datePicker != null
             && !(timeText.getText().equals("")) && namePickerCBB != null){
 
             System.out.println("สร้าง Bill ได้");
@@ -126,8 +125,7 @@ public class CreateBillOfLadingController {
 
             if (result.get() == ButtonType.OK) {
                 createBill();
-                nameText.clear();
-                quantityText.clear();
+                nameAndQuantityText.clear();
                 datePicker.getEditor().clear();
                 timeText.clear();
 
@@ -144,8 +142,7 @@ public class CreateBillOfLadingController {
     public void showDataOfBill(){
 
         String id_bill = "B" + billList.getLengthArrayList();
-        String name_device = nameText.getText();
-        Integer qty = Integer.parseInt(quantityText.getText());
+        String name_device = nameAndQuantityText.getText();
         String date = datePicker.getEditor().getText();
         String time = timeText.getText();
         String pickername = namePickerCBB.getValue();
@@ -162,10 +159,9 @@ public class CreateBillOfLadingController {
             preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, "W" + billList.getLengthArrayList());
             preparedStatement.setString(2, namePickerCBB.getValue());
-            preparedStatement.setString(3, nameText.getText());
+            preparedStatement.setString(3, nameAndQuantityText.getText());
             preparedStatement.setString(4, datePicker.getEditor().getText());
             preparedStatement.setString(5, timeText.getText());
-            preparedStatement.setString(6, quantityText.getText());
 
             preparedStatement.executeUpdate();
             System.out.println("Save data of bill in DB");
@@ -174,8 +170,8 @@ public class CreateBillOfLadingController {
             ex.printStackTrace();
         }
 
-            bill = new BillLading("B" + billList.getLengthArrayList() , nameText.getText(),
-                    Integer.parseInt(quantityText.getText()),datePicker.getEditor().getText(),
+            bill = new BillLading("B" + billList.getLengthArrayList() , nameAndQuantityText.getText()
+                    ,datePicker.getEditor().getText(),
                     timeText.getText(), namePickerCBB.getValue());
 
         billList.addBillToList(bill);
