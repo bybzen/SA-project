@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800" prefWidth="900" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.CreateBillOfLadingController">
+<AnchorPane prefHeight="800" prefWidth="900" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.CreateBillOfLadingController">
    <children>
       <TextField fx:id="timeText" layoutX="574.0" layoutY="491.0" />
       <Label layoutX="297.0" layoutY="62.0" text="Create Bill Of Lading">
@@ -17,7 +17,7 @@
             <Font size="34.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="145.0" text="Name Device : ">
+      <Label layoutX="80.0" layoutY="147.0" prefHeight="39.0" prefWidth="613.0" text="Name device and quantity : ">
          <font>
             <Font size="27.0" />
          </font>
@@ -48,13 +48,7 @@
             <Font size="21.0" />
          </font>
       </Button>
-      <TextArea fx:id="nameText" layoutX="282.0" layoutY="154.0" prefHeight="200.0" prefWidth="467.0" />
-      <Label layoutX="124.0" layoutY="401.0" text="Quantity :">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <TextField fx:id="quantityText" layoutX="277.0" layoutY="405.0" prefHeight="31.0" prefWidth="218.0" />
+      <TextArea fx:id="nameText" layoutX="201.0" layoutY="202.0" prefHeight="250.0" prefWidth="531.0" />
       <ComboBox fx:id="namePickerCBB" layoutX="441.0" layoutY="581.0" prefHeight="31.0" prefWidth="187.0" />
    </children>
 </AnchorPane>
