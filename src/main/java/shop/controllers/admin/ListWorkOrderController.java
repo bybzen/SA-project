@@ -5,9 +5,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import shop.controllers.ConnectDatabase;
 import shop.models.Owner;
 import shop.models.Workorder;
@@ -33,6 +37,7 @@ public class ListWorkOrderController {
     ResultSet resultSet;
 
     @FXML private TableView<Workorder> tableWorkorder;
+    @FXML private Button editBtn;
 
 
     @FXML public void initialize() throws SQLException {
@@ -164,10 +169,17 @@ public class ListWorkOrderController {
     
     @FXML public void EditButton(ActionEvent actionEvent) {
             try {
+
+
+
+
+
                 FXRouter.goTo("EditWorkOrder");
+
             } catch (IOException e) {
                 System.err.println("ไปที่หน้า EditWorkOrder ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
+                e.printStackTrace();
             }
         }
 }
