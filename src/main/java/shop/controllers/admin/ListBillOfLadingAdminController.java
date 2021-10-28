@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -33,6 +34,8 @@ public class ListBillOfLadingAdminController {
     Workorder workorder;
     Workorder workorderList = new Workorder();
 
+    @FXML private ComboBox status_combobox;
+
 
     @FXML private TableView<BillLading> tableBillOfLading;
 
@@ -43,6 +46,8 @@ public class ListBillOfLadingAdminController {
 
 
     @FXML public void initialize() throws SQLException {
+
+        status_combobox.getItems().addAll("Allowed", "Not allowed", "Wait allow");
 
         Platform.runLater(() -> {
 
