@@ -18,23 +18,14 @@ import java.util.Optional;
 
 public class CreateWorkorderController {
 
-    @FXML
-    TextField name_costomer_textfield;
-    @FXML
-    TextArea address_textfield;
-    @FXML
-    TextField tel_textfield;
-    @FXML
-    TextField time_textfield;
-    @FXML
-    ComboBox<String> assign_person_name_combobox;
-    @FXML
-    TextField price_textfield;
-    @FXML
-    DatePicker date_picker;
-    @FXML
-    ComboBox<String> status_combobox;
-
+    @FXML TextField name_costomer_textfield;
+    @FXML TextArea address_textfield;
+    @FXML TextField tel_textfield;
+    @FXML TextField time_textfield;
+    @FXML ComboBox<String> assign_person_name_combobox;
+    @FXML TextField price_textfield;
+    @FXML DatePicker date_picker;
+    @FXML ComboBox<String> status_combobox;
     Workorder workorder;
     Workorder workorderList = new Workorder();
     Owner ow = new Owner();
@@ -64,9 +55,7 @@ public class CreateWorkorderController {
             ow.setUsername(resultSet.getString(4));
             ow.setPassword(resultSet.getString(5));
 
-//            System.out.println(ow.toString());
         }
-//        System.out.println("Set all owner");
 
         String sql_all_workorder = "SELECT * FROM Work_order ";
         preparedStatement_all = con.prepareStatement(sql_all_workorder);
@@ -149,6 +138,7 @@ public class CreateWorkorderController {
                 date_picker.getEditor().clear();
                 time_textfield.clear();
                 price_textfield.clear();}
+
 
 
 //            System.out.println(date_picker.getEditor().getText()); get เวลาจาก DatePicker
