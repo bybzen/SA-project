@@ -181,13 +181,6 @@ public class CreateBillOfLadingController {
     }
 
 
-
-
-
-
-
-
-
 @FXML
     public void BackButton(ActionEvent actionEvent) {
         try {
@@ -198,3 +191,4 @@ public class CreateBillOfLadingController {
         }
     }
 }
+

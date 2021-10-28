@@ -125,7 +125,7 @@ public class CreateDeviceController {
                     check = 1 ;
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
-                    alert.setContentText("ID และ ชื่อ Device ซ้ำ");
+                    alert.setContentText("ID and device name also duplicate!");
                     alert.showAndWait();
                     break;
                 }
@@ -134,7 +134,7 @@ public class CreateDeviceController {
                     check = 1;
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
-                    alert.setContentText("ชื่อ Device ซ้ำ");
+                    alert.setContentText("Device name duplicate!");
                     alert.showAndWait();
                     break;
                 }
@@ -143,7 +143,7 @@ public class CreateDeviceController {
                     check = 1;
                     alert = new Alert(Alert.AlertType.ERROR);
                     alert.setHeaderText(" ");
-                    alert.setContentText("ID ซ้ำ");
+                    alert.setContentText("ID duplicate!");
                     alert.showAndWait();
                     break;
                 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800" prefWidth="900" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.CreateBillOfLadingController">
+<AnchorPane prefHeight="800" prefWidth="900" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.CreateBillOfLadingController">
    <children>
       <TextField fx:id="timeText" layoutX="574.0" layoutY="491.0" />
       <Label layoutX="297.0" layoutY="62.0" text="Create Bill Of Lading">
@@ -49,6 +49,7 @@
          </font>
       </Button>
       <TextArea fx:id="nameAndQuantityText" layoutX="282.0" layoutY="154.0" prefHeight="200.0" prefWidth="467.0" />
+
       <ComboBox fx:id="namePickerCBB" layoutX="441.0" layoutY="581.0" prefHeight="31.0" prefWidth="187.0" />
    </children>
 </AnchorPane>
