@@ -7,9 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import shop.controllers.ConnectDatabase;
@@ -21,6 +19,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class ListWorkOrderController {
 
@@ -31,16 +31,29 @@ public class ListWorkOrderController {
 
     Workorder workorderList = new Workorder();
 
-    Connection con;
+    @FXML TableView<Workorder> tableWorkorder;
+    @FXML TextField nameText ;
+    @FXML TextArea addressText;
+    @FXML TextField phoneText;
+    @FXML DatePicker datePicker;
+    @FXML TextField timeText;
+    @FXML ComboBox<String> leaderCBB;
+    @FXML ComboBox<String> statusCBB;
+    @FXML TextField priceText;
+    @FXML private Button editBtn;
 
+    Connection con;
     PreparedStatement preparedStatement, preparedStatement_all;
     ResultSet resultSet;
 
-    @FXML private TableView<Workorder> tableWorkorder;
-    @FXML private Button editBtn;
+
+
 
 
     @FXML public void initialize() throws SQLException {
+
+
+        statusCBB.getItems().addAll("Pending", "Confirm", "Pending edit", "Go out to install", "Complete");
 
         Platform.runLater(() -> {
 
@@ -147,14 +160,30 @@ public class ListWorkOrderController {
     private void showSelectedWorkorder(Workorder workorder) {
         selectWorkorder = workorder;
 
+        nameText.setText(selectWorkorder.getNameCustomer());
+        addressText.setText(selectWorkorder.getAddressCustomer());
+        phoneText.setText(selectWorkorder.getPhoneCustomer());
+        timeText.setText(selectWorkorder.getTime());
+        priceText.setText(String.valueOf(selectWorkorder.getPrice()));
+
+        leaderCBB.setValue(selectWorkorder.getLiable());
+        statusCBB.setValue(selectWorkorder.getStatusOrder());
+
 
         System.out.println(selectWorkorder.toString());
 
     }
 
     private void clearSelectedWorkorder() {
-//        Withdraw_Of_Device_Textfield.clear(); // เคลียร์ช่องลด
-//        add_device_textfield.clear(); // เคลียร์ช่องเพิ่ม
+        nameText.clear();
+        addressText.clear();
+        phoneText.clear();
+        datePicker.getEditor().clear();
+        timeText.clear();
+        priceText.clear();
+        leaderCBB.setValue(null);
+        statusCBB.setValue(null);
+
     }
 
 
@@ -168,18 +197,51 @@ public class ListWorkOrderController {
     }
     
     @FXML public void EditButton(ActionEvent actionEvent) {
-            try {
+//            try {
+
+                if (!(nameText.getText().equals("")) && !(addressText.getText().equals(""))
+                        && !(phoneText.getText().equals("")) && !(timeText.getText().equals(""))
+                        && !(priceText.getText().equals("")) && statusCBB != null && leaderCBB != null)
+                {
+                    selectWorkorder.setNameCustomer(nameText.getText());
+                    selectWorkorder.setAddressCustomer(addressText.getText());
+                    selectWorkorder.setPhoneCustomer(phoneText.getText());
+                    selectWorkorder.setTime(timeText.getText());
+                    selectWorkorder.setPrice(Float.parseFloat(priceText.getText()));
+                    selectWorkorder.setStatusOrder(statusCBB.getValue());
+                    selectWorkorder.setLiable(leaderCBB.getValue());
+
+                    if (!(datePicker.getEditor().getText().equals(""))){
+                        selectWorkorder.setDate(datePicker.getEditor().getText());
+                        System.out.println("วันที่ไม่ null ต้อง set");
+                    }
+
+                    else if (datePicker.getEditor().getText().isEmpty()){
+                        System.out.println("วันที่ null ไม่ต้อง set");
+                    }
 
 
 
 
+                    System.out.println("แก้ไขได้");
 
-                FXRouter.goTo("EditWorkOrder");
+                    clearSelectedWorkorder();
+                    tableWorkorder.refresh();
+                    tableWorkorder.getSelectionModel().clearSelection();
 
-            } catch (IOException e) {
-                System.err.println("ไปที่หน้า EditWorkOrder ไม่ได้");
-                System.err.println("ให้ตรวจสอบการกำหนด route");
-                e.printStackTrace();
+                }
+
             }
-        }
+
+
+//                FXRouter.goTo("EditWorkOrder");
+
+//            }
+//            catch (IOException e)
+//            {
+//                System.err.println("ไปที่หน้า EditWorkOrder ไม่ได้");
+//                System.err.println("ให้ตรวจสอบการกำหนด route");
+//                e.printStackTrace();
+//            }
+//        }
 }

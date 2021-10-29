@@ -117,8 +117,8 @@ public class CreateWorkorderController {
             alert.showAndWait();
 
         } else if (!(name_costomer_textfield.getText().equals("")) && !(address_textfield.getText().equals(""))
-                && !(tel_textfield.getText().equals("")) && date_picker != null && !(time_textfield.getText().equals(""))
-                && !(price_textfield.getText().equals("")) && status_combobox != null) {
+                && !(tel_textfield.getText().equals("")) && !(date_picker.getEditor().getText().equals(""))
+                && !(time_textfield.getText().equals("")) && !(price_textfield.getText().equals("")) && status_combobox != null) {
 
             System.out.println("สร้างใบงานได้");
 
@@ -137,7 +137,10 @@ public class CreateWorkorderController {
                 tel_textfield.clear();
                 date_picker.getEditor().clear();
                 time_textfield.clear();
-                price_textfield.clear();}
+                price_textfield.clear();
+                status_combobox.setValue(null);
+                assign_person_name_combobox.setValue(null);
+            }
 
 
 

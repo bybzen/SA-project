@@ -52,6 +52,7 @@ public class AdminMenuController {
         } catch (IOException e) {
             System.err.println("ไปที่หน้า ListWorkOrder ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
     @FXML public void ListBillOfLadingAdminButton(ActionEvent actionEvent) {
