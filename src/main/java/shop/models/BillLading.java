@@ -6,7 +6,6 @@ public class BillLading {
 
     String idBillLading; // เลขที่ใบเบิก
     String nameAndQuantityDevice;
-//    int quantity;
     String date;
     String time;
     String pickName;
@@ -45,10 +44,6 @@ public class BillLading {
         this.nameAndQuantityDevice = nameAndQuantityDevice;
     }
 
-//    public void setQuantity(int quantity) {
-//        this.quantity = quantity;
-//    }
-
     public void setDate(String date) {
         this.date = date;
     }
@@ -72,10 +67,6 @@ public class BillLading {
     public String getNameAndQuantityDevice() {
         return nameAndQuantityDevice;
     }
-
-//    public int getQuantity() {
-//        return quantity;
-//    }
 
     public String getDate() {
         return date;

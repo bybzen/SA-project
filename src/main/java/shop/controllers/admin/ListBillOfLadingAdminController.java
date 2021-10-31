@@ -6,9 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shop.controllers.ConnectDatabase;
 import shop.models.BillLading;
@@ -20,6 +18,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class ListBillOfLadingAdminController {
 
@@ -132,23 +131,23 @@ public class ListBillOfLadingAdminController {
 
 
         idBillLading.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("idBillLading")
+                new PropertyValueFactory<BillLading, String>("idBillLading")
         );
         nameAndQuantityDevice.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("nameAndQuantityDevice")
+                new PropertyValueFactory<BillLading, String>("nameAndQuantityDevice")
         );
 
         date.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("date")
+                new PropertyValueFactory<BillLading, String>("date")
         );
         time.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("time")
+                new PropertyValueFactory<BillLading, String>("time")
         );
         pickName.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("pickName")
+                new PropertyValueFactory<BillLading, String>("pickName")
         );
         status.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("status")
+                new PropertyValueFactory<BillLading, String>("status")
         );
 
 
@@ -161,16 +160,51 @@ public class ListBillOfLadingAdminController {
 
     private void showSelectedBill(BillLading bill) {
         selectBill = bill;
-
-
-        System.out.println(selectBill.toString());
+//        System.out.println(selectBill.toString());
 
     }
 
-    @FXML public void updateBtn(ActionEvent actionEvent){
+    @FXML public void updateBtn(ActionEvent actionEvent) throws SQLException {
 
-        //if ()
+            Alert alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+            alert.setHeight(100);
+            alert.setWidth(200);
+            alert.setTitle("CONFIRMATION");
+            alert.setHeaderText(null);
+            alert.setContentText("Do you want to edit status of bill of lading ? ");
+            Optional<ButtonType> result = alert.showAndWait();
 
+            if (result.get() == ButtonType.OK) {
+                editBill();
+            }
+
+        }
+
+
+    public void editBill() throws SQLException {
+
+        selectBill.setStatus(status_combobox.getValue());
+
+        String sql = "UPDATE bill_of_lading SET Status_bill = ? WHERE ID_bill_of_lading = ?  ";
+
+        try {
+
+            preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, status_combobox.getValue());
+            preparedStatement.setString(2, selectBill.getIdBillLading());
+
+            preparedStatement.executeUpdate();
+            System.out.println("Edit status of bill of lading in DB");
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        System.out.println(bList.getBillList());
+
+        clearSelectedBill();
+        tableBillOfLading.refresh();
+        tableBillOfLading.getSelectionModel().clearSelection();
     }
 
     private void clearSelectedBill() {
