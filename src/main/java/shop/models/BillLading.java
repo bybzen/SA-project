@@ -16,6 +16,16 @@ public class BillLading {
 
     public BillLading(){}
 
+//    public BillLading(String idBillLading, String nameAndQuantityDevice, String date, String time, String pickName) {
+//        this.idBillLading = idBillLading;
+//        this.nameAndQuantityDevice = nameAndQuantityDevice;
+////        this.quantity = quantity;
+//        this.date = date;
+//        this.time = time;
+//        this.pickName = pickName;
+//        this.status = "Wait allow";
+//    }
+
 
     public BillLading(String idBillLading, String nameAndQuantityDevice, String date, String time, String pickName, String status) {
         this.idBillLading = idBillLading;
@@ -24,7 +34,7 @@ public class BillLading {
         this.date = date;
         this.time = time;
         this.pickName = pickName;
-        this.status = "Pending approval";
+        this.status = status;
     }
 
     public int getLengthArrayList(){   // get จำนวน bill of lading ทั้งหมด
