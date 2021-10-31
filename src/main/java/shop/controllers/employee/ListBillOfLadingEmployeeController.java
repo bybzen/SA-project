@@ -86,7 +86,7 @@ public class ListBillOfLadingEmployeeController {
 
             bill = new BillLading(resultSet.getString(1),resultSet.getString(3)
                     ,resultSet.getString(4),resultSet.getString(5),
-                    resultSet.getString(2));
+                    resultSet.getString(2),resultSet.getString(6));
 
             bList.addBillToList(bill);
 
@@ -112,6 +112,7 @@ public class ListBillOfLadingEmployeeController {
         TableColumn date = new TableColumn("Date");
         TableColumn time = new TableColumn("Time");
         TableColumn pickName = new TableColumn("Name");
+        TableColumn status = new TableColumn("Status");
 
 
         idBillLading.setCellValueFactory(
@@ -130,11 +131,14 @@ public class ListBillOfLadingEmployeeController {
         pickName.setCellValueFactory(
                 new PropertyValueFactory<Workorder, String>("pickName")
         );
+        status.setCellValueFactory(
+                new PropertyValueFactory<Workorder, String>("status")
+        );
 
 
 
         table_list_bill_of_lading_E.getColumns().addAll(idBillLading, nameAndQuantityDevice, date
-                , time, pickName);
+                , time, pickName, status);
 
 
     }

@@ -87,7 +87,7 @@ public class CreateBillOfLadingController {
 
             bill = new BillLading(resultSet.getString(1),resultSet.getString(3)
                     ,resultSet.getString(4),resultSet.getString(5),
-                    resultSet.getString(2));
+                    resultSet.getString(2),resultSet.getString(6));
 
             billList.addBillToList(bill);
 
@@ -189,7 +189,7 @@ public class CreateBillOfLadingController {
 
         showDataOfBill();
 
-        String sql = "INSERT INTO Bill_of_lading(ID_bill_of_lading, picker_name, Device_nameAndQty, pick_date, pick_time) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO Bill_of_lading(ID_bill_of_lading, picker_name, Device_nameAndQty, pick_date, pick_time, Status_bill) VALUES (?,?,?,?,?,?)";
         try {
 
             preparedStatement = con.prepareStatement(sql);
@@ -198,6 +198,7 @@ public class CreateBillOfLadingController {
             preparedStatement.setString(3, nameAndQuantityText.getText());
             preparedStatement.setString(4, datePicker.getEditor().getText());
             preparedStatement.setString(5, timeText.getText());
+            preparedStatement.setString(6,"Pending approval");
 
             preparedStatement.executeUpdate();
             System.out.println("Save data of bill in DB");
@@ -208,7 +209,7 @@ public class CreateBillOfLadingController {
 
             bill = new BillLading("B" + billList.getLengthArrayList() , nameAndQuantityText.getText()
                     ,datePicker.getEditor().getText(),
-                    timeText.getText(), namePickerCBB.getValue());
+                    timeText.getText(), namePickerCBB.getValue(),"Pending approval");
 
         billList.addBillToList(bill);
 

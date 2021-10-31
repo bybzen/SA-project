@@ -27,7 +27,7 @@ public class Workorder {
         this.date = date;
         this.time = time;
         this.statusOrder = statusOrder;
-        this.liable = "ยังไม่ได้ระบุ"; // พนักงานผู้รับผิดชอบงาน
+        this.liable = "Not specified"; // พนักงานผู้รับผิดชอบงาน
     }
 
 
@@ -43,6 +43,16 @@ public class Workorder {
         this.time = time;
         this.statusOrder = statusOrder;
         this.liable = liable; // พนักงานผู้รับผิดชอบงาน
+    }
+
+    public Workorder(String nameCustomer, String addressCustomer, String phoneCustomer, float price, String time, String statusOrder, String liable) {
+        this.nameCustomer = nameCustomer;
+        this.addressCustomer = addressCustomer;
+        this.phoneCustomer = phoneCustomer;
+        this.price = price;
+        this.time = time;
+        this.statusOrder = statusOrder;
+        this.liable = liable;
     }
 
     public int getLengthArrayList(){   // get ความยาว arraylist

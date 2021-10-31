@@ -10,19 +10,21 @@ public class BillLading {
     String date;
     String time;
     String pickName;
+    String status;
 
     ArrayList<BillLading> billList = new ArrayList<>();
 
     public BillLading(){}
 
 
-    public BillLading(String idBillLading, String nameAndQuantityDevice, String date, String time, String pickName) {
+    public BillLading(String idBillLading, String nameAndQuantityDevice, String date, String time, String pickName, String status) {
         this.idBillLading = idBillLading;
         this.nameAndQuantityDevice = nameAndQuantityDevice;
 //        this.quantity = quantity;
         this.date = date;
         this.time = time;
         this.pickName = pickName;
+        this.status = "Pending approval";
     }
 
     public int getLengthArrayList(){   // get จำนวน bill of lading ทั้งหมด
@@ -85,6 +87,14 @@ public class BillLading {
         return pickName;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
     public ArrayList<BillLading> getBillList() {
         return billList;
     }
@@ -97,6 +107,7 @@ public class BillLading {
                 ", date='" + date + '\'' +
                 ", time='" + time + '\'' +
                 ", pickName='" + pickName + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

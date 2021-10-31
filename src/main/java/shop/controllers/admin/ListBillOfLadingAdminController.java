@@ -100,7 +100,7 @@ public class ListBillOfLadingAdminController {
 
             bill = new BillLading(resultSet.getString(1),resultSet.getString(3)
                     ,resultSet.getString(4),resultSet.getString(5),
-                    resultSet.getString(2));
+                    resultSet.getString(2),resultSet.getString(6));
 
             bList.addBillToList(bill);
 
@@ -128,6 +128,7 @@ public class ListBillOfLadingAdminController {
         TableColumn date = new TableColumn("Date");
         TableColumn time = new TableColumn("Time");
         TableColumn pickName = new TableColumn("Name");
+        TableColumn status = new TableColumn("Status");
 
 
         idBillLading.setCellValueFactory(
@@ -146,11 +147,14 @@ public class ListBillOfLadingAdminController {
         pickName.setCellValueFactory(
                 new PropertyValueFactory<Workorder, String>("pickName")
         );
+        status.setCellValueFactory(
+                new PropertyValueFactory<Workorder, String>("status")
+        );
 
 
 
         tableBillOfLading.getColumns().addAll(idBillLading, nameAndQuantityDevice, date
-                                                , time, pickName);
+                                                , time, pickName, status);
 
 
     }
@@ -160,6 +164,12 @@ public class ListBillOfLadingAdminController {
 
 
         System.out.println(selectBill.toString());
+
+    }
+
+    @FXML public void updateBtn(ActionEvent actionEvent){
+
+        //if ()
 
     }
 
