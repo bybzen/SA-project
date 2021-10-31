@@ -34,7 +34,7 @@ public class ListBillOfLadingAdminController {
     Workorder workorder;
     Workorder workorderList = new Workorder();
 
-    @FXML private ComboBox status_combobox;
+    @FXML private ComboBox<String> status_combobox;
 
 
     @FXML private TableView<BillLading> tableBillOfLading;
@@ -174,8 +174,8 @@ public class ListBillOfLadingAdminController {
     }
 
     private void clearSelectedBill() {
-//        Withdraw_Of_Device_Textfield.clear(); // เคลียร์ช่องลด
-//        add_device_textfield.clear(); // เคลียร์ช่องเพิ่ม
+
+        status_combobox.setValue(null);
     }
 
 
@@ -187,6 +187,34 @@ public class ListBillOfLadingAdminController {
             System.err.println("ไปที่หน้า AdminMenu ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
+    }
+
+
+    @FXML public void updateButton(ActionEvent event) throws Exception {
+
+        selectBill.setStatus(status_combobox.getValue());
+
+        String sql = "UPDATE bill_of_lading SET Status_bill = ? WHERE ID_bill_of_lading = ?  ";
+
+        try {
+
+            preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, String.valueOf(status_combobox.getValue()));
+            preparedStatement.setString(2, selectBill.getIdBillLading());
+
+
+            preparedStatement.executeUpdate();
+            System.out.println("Edit data of WO in DB");
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+
+        System.out.println(selectBill.getStatus());
+        clearSelectedBill();
+        tableBillOfLading.refresh();
+        tableBillOfLading.getSelectionModel().clearSelection();
     }
 
 
