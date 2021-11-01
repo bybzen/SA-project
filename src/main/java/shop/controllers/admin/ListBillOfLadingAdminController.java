@@ -188,8 +188,10 @@ public class ListBillOfLadingAdminController {
 
         selectBill.setStatus(status_combobox.getValue());
 
-        if (!(noteArea.getText().equals("")))   // ถ้า note ไม่ null
-        selectBill.setNote(noteArea.getText());
+        if (!(noteArea.getText().equals(""))){  // ถ้า note ไม่ null
+        selectBill.setNote(noteArea.getText());}
+
+        System.out.println(noteArea.getText());
 
         String sql = "UPDATE bill_of_lading SET Status_bill = ? WHERE ID_bill_of_lading = ?  ";
 

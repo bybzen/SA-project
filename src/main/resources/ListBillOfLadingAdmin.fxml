@@ -29,6 +29,6 @@
             <Font size="34.0" />
          </font>
       </Label>
-      <TextArea fx:id="noteText" layoutX="733.0" layoutY="362.0" prefHeight="148.0" prefWidth="148.0" />
+      <TextArea fx:id="noteArea" layoutX="733.0" layoutY="362.0" prefHeight="148.0" prefWidth="148.0" />
     </children>
 </AnchorPane>
