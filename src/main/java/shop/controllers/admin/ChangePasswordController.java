@@ -177,9 +177,9 @@ public class ChangePasswordController {
 
         @FXML public void handleBackButton (ActionEvent actionEvent) throws IOException {
             try {
-                FXRouter.goTo("Home");
+                FXRouter.goTo("AdminLogin");
             } catch (IOException var3) {
-                System.err.println("ไปที่หน้า Home ไม่ได้");
+                System.err.println("ไปที่หน้า AdminLogin ไม่ได้");
                 System.err.println("ให้ตรวจสอบการกำหนด route");
             }
 
