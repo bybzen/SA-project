@@ -35,7 +35,7 @@ public class ListBillOfLadingAdminController {
 
     @FXML private ComboBox<String> status_combobox;
     @FXML private TableView<BillLading> tableBillOfLading;
-    @FXML private TextArea noteArea;
+    @FXML private TextArea noteText;
 
     Connection con;
 
@@ -98,7 +98,7 @@ public class ListBillOfLadingAdminController {
 
             bill = new BillLading(resultSet.getString(1),resultSet.getString(3)
                     ,resultSet.getString(4),resultSet.getString(5)
-                    ,resultSet.getString(2),resultSet.getString(6));
+                    ,resultSet.getString(2),resultSet.getString(6),resultSet.getString(7));
 
             bList.addBillToList(bill);
 
@@ -187,17 +187,17 @@ public class ListBillOfLadingAdminController {
     public void editBill() throws SQLException {
 
         selectBill.setStatus(status_combobox.getValue());
+        selectBill.setNote(noteText.getText());
+        System.out.println(noteText.getText());
 
-        if (!(noteArea.getText().equals("")))   // ถ้า note ไม่ null
-        selectBill.setNote(noteArea.getText());
-
-        String sql = "UPDATE bill_of_lading SET Status_bill = ? WHERE ID_bill_of_lading = ?  ";
+        String sql = "UPDATE bill_of_lading SET Status_bill = ?, Note_bill = ? WHERE ID_bill_of_lading = ?  ";
 
         try {
 
             preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, status_combobox.getValue());
-            preparedStatement.setString(2, selectBill.getIdBillLading());
+            preparedStatement.setString(2, noteText.getText());
+            preparedStatement.setString(3, selectBill.getIdBillLading());
 
             preparedStatement.executeUpdate();
             System.out.println("Edit status of bill of lading in DB");
@@ -213,9 +213,11 @@ public class ListBillOfLadingAdminController {
         tableBillOfLading.getSelectionModel().clearSelection();
     }
 
+
     private void clearSelectedBill() {
 
         status_combobox.setValue(null);
+        noteText.clear();
     }
 
 
@@ -229,33 +231,6 @@ public class ListBillOfLadingAdminController {
         }
     }
 
-
-    @FXML public void updateButton(ActionEvent event) throws Exception {
-
-        selectBill.setStatus(status_combobox.getValue());
-
-        String sql = "UPDATE bill_of_lading SET Status_bill = ? WHERE ID_bill_of_lading = ?  ";
-
-        try {
-
-            preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setString(1, String.valueOf(status_combobox.getValue()));
-            preparedStatement.setString(2, selectBill.getIdBillLading());
-
-
-            preparedStatement.executeUpdate();
-            System.out.println("Edit data of WO in DB");
-
-        }catch (SQLException ex){
-            ex.printStackTrace();
-        }
-
-
-        System.out.println(selectBill.getStatus());
-        clearSelectedBill();
-        tableBillOfLading.refresh();
-        tableBillOfLading.getSelectionModel().clearSelection();
-    }
 
 
 }

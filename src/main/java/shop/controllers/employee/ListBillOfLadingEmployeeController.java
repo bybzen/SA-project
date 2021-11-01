@@ -86,7 +86,7 @@ public class ListBillOfLadingEmployeeController {
 
             bill = new BillLading(resultSet.getString(1),resultSet.getString(3)
                     ,resultSet.getString(4),resultSet.getString(5),
-                    resultSet.getString(2),resultSet.getString(6));
+                    resultSet.getString(2),resultSet.getString(6),resultSet.getString(7));
 
             bList.addBillToList(bill);
 
@@ -113,32 +113,36 @@ public class ListBillOfLadingEmployeeController {
         TableColumn time = new TableColumn("Time");
         TableColumn pickName = new TableColumn("Name");
         TableColumn status = new TableColumn("Status");
+        TableColumn note = new TableColumn("Note");
 
 
         idBillLading.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("idBillLading")
+                new PropertyValueFactory<BillLading, String>("idBillLading")
         );
         nameAndQuantityDevice.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("nameAndQuantityDevice")
+                new PropertyValueFactory<BillLading, String>("nameAndQuantityDevice")
         );
 
         date.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("date")
+                new PropertyValueFactory<BillLading, String>("date")
         );
         time.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("time")
+                new PropertyValueFactory<BillLading, String>("time")
         );
         pickName.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("pickName")
+                new PropertyValueFactory<BillLading, String>("pickName")
         );
         status.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("status")
+                new PropertyValueFactory<BillLading, String>("status")
+        );
+        note.setCellValueFactory(
+                new PropertyValueFactory<BillLading, String>("note")
         );
 
 
 
         table_list_bill_of_lading_E.getColumns().addAll(idBillLading, nameAndQuantityDevice, date
-                , time, pickName, status);
+                , time, pickName, status, note);
 
 
     }
