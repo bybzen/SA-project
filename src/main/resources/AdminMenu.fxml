@@ -21,7 +21,7 @@
                   <Font name="Bell MT Bold" size="24.0" />
                </font>
             </Button>
-            <Button layoutX="74.0" layoutY="116.0" mnemonicParsing="false" onAction="#CreateDeviceButton" style="-fx-background-color: #110000;" styleClass="otherBtn" stylesheets="@effect.css" text="Create device" textFill="#fffefe">
+            <Button layoutX="84.0" layoutY="115.0" mnemonicParsing="false" onAction="#CreateDeviceButton" style="-fx-background-color: #110000;" styleClass="otherBtn" stylesheets="@effect.css" text="Create device" textFill="#fffefe">
                <font>
                   <Font name="Bell MT Bold" size="24.0" />
                </font>
@@ -36,11 +36,6 @@
             </TitledPane>
          </children>
       </AnchorPane>
-      <Button layoutX="222.0" layoutY="605.0" mnemonicParsing="false" onAction="#BackButton" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="LOG-OUT">
-         <font>
-            <Font name="Bell MT Bold" size="24.0" />
-         </font>
-      </Button>
       <AnchorPane layoutX="545.0" layoutY="347.0" opacity="0.81" prefHeight="326.0" prefWidth="350.0" style="-fx-background-color: #AAAAAA;" stylesheets="@effect.css">
          <children>
             <Button layoutX="50.0" layoutY="73.0" mnemonicParsing="false" onAction="#ListWorkOrderButton" prefHeight="50.0" prefWidth="253.0" style="-fx-background-color: #110000;" styleClass="otherBtn" stylesheets="@effect.css" text="List of workorder" textFill="WHITE">
@@ -72,6 +67,11 @@
             <String fx:value="otherBtn" />
          </styleClass>
       </AnchorPane>
+      <Button layoutX="240.0" layoutY="605.0" mnemonicParsing="false" onAction="#BackButton" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="LOG-OUT">
+         <font>
+            <Font name="Bell MT Bold" size="24.0" />
+         </font>
+      </Button>
       <Label layoutX="428.0" layoutY="80.0" text="Menu" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="130.0" />

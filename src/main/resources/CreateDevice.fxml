@@ -11,10 +11,20 @@
 
 <AnchorPane prefHeight="786.0" prefWidth="1024.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.CreateDeviceController">
    <children>
-      <AnchorPane layoutX="64.0" layoutY="315.0" opacity="0.81" prefHeight="313.0" prefWidth="697.0" style="-fx-background-color: #AAAAAA;" />
+      <AnchorPane layoutX="64.0" layoutY="296.0" opacity="0.81" prefHeight="332.0" prefWidth="697.0" style="-fx-background-color: #AAAAAA;" styleClass="otherBtn" stylesheets="@effect.css" />
       <TextField fx:id="id_deviceTextField" layoutX="323.0" layoutY="379.0" prefHeight="31.0" prefWidth="261.0" />
       <TextField fx:id="name_deviceTextField" layoutX="323.0" layoutY="435.0" prefHeight="31.0" prefWidth="261.0" />
       <TextField fx:id="quantity_TextField" layoutX="323.0" layoutY="490.0" prefHeight="31.0" prefWidth="261.0" />
+      <Button layoutX="809.0" layoutY="663.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="45.0" prefWidth="99.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+         <font>
+            <Font name="Bell MT Bold" size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="335.0" layoutY="662.0" mnemonicParsing="false" onAction="#ConfirmCreateDeviceAction" style="-fx-background-color: #006633;" styleClass="selectBtn" stylesheets="@effect.css" text="CONFIRM" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="25.0" />
+         </font>
+      </Button>
       <Label layoutX="155.0" layoutY="433.0" text="Name Device :" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="25.0" />
@@ -30,16 +40,6 @@
             <Font name="Bell MT Bold" size="25.0" />
          </font>
       </Label>
-      <Button layoutX="335.0" layoutY="662.0" mnemonicParsing="false" onAction="#ConfirmCreateDeviceAction" style="-fx-background-color: #006633;" styleClass="selectBtn" stylesheets="@effect.css" text="CONFIRM" textFill="WHITE">
-         <font>
-            <Font name="Bell MT Bold" size="25.0" />
-         </font>
-      </Button>
-      <Button layoutX="809.0" layoutY="663.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="45.0" prefWidth="99.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
-         <font>
-            <Font name="Bell MT Bold" size="24.0" />
-         </font>
-      </Button>
       <Label layoutX="126.0" layoutY="76.0" text="Create" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="68.0" />
