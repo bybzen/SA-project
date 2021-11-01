@@ -34,9 +34,8 @@ public class ListBillOfLadingAdminController {
     Workorder workorderList = new Workorder();
 
     @FXML private ComboBox<String> status_combobox;
-
-
     @FXML private TableView<BillLading> tableBillOfLading;
+    @FXML private TextArea noteArea;
 
     Connection con;
 
@@ -98,8 +97,8 @@ public class ListBillOfLadingAdminController {
         while (resultSet.next()) {
 
             bill = new BillLading(resultSet.getString(1),resultSet.getString(3)
-                    ,resultSet.getString(4),resultSet.getString(5),
-                    resultSet.getString(2),resultSet.getString(6));
+                    ,resultSet.getString(4),resultSet.getString(5)
+                    ,resultSet.getString(2),resultSet.getString(6));
 
             bList.addBillToList(bill);
 
@@ -128,6 +127,7 @@ public class ListBillOfLadingAdminController {
         TableColumn time = new TableColumn("Time");
         TableColumn pickName = new TableColumn("Name");
         TableColumn status = new TableColumn("Status");
+        TableColumn note = new TableColumn("Note");
 
 
         idBillLading.setCellValueFactory(
@@ -149,11 +149,14 @@ public class ListBillOfLadingAdminController {
         status.setCellValueFactory(
                 new PropertyValueFactory<BillLading, String>("status")
         );
+        note.setCellValueFactory(
+                new PropertyValueFactory<BillLading, String>("note")
+        );
 
 
 
         tableBillOfLading.getColumns().addAll(idBillLading, nameAndQuantityDevice, date
-                                                , time, pickName, status);
+                                                , time, pickName, status, note);
 
 
     }
@@ -184,6 +187,9 @@ public class ListBillOfLadingAdminController {
     public void editBill() throws SQLException {
 
         selectBill.setStatus(status_combobox.getValue());
+
+        if (!(noteArea.getText().equals("")))   // ถ้า note ไม่ null
+        selectBill.setNote(noteArea.getText());
 
         String sql = "UPDATE bill_of_lading SET Status_bill = ? WHERE ID_bill_of_lading = ?  ";
 

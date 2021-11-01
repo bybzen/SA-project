@@ -1,15 +1,19 @@
 package shop.models;
 
+import sun.security.timestamp.TSRequest;
+
 import java.util.ArrayList;
 
 public class BillLading {
 
-    String idBillLading; // เลขที่ใบเบิก
-    String nameAndQuantityDevice;
-    String date;
-    String time;
-    String pickName;
-    String status;
+    private String idBillLading; // เลขที่ใบเบิก
+    private String nameAndQuantityDevice;
+    private String date;
+    private String time;
+    private String pickName;
+    private String status;
+    private String note;
+
 
     ArrayList<BillLading> billList = new ArrayList<>();
 
@@ -23,10 +27,29 @@ public class BillLading {
         this.time = time;
         this.pickName = pickName;
         this.status = status;
+        this.note = "-";
+
     }
 
+    public BillLading(String idBillLading, String nameAndQuantityDevice, String date, String time
+                        , String pickName, String status, String note) {
+        this.idBillLading = idBillLading;
+        this.nameAndQuantityDevice = nameAndQuantityDevice;
+        this.date = date;
+        this.time = time;
+        this.pickName = pickName;
+        this.status = status;
+        this.note = note;
 
+    }
 
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getNote() {
+        return note;
+    }
 
     public int getLengthArrayList(){   // get จำนวน bill of lading ทั้งหมด
         return billList.size();
@@ -101,6 +124,7 @@ public class BillLading {
                 ", time='" + time + '\'' +
                 ", pickName='" + pickName + '\'' +
                 ", status='" + status + '\'' +
+                ", note='" + note + '\'' +
                 '}';
     }
 }
