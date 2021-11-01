@@ -172,6 +172,7 @@ public class ListWorkOrderController {
     }
 
     private void showSelectedWorkorder(Workorder workorder) {
+
         selectWorkorder = workorder;
 
         nameText.setText(selectWorkorder.getNameCustomer());
@@ -179,7 +180,7 @@ public class ListWorkOrderController {
         phoneText.setText(selectWorkorder.getPhoneCustomer());
         timeText.setText(selectWorkorder.getTime());
         priceText.setText(String.valueOf(selectWorkorder.getPrice()));
-
+        datePicker.getEditor().setText(selectWorkorder.getDate());
         leaderCBB.setValue(selectWorkorder.getLiable());
         statusCBB.setValue(selectWorkorder.getStatusOrder());
 
@@ -216,18 +217,20 @@ public class ListWorkOrderController {
 
                 if (!(nameText.getText().equals("")) && !(addressText.getText().equals(""))
                         && !(phoneText.getText().equals("")) && !(timeText.getText().equals(""))
+                        && !(datePicker.getEditor().getText().equals(""))
                         && !(priceText.getText().equals("")) && statusCBB != null || leaderCBB != null)
                 {
                     selectWorkorder.setNameCustomer(nameText.getText());
                     selectWorkorder.setAddressCustomer(addressText.getText());
                     selectWorkorder.setPhoneCustomer(phoneText.getText());
+                    selectWorkorder.setDate(datePicker.getEditor().getText());
                     selectWorkorder.setTime(timeText.getText());
                     selectWorkorder.setPrice(Float.parseFloat(priceText.getText()));
                     selectWorkorder.setStatusOrder(statusCBB.getValue());
                     selectWorkorder.setLiable(leaderCBB.getValue());
 
                     String sql = "UPDATE Work_order SET Address_customer_workorder = ?, Tel_customer_workorder = ?, Status_workorder = ?" +
-                            "                           , Name_customer_workorder = ?, Price_workorder = ?, Installation_time_workorder = ?" +
+                            "                           , Name_customer_workorder = ?, Price_workorder = ?, Installation_date_workorder = ?, Installation_time_workorder = ?" +
                             "                           , Leader_workorder = ? WHERE ID_customer_workorder = ?  ";
 
                     try {
@@ -238,9 +241,10 @@ public class ListWorkOrderController {
                         preparedStatement.setString(3, statusCBB.getValue());
                         preparedStatement.setString(4, nameText.getText());
                         preparedStatement.setString(5, priceText.getText());
-                        preparedStatement.setString(6, timeText.getText());
-                        preparedStatement.setString(7, leaderCBB.getValue());
-                        preparedStatement.setString(8, selectWorkorder.getOnOrder());
+                        preparedStatement.setString(6, datePicker.getEditor().getText());
+                        preparedStatement.setString(7, timeText.getText());
+                        preparedStatement.setString(8, leaderCBB.getValue());
+                        preparedStatement.setString(9, selectWorkorder.getOnOrder());
 
                         preparedStatement.executeUpdate();
                         System.out.println("Edit data of WO in DB");

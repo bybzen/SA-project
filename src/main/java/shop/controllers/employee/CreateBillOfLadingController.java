@@ -4,6 +4,8 @@ import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import shop.controllers.ConnectDatabase;
 import shop.models.BillLading;
 import shop.models.Owner;
@@ -24,6 +26,7 @@ public class CreateBillOfLadingController {
     @FXML DatePicker datePicker;
     @FXML TextField timeText;
     @FXML ComboBox<String> namePickerCBB;
+    @FXML private ImageView p3;
 
     BillLading bill;
     BillLading billList = new BillLading();
@@ -47,6 +50,8 @@ public class CreateBillOfLadingController {
 
 
     public void initialize() throws SQLException {
+
+        p3.setImage(new Image("/imageAll/device1.png"));
 
         String sql_all = "SELECT * FROM User WHERE ID_personal = ?";    // Set data admin from database
         preparedStatement_all = con.prepareStatement(sql_all);

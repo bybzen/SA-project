@@ -38,9 +38,9 @@ public class AdminMenuController {
         @FXML
             public void BackButton(ActionEvent actionEvent) {
                 try {
-                    FXRouter.goTo("Home");
+                    FXRouter.goTo("AdminLogin");
                 } catch (IOException e) {
-                    System.err.println("ไปที่หน้า Home ไม่ได้");
+                    System.err.println("ไปที่หน้า AdminLogin ไม่ได้");
                     System.err.println("ให้ตรวจสอบการกำหนด route");
                 }
             }

@@ -36,9 +36,9 @@
             </TitledPane>
          </children>
       </AnchorPane>
-      <Button layoutX="242.0" layoutY="608.0" mnemonicParsing="false" onAction="#BackButton" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="Log out">
+      <Button layoutX="222.0" layoutY="605.0" mnemonicParsing="false" onAction="#BackButton" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="LOG-OUT">
          <font>
-            <Font name="Bell MT Bold" size="30.0" />
+            <Font name="Bell MT Bold" size="24.0" />
          </font>
       </Button>
       <AnchorPane layoutX="545.0" layoutY="347.0" opacity="0.81" prefHeight="326.0" prefWidth="350.0" style="-fx-background-color: #AAAAAA;" stylesheets="@effect.css">

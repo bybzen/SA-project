@@ -43,7 +43,8 @@ public class LoginController {
 
         p2.setImage(new Image("/imageAll/admin1.png"));
 
-        String sql_all = "SELECT * FROM User WHERE ID_personal = ?";    // Set data admin from database
+        String sql_all = "SELECT * FROM User WHERE ID_personal = ?";
+        // Set data admin from database
         try {
             preparedStatement_all = con.prepareStatement(sql_all);
             preparedStatement_all.setString(1, "00");
@@ -133,18 +134,6 @@ public class LoginController {
 
             if (username_input.equals(ow.getUsername()) && password_input.equals(ow.getPassword())){
                 try {
-
-                    String sql = "INSERT INTO user(User_username_admin, User_password_admin) VALUES (?,?)";
-                    try {
-                    preparedStatement = con.prepareStatement(sql);
-                    preparedStatement.setString(1, username_input);
-                    preparedStatement.setString(2, password_input);
-                    preparedStatement.executeUpdate();
-                    System.out.println("Username and password save in DB");
-                    } catch (SQLException se) {
-                        System.out.println("Duplicate username and password");
-                        //se.printStackTrace();
-                    }
                     FXRouter.goTo("AdminMenu");
 
                 } catch (IOException e) {
