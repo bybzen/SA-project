@@ -1,40 +1,54 @@
 package shop.models;
 
+import sun.security.timestamp.TSRequest;
+
 import java.util.ArrayList;
 
 public class BillLading {
 
-    String idBillLading; // เลขที่ใบเบิก
-    String nameAndQuantityDevice;
-//    int quantity;
-    String date;
-    String time;
-    String pickName;
-    String status;
+    private String idBillLading; // เลขที่ใบเบิก
+    private String nameAndQuantityDevice;
+    private String date;
+    private String time;
+    private String pickName;
+    private String status;
+    private String note;
+
 
     ArrayList<BillLading> billList = new ArrayList<>();
 
     public BillLading(){}
 
-//    public BillLading(String idBillLading, String nameAndQuantityDevice, String date, String time, String pickName) {
-//        this.idBillLading = idBillLading;
-//        this.nameAndQuantityDevice = nameAndQuantityDevice;
-////        this.quantity = quantity;
-//        this.date = date;
-//        this.time = time;
-//        this.pickName = pickName;
-//        this.status = "Wait allow";
-//    }
-
 
     public BillLading(String idBillLading, String nameAndQuantityDevice, String date, String time, String pickName, String status) {
         this.idBillLading = idBillLading;
         this.nameAndQuantityDevice = nameAndQuantityDevice;
-//        this.quantity = quantity;
         this.date = date;
         this.time = time;
         this.pickName = pickName;
         this.status = status;
+        this.note = "-";
+
+    }
+
+    public BillLading(String idBillLading, String nameAndQuantityDevice, String date, String time
+                        , String pickName, String status, String note) {
+        this.idBillLading = idBillLading;
+        this.nameAndQuantityDevice = nameAndQuantityDevice;
+        this.date = date;
+        this.time = time;
+        this.pickName = pickName;
+        this.status = status;
+        this.note = note;
+
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getNote() {
+        return note;
     }
 
     public int getLengthArrayList(){   // get จำนวน bill of lading ทั้งหมด
@@ -52,10 +66,6 @@ public class BillLading {
     public void setNameAndQuantityDevice(String nameAndQuantityDevice) {
         this.nameAndQuantityDevice = nameAndQuantityDevice;
     }
-
-//    public void setQuantity(int quantity) {
-//        this.quantity = quantity;
-//    }
 
     public void setDate(String date) {
         this.date = date;
@@ -80,10 +90,6 @@ public class BillLading {
     public String getNameAndQuantityDevice() {
         return nameAndQuantityDevice;
     }
-
-//    public int getQuantity() {
-//        return quantity;
-//    }
 
     public String getDate() {
         return date;
@@ -118,6 +124,7 @@ public class BillLading {
                 ", time='" + time + '\'' +
                 ", pickName='" + pickName + '\'' +
                 ", status='" + status + '\'' +
+                ", note='" + note + '\'' +
                 '}';
     }
 }

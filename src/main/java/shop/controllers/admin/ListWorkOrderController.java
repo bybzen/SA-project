@@ -226,7 +226,9 @@ public class ListWorkOrderController {
                     selectWorkorder.setStatusOrder(statusCBB.getValue());
                     selectWorkorder.setLiable(leaderCBB.getValue());
 
-                    String sql = "UPDATE Work_order SET Address_customer_workorder = ?, Tel_customer_workorder = ?, Status_workorder = ?, Name_customer_workorder = ?, Price_workorder = ?, Installation_time_workorder = ?, Leader_workorder = ? WHERE ID_customer_workorder = ?  ";
+                    String sql = "UPDATE Work_order SET Address_customer_workorder = ?, Tel_customer_workorder = ?, Status_workorder = ?" +
+                            "                           , Name_customer_workorder = ?, Price_workorder = ?, Installation_time_workorder = ?" +
+                            "                           , Leader_workorder = ? WHERE ID_customer_workorder = ?  ";
 
                     try {
 

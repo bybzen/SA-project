@@ -33,10 +33,9 @@ public class ListBillOfLadingAdminController {
     Workorder workorder;
     Workorder workorderList = new Workorder();
 
-    @FXML ComboBox<String> status_combobox;
-
-
+    @FXML private ComboBox<String> status_combobox;
     @FXML private TableView<BillLading> tableBillOfLading;
+    @FXML private TextArea noteArea;
 
     Connection con;
 
@@ -98,8 +97,8 @@ public class ListBillOfLadingAdminController {
         while (resultSet.next()) {
 
             bill = new BillLading(resultSet.getString(1),resultSet.getString(3)
-                    ,resultSet.getString(4),resultSet.getString(5),
-                    resultSet.getString(2),resultSet.getString(6));
+                    ,resultSet.getString(4),resultSet.getString(5)
+                    ,resultSet.getString(2),resultSet.getString(6));
 
             bList.addBillToList(bill);
 
@@ -128,46 +127,45 @@ public class ListBillOfLadingAdminController {
         TableColumn time = new TableColumn("Time");
         TableColumn pickName = new TableColumn("Name");
         TableColumn status = new TableColumn("Status");
+        TableColumn note = new TableColumn("Note");
 
 
         idBillLading.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("idBillLading")
+                new PropertyValueFactory<BillLading, String>("idBillLading")
         );
         nameAndQuantityDevice.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("nameAndQuantityDevice")
+                new PropertyValueFactory<BillLading, String>("nameAndQuantityDevice")
         );
 
         date.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("date")
+                new PropertyValueFactory<BillLading, String>("date")
         );
         time.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("time")
+                new PropertyValueFactory<BillLading, String>("time")
         );
         pickName.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("pickName")
+                new PropertyValueFactory<BillLading, String>("pickName")
         );
         status.setCellValueFactory(
-                new PropertyValueFactory<Workorder, String>("status")
+                new PropertyValueFactory<BillLading, String>("status")
+        );
+        note.setCellValueFactory(
+                new PropertyValueFactory<BillLading, String>("note")
         );
 
 
 
         tableBillOfLading.getColumns().addAll(idBillLading, nameAndQuantityDevice, date
-                                                , time, pickName, status);
+                                                , time, pickName, status, note);
 
 
     }
 
     private void showSelectedBill(BillLading bill) {
         selectBill = bill;
-
-        //selectBill.setStatus(status_combobox.getValue());
-
-
-        System.out.println(selectBill.toString());
+//        System.out.println(selectBill.toString());
 
     }
-
 
     @FXML public void updateBtn(ActionEvent actionEvent) throws SQLException {
 
@@ -189,6 +187,9 @@ public class ListBillOfLadingAdminController {
     public void editBill() throws SQLException {
 
         selectBill.setStatus(status_combobox.getValue());
+
+        if (!(noteArea.getText().equals("")))   // ถ้า note ไม่ null
+        selectBill.setNote(noteArea.getText());
 
         String sql = "UPDATE bill_of_lading SET Status_bill = ? WHERE ID_bill_of_lading = ?  ";
 
@@ -215,8 +216,6 @@ public class ListBillOfLadingAdminController {
     private void clearSelectedBill() {
 
         status_combobox.setValue(null);
-//        Withdraw_Of_Device_Textfield.clear(); // เคลียร์ช่องลด
-//        add_device_textfield.clear(); // เคลียร์ช่องเพิ่ม
     }
 
 
@@ -228,6 +227,34 @@ public class ListBillOfLadingAdminController {
             System.err.println("ไปที่หน้า AdminMenu ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
         }
+    }
+
+
+    @FXML public void updateButton(ActionEvent event) throws Exception {
+
+        selectBill.setStatus(status_combobox.getValue());
+
+        String sql = "UPDATE bill_of_lading SET Status_bill = ? WHERE ID_bill_of_lading = ?  ";
+
+        try {
+
+            preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setString(1, String.valueOf(status_combobox.getValue()));
+            preparedStatement.setString(2, selectBill.getIdBillLading());
+
+
+            preparedStatement.executeUpdate();
+            System.out.println("Edit data of WO in DB");
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+
+        System.out.println(selectBill.getStatus());
+        clearSelectedBill();
+        tableBillOfLading.refresh();
+        tableBillOfLading.getSelectionModel().clearSelection();
     }
 
 

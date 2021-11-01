@@ -61,6 +61,7 @@ public class AdminMenuController {
         } catch (IOException e) {
             System.err.println("ไปที่หน้า ListBillOfLadingAdmin ไม่ได้");
             System.err.println("ให้ตรวจสอบการกำหนด route");
+            e.printStackTrace();
         }
     }
 
