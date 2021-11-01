@@ -36,6 +36,7 @@ public class ListBillOfLadingAdminController {
     @FXML private ComboBox<String> status_combobox;
     @FXML private TableView<BillLading> tableBillOfLading;
     @FXML private TextArea noteText;
+    @FXML private Button updateBtn;
 
     Connection con;
 
@@ -44,6 +45,8 @@ public class ListBillOfLadingAdminController {
 
 
     @FXML public void initialize() throws SQLException {
+
+        updateBtn.setDisable(true); //ปิดปุ่ม
 
         status_combobox.getItems().addAll("Allowed", "Not allowed", "Wait allow");
 
@@ -103,7 +106,7 @@ public class ListBillOfLadingAdminController {
             bList.addBillToList(bill);
 
         }
-        System.out.println(bList.getBillList());
+//        System.out.println(bList.getBillList());
         System.out.println("Set all bill of lading");
 
 
@@ -163,6 +166,10 @@ public class ListBillOfLadingAdminController {
 
     private void showSelectedBill(BillLading bill) {
         selectBill = bill;
+
+//        if (!(status_combobox.getValue().equals(""))){
+            updateBtn.setDisable(false); //เปิดปุ่ม
+//        }
 //        System.out.println(selectBill.toString());
 
     }
@@ -180,23 +187,39 @@ public class ListBillOfLadingAdminController {
             if (result.get() == ButtonType.OK) {
                 editBill();
             }
-
         }
 
 
     public void editBill() throws SQLException {
 
+        if (status_combobox.getValue() != null){
         selectBill.setStatus(status_combobox.getValue());
-        selectBill.setNote(noteText.getText());
-        System.out.println(noteText.getText());
+        }
+
+
+        if (selectBill.getStatus().equals("Allowed")) {
+
+            if (!noteText.getText().isEmpty()) {
+                selectBill.setNote(noteText.getText());
+                System.out.println("note 1");
+            }
+        }
+        else {
+            if (!noteText.getText().isEmpty()){
+                selectBill.setNote(noteText.getText());
+                System.out.println("note 4");
+            }
+        }
+
+
 
         String sql = "UPDATE bill_of_lading SET Status_bill = ?, Note_bill = ? WHERE ID_bill_of_lading = ?  ";
 
         try {
 
             preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setString(1, status_combobox.getValue());
-            preparedStatement.setString(2, noteText.getText());
+            preparedStatement.setString(1, selectBill.getStatus());
+            preparedStatement.setString(2, selectBill.getNote());
             preparedStatement.setString(3, selectBill.getIdBillLading());
 
             preparedStatement.executeUpdate();
@@ -206,7 +229,7 @@ public class ListBillOfLadingAdminController {
             ex.printStackTrace();
         }
 
-        System.out.println(bList.getBillList());
+//        System.out.println(bList.getBillList());
 
         clearSelectedBill();
         tableBillOfLading.refresh();
@@ -218,6 +241,7 @@ public class ListBillOfLadingAdminController {
 
         status_combobox.setValue(null);
         noteText.clear();
+        updateBtn.setDisable(true); //ปิดปุ่ม
     }
 
 
