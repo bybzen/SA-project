@@ -202,7 +202,6 @@ public class CreateBillOfLadingController {
             preparedStatement.setString(6,"Pending approval");
             preparedStatement.setString(7,"-");
 
-
             preparedStatement.executeUpdate();
             System.out.println("Save data of bill in DB");
 

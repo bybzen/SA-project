@@ -99,7 +99,7 @@ public class ListWorkOrderEmployeeController {
         TableColumn date = new TableColumn("Date");
         TableColumn time = new TableColumn("Time");
         TableColumn statusOrder = new TableColumn("Status");
-        TableColumn liable = new TableColumn("Liable");
+        TableColumn liable = new TableColumn("Leader");
 
 
         onOrder.setCellValueFactory(
