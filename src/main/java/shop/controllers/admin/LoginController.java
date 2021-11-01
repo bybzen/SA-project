@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import shop.controllers.ConnectDatabase;
 import shop.models.Owner;
 
@@ -20,6 +22,7 @@ public class LoginController {
 
     @FXML TextField username_textfield;
     @FXML PasswordField password_field;
+    @FXML private ImageView p2;
 
     Alert alert;
     ArrayList<Owner> arrayCount = new ArrayList<>();
@@ -37,6 +40,8 @@ public class LoginController {
 
 
     public void initialize() throws SQLException {
+
+        p2.setImage(new Image("/imageAll/admin1.png"));
 
         String sql_all = "SELECT * FROM User WHERE ID_personal = ?";    // Set data admin from database
         try {

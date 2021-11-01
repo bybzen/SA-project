@@ -179,7 +179,7 @@ public class ListWorkOrderController {
         phoneText.setText(selectWorkorder.getPhoneCustomer());
         timeText.setText(selectWorkorder.getTime());
         priceText.setText(String.valueOf(selectWorkorder.getPrice()));
-
+        datePicker.getEditor().setText(selectWorkorder.getDate());
         leaderCBB.setValue(selectWorkorder.getLiable());
         statusCBB.setValue(selectWorkorder.getStatusOrder());
 

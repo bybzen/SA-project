@@ -10,12 +10,11 @@ import java.io.IOException;
 
 public class HomeController {
 
-    @FXML private ImageView image1;
-    @FXML private ImageView image2;
+    @FXML private ImageView p1;
 
     @FXML public void initialize() {
-        image1.setImage(new Image("/image/2.png"));
-        image2.setImage(new Image("/image/3.png"));
+        p1.setImage(new Image("/imageAll/air1.jpg"));
+
     }
 
 
