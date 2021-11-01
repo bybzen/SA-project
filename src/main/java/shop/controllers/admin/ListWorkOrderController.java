@@ -51,6 +51,7 @@ public class ListWorkOrderController {
     @FXML public void initialize() throws SQLException {
 
 
+        editBtn.setDisable(true); //ปิดปุ่ม
         statusCBB.getItems().addAll("Pending", "Confirm", "Pending edit", "Go out to install", "Complete");
 
         Platform.runLater(() -> {
@@ -175,6 +176,8 @@ public class ListWorkOrderController {
 
         selectWorkorder = workorder;
 
+        editBtn.setDisable(false); //เปิดปุ่ม
+
         nameText.setText(selectWorkorder.getNameCustomer());
         addressText.setText(selectWorkorder.getAddressCustomer());
         phoneText.setText(selectWorkorder.getPhoneCustomer());
@@ -198,6 +201,7 @@ public class ListWorkOrderController {
         priceText.clear();
         leaderCBB.setValue(null);
         statusCBB.setValue(null);
+        editBtn.setDisable(true); //ปิดปุ่ม
 
     }
 

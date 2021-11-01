@@ -26,7 +26,6 @@ public class CreateBillOfLadingController {
     @FXML DatePicker datePicker;
     @FXML TextField timeText;
     @FXML ComboBox<String> namePickerCBB;
-    @FXML private ImageView p3;
 
     BillLading bill;
     BillLading billList = new BillLading();
@@ -51,7 +50,6 @@ public class CreateBillOfLadingController {
 
     public void initialize() throws SQLException {
 
-        p3.setImage(new Image("/imageAll/device1.png"));
 
         String sql_all = "SELECT * FROM User WHERE ID_personal = ?";    // Set data admin from database
         preparedStatement_all = con.prepareStatement(sql_all);
@@ -205,7 +203,6 @@ public class CreateBillOfLadingController {
             preparedStatement.setString(5, timeText.getText());
             preparedStatement.setString(6,"Pending approval");
             preparedStatement.setString(7,"-");
-
 
             preparedStatement.executeUpdate();
             System.out.println("Save data of bill in DB");
