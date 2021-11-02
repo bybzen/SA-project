@@ -5,30 +5,56 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.ListBillOfLadingAdminController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.ListBillOfLadingAdminController">
     <children>
-        <TableView fx:id="tableBillOfLading" layoutX="29.0" layoutY="104.0" prefHeight="606.0" prefWidth="685.0" />
-        <Label layoutX="765.0" layoutY="153.0" text="Status">
+      <AnchorPane layoutX="643.0" layoutY="178.0" opacity="0.81" prefHeight="431.0" prefWidth="323.0" style="-fx-background-color: #AAAAAA;" styleClass="otherBtn" stylesheets="@effect.css">
+         <children>
+            <TitledPane animated="false" layoutY="-16.0" prefHeight="32.0" prefWidth="337.0" text="Update status of bill of lading">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0" />
+               </content>
+               <font>
+                  <Font name="Bell MT Bold" size="16.0" />
+               </font>
+            </TitledPane>
+         </children>
+      </AnchorPane>
+        <TableView fx:id="tableBillOfLading" layoutX="56.0" layoutY="159.0" prefHeight="555.0" prefWidth="551.0" />
+        <Label layoutX="659.0" layoutY="228.0" text="Status :" textFill="#fff7f7">
             <font>
-                <Font size="34.0" />
+                <Font name="Bell MT Bold" size="27.0" />
             </font>
         </Label>
-        <Button layoutX="728.0" layoutY="703.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="50.0" prefWidth="93.0" text="Back" />
-        <ComboBox fx:id="status_combobox" layoutX="728.0" layoutY="226.0" prefHeight="31.0" prefWidth="156.0" />
-        <Label layoutX="354.0" layoutY="27.0" text="List Bill Of Lading">
+        <ComboBox fx:id="status_combobox" layoutX="756.0" layoutY="235.0" prefHeight="31.0" prefWidth="156.0" />
+      <TextArea fx:id="noteText" layoutX="756.0" layoutY="315.0" prefHeight="159.0" prefWidth="194.0" />
+        <Label layoutX="341.0" layoutY="34.0" text="List Bill Of Lading" textFill="WHITE">
             <font>
-                <Font size="36.0" />
+                <Font name="Bell MT Bold" size="42.0" />
             </font>
         </Label>
-      <Button fx:id="updateBtn" layoutX="760.0" layoutY="538.0" mnemonicParsing="false" onAction="#updateBtn" prefHeight="50.0" prefWidth="93.0" text="Update" />
-      <Label layoutX="760.0" layoutY="301.0" text="Note">
+      <Button fx:id="updateBtn" layoutX="729.0" layoutY="515.0" mnemonicParsing="false" onAction="#updateBtn" prefHeight="50.0" prefWidth="156.0" style="-fx-background-color: #006633;" styleClass="selectBtn" stylesheets="@effect.css" text="UPDATE" textFill="WHITE">
          <font>
-            <Font size="34.0" />
+            <Font name="Bell MT Bold" size="19.0" />
+         </font></Button>
+        <Button layoutX="761.0" layoutY="640.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="50.0" prefWidth="93.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font></Button>
+      <Label layoutX="673.0" layoutY="315.0" text="Note :" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="26.0" />
          </font>
       </Label>
-      <TextArea fx:id="noteText" layoutX="733.0" layoutY="362.0" prefHeight="148.0" prefWidth="148.0" />
+      <AnchorPane layoutY="99.0" prefHeight="31.0" prefWidth="1027.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="32.0" layoutY="-6.0" prefHeight="119.0" prefWidth="13.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="66.0" prefHeight="119.0" prefWidth="13.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="96.0" prefHeight="119.0" prefWidth="13.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="124.0" prefHeight="119.0" prefWidth="13.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="152.0" prefHeight="119.0" prefWidth="13.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="181.0" prefHeight="119.0" prefWidth="13.0" style="-fx-background-color: #CC9933;" />
     </children>
 </AnchorPane>

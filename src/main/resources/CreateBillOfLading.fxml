@@ -6,50 +6,63 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800" prefWidth="900" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.CreateBillOfLadingController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.CreateBillOfLadingController">
    <children>
-      <TextField fx:id="timeText" layoutX="574.0" layoutY="491.0" />
-      <Label layoutX="297.0" layoutY="62.0" text="Create Bill Of Lading">
-         <font>
-            <Font size="34.0" />
-         </font>
-      </Label>
-      <Label layoutX="31.0" layoutY="163.0" text="Name &amp; Quantity Device : ">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="datePicker" layoutX="236.0" layoutY="491.0" />
-      <Label layoutX="154.0" layoutY="487.0" text="Date">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <Label layoutX="502.0" layoutY="490.0" text="Time">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
-      <Label layoutX="263.0" layoutY="579.0" text="Sign the picker">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Button layoutX="386.0" layoutY="663.0" mnemonicParsing="false" onAction="#ConfirmButton" prefHeight="50.0" prefWidth="110.0" text="Confirm">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="712.0" layoutY="668.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="45.0" prefWidth="99.0" text="Back">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Button>
-      <TextArea fx:id="nameAndQuantityText" layoutX="282.0" layoutY="154.0" prefHeight="200.0" prefWidth="467.0" />
+      <AnchorPane layoutX="72.0" layoutY="171.0" opacity="0.81" prefHeight="569.0" prefWidth="890.0" style="-fx-background-color: #AAAAAA;" styleClass="otherBtn" stylesheets="@effect.css" />
+      <TextArea fx:id="nameAndQuantityText" layoutX="166.0" layoutY="283.0" prefHeight="200.0" prefWidth="690.0" />
+      <DatePicker fx:id="datePicker" layoutX="333.0" layoutY="519.0" />
+      <TextField fx:id="timeText" layoutX="612.0" layoutY="519.0" />
 
-      <ComboBox fx:id="namePickerCBB" layoutX="441.0" layoutY="581.0" prefHeight="31.0" prefWidth="187.0" />
+      <ComboBox fx:id="namePickerCBB" layoutX="495.0" layoutY="591.0" prefHeight="31.0" prefWidth="187.0" />
+      <Button layoutX="441.0" layoutY="660.0" mnemonicParsing="false" onAction="#ConfirmButton" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #006633;" styleClass="selectBtn" stylesheets="@effect.css" text="CONFIRM" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="790.0" layoutY="662.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="37.0" prefWidth="119.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+         <font>
+            <Font name="Bell MT Bold" size="22.0" />
+         </font>
+      </Button>
+      <Label layoutX="286.0" layoutY="38.0" text="Creating Bill Of Lading" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="47.0" />
+         </font>
+      </Label>
+      <Label layoutX="94.0" layoutY="227.0" text="Name &amp; Quantity Device : " textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="245.0" layoutY="517.0" text="Date :" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="526.0" layoutY="517.0" text="Time :" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="309.0" layoutY="589.0" text="Sign the picker :" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="111.0" prefHeight="32.0" prefWidth="1024.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="1001.0" prefHeight="796.0" prefWidth="33.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="-3.0" layoutY="-5.0" prefHeight="796.0" prefWidth="25.0" style="-fx-background-color: #CC9933;" />
+      <TitledPane animated="false" layoutX="72.0" layoutY="171.0" prefHeight="32.0" prefWidth="890.0" text="Creating">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0" />
+         </content>
+         <font>
+            <Font name="Bell MT Bold" size="16.0" />
+         </font>
+      </TitledPane>
    </children>
 </AnchorPane>

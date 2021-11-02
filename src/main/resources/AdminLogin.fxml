@@ -47,7 +47,7 @@
             <Font name="Bell MT Bold" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="110.0" layoutY="615.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="61.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="Back" textFill="#252525">
+      <Button layoutX="110.0" layoutY="615.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="61.0" prefWidth="120.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK" textFill="#252525">
          <font>
             <Font name="Bell MT Bold" size="24.0" />
          </font>

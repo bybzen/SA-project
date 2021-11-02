@@ -2,13 +2,22 @@ package shop.controllers.employee;
 import com.github.saacsos.FXRouter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
 public class EmployeeMenuController {
 
-@FXML
-    public void CreateBillOfLadingButton(ActionEvent actionEvent) {
+    @FXML private ImageView p4;
+
+    @FXML public void initialize() {
+        p4.setImage(new Image("/imageAll/staff1.png"));
+
+    }
+
+
+    @FXML public void CreateBillOfLadingButton(ActionEvent actionEvent) {
         try {
             FXRouter.goTo("CreateBillOfLading");
         } catch (IOException e) {

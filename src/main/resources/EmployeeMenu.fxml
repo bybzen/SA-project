@@ -2,31 +2,62 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.EmployeeMenuController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" stylesheets="@effect.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.EmployeeMenuController">
    <children>
-      <Label layoutX="284.0" layoutY="54.0" text="Menu Employee">
+      <AnchorPane layoutX="1.0" layoutY="4.0" prefHeight="784.0" prefWidth="30.0" style="-fx-background-color: #AAAAAA;" />
+      <AnchorPane layoutX="144.0" layoutY="294.0" opacity="0.81" prefHeight="273.0" prefWidth="350.0" style="-fx-background-color: #AAAAAA;" styleClass="otherBtn" stylesheets="@effect.css" />
+      <Label layoutX="198.0" layoutY="64.0" text="Employee" textFill="WHITE">
          <font>
-            <Font size="40.0" />
+            <Font name="Bell MT Bold" size="96.0" />
          </font>
       </Label>
-      <Button layoutX="285.0" layoutY="177.0" mnemonicParsing="false" onAction="#CreateBillOfLadingButton" prefHeight="57.0" prefWidth="286.0" text="create  bill of lading">
+      <Button layoutX="165.0" layoutY="346.0" mnemonicParsing="false" onAction="#CreateBillOfLadingButton" prefHeight="41.0" prefWidth="321.0" style="-fx-background-color: #110000;" styleClass="selectBtn" stylesheets="@effect.css" text="Creating Bill of Lading" textFill="WHITE">
          <font>
-            <Font size="27.0" />
+            <Font name="Bell MT Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="354.0" layoutY="295.0" mnemonicParsing="false" onAction="#ListWorkOrderEmployeeButton" text="list work">
+      <Button layoutX="229.0" layoutY="416.0" mnemonicParsing="false" onAction="#ListWorkOrderEmployeeButton" style="-fx-background-color: #110000;" styleClass="selectBtn" stylesheets="@effect.css" text="List Work Order" textFill="WHITE">
          <font>
-            <Font size="29.0" />
+            <Font name="Bell MT Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="656.0" layoutY="536.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="49.0" prefWidth="101.0" text="Back" />
-      <Button layoutX="219.0" layoutY="400.0" mnemonicParsing="false" onAction="#ListBillOfLadingEmployeeButton" prefHeight="92.0" prefWidth="462.0" text="List Bill Of Lading">
+      <Button layoutX="486.0" layoutY="625.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="49.0" prefWidth="101.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
          <font>
-            <Font size="43.0" />
+            <Font name="Bell MT Bold" size="21.0" />
+         </font></Button>
+      <Button layoutX="206.0" layoutY="479.0" mnemonicParsing="false" onAction="#ListBillOfLadingEmployeeButton" prefHeight="41.0" prefWidth="239.0" style="-fx-background-color: #110000;" styleClass="selectBtn" stylesheets="@effect.css" text="List Bill of Lading" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="22.0" />
          </font>
       </Button>
+      <Label layoutX="597.0" layoutY="165.0" text="Menu" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="51.0" />
+         </font>
+      </Label>
+      <TitledPane animated="false" layoutX="144.0" layoutY="281.0" prefHeight="32.0" prefWidth="350.0" text="Menu">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0" />
+         </content>
+         <font>
+            <Font name="Bell MT Bold" size="16.0" />
+         </font>
+      </TitledPane>
+      <AnchorPane prefHeight="32.0" prefWidth="1024.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="975.0" layoutY="32.0" prefHeight="388.0" prefWidth="24.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="938.0" layoutY="28.0" prefHeight="279.0" prefWidth="24.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="899.0" layoutY="16.0" prefHeight="238.0" prefWidth="24.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="855.0" layoutY="14.0" prefHeight="194.0" prefWidth="24.0" style="-fx-background-color: #CC9933;" />
+      <ImageView fx:id="p4" fitHeight="279.0" fitWidth="361.0" layoutX="586.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imageAll/staff1.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
