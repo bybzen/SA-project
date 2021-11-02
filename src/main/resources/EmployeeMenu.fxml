@@ -27,9 +27,9 @@
             <Font name="Bell MT Bold" size="22.0" />
          </font>
       </Button>
-      <Button layoutX="486.0" layoutY="625.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="49.0" prefWidth="101.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+      <Button layoutX="262.0" layoutY="639.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="55.0" prefWidth="128.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
          <font>
-            <Font name="Bell MT Bold" size="21.0" />
+            <Font name="Bell MT Bold" size="29.0" />
          </font></Button>
       <Button layoutX="206.0" layoutY="479.0" mnemonicParsing="false" onAction="#ListBillOfLadingEmployeeButton" prefHeight="41.0" prefWidth="239.0" style="-fx-background-color: #110000;" styleClass="selectBtn" stylesheets="@effect.css" text="List Bill of Lading" textFill="WHITE">
          <font>

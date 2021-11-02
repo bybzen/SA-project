@@ -31,7 +31,7 @@
             <Font name="Bell MT Bold" size="23.0" />
          </font>
       </Button>
-        <Button layoutX="476.0" layoutY="680.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="52.0" prefWidth="137.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+        <Button layoutX="147.0" layoutY="685.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="52.0" prefWidth="137.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
          <font>
             <Font name="Bell MT Bold" size="23.0" />
          </font>

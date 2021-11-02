@@ -10,14 +10,14 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.ListDeviceControllers">
     <children>
-      <AnchorPane layoutX="478.0" layoutY="147.0" opacity="0.81" prefHeight="536.0" prefWidth="380.0" style="-fx-background-color: #AAAAAA;" stylesheets="@effect.css">
+      <AnchorPane layoutX="579.0" layoutY="147.0" opacity="0.81" prefHeight="536.0" prefWidth="380.0" style="-fx-background-color: #AAAAAA;" stylesheets="@effect.css">
          <styleClass>
             <String fx:value="selectBtn" />
             <String fx:value="otherBtn" />
          </styleClass>
       </AnchorPane>
-        <TableView fx:id="tableDevices" layoutX="157.0" layoutY="147.0" prefHeight="536.0" prefWidth="246.0" />
-        <Button layoutX="597.0" layoutY="599.0" mnemonicParsing="false" onAction="#update_button" prefHeight="46.0" prefWidth="124.0" style="-fx-background-color: #006633;" styleClass="selectBtn" stylesheets="@effect.css" text="UPDATE" textFill="WHITE">
+        <TableView fx:id="tableDevices" layoutX="190.0" layoutY="147.0" prefHeight="485.0" prefWidth="339.0" />
+        <Button layoutX="698.0" layoutY="599.0" mnemonicParsing="false" onAction="#update_button" prefHeight="46.0" prefWidth="124.0" style="-fx-background-color: #006633;" styleClass="selectBtn" stylesheets="@effect.css" text="UPDATE" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="18.0" />
          </font>
@@ -27,34 +27,34 @@
                 <Font name="Bell MT Bold" size="51.0" />
             </font>
         </Label>
-        <Label layoutX="547.0" layoutY="173.0" prefHeight="46.0" prefWidth="197.0" text="Name Device :" textFill="WHITE">
+        <Label layoutX="648.0" layoutY="173.0" prefHeight="46.0" prefWidth="197.0" text="Name Device :" textFill="WHITE">
             <font>
                 <Font name="Bell MT Bold" size="28.0" />
             </font>
         </Label>
-        <TextField fx:id="Withdraw_Of_Device_Textfield" layoutX="547.0" layoutY="375.0" prefHeight="35.0" prefWidth="230.0">
+        <TextField fx:id="Withdraw_Of_Device_Textfield" layoutX="648.0" layoutY="375.0" prefHeight="35.0" prefWidth="230.0">
             <font>
                 <Font size="19.0" />
             </font>
         </TextField>
-        <Label layoutX="545.0" layoutY="304.0" prefHeight="46.0" prefWidth="288.0" text="Withdraw Of Device :" textFill="WHITE">
+        <Label layoutX="646.0" layoutY="304.0" prefHeight="46.0" prefWidth="288.0" text="Withdraw Of Device :" textFill="WHITE">
             <font>
                 <Font name="Bell MT Bold" size="28.0" />
             </font>
         </Label>
-        <Button layoutX="897.0" layoutY="625.0" mnemonicParsing="false" onAction="#BackButton" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+        <Button layoutX="182.0" layoutY="671.0" mnemonicParsing="false" onAction="#BackButton" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
             <font>
-                <Font name="Bell MT Bold" size="21.0" />
+                <Font name="Bell MT Bold" size="25.0" />
             </font>
         </Button>
-        <Label fx:id="Name_device_label" layoutX="544.0" layoutY="231.0" prefHeight="50.0" prefWidth="230.0" textFill="WHITE">
+        <Label fx:id="Name_device_label" layoutX="645.0" layoutY="231.0" prefHeight="50.0" prefWidth="230.0" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="add_device_textfield" layoutX="545.0" layoutY="520.0" prefHeight="35.0" prefWidth="230.0" />
+      <TextField fx:id="add_device_textfield" layoutX="646.0" layoutY="520.0" prefHeight="35.0" prefWidth="230.0" />
       <Label />
-      <Label layoutX="547.0" layoutY="452.0" prefHeight="17.0" prefWidth="230.0" text="Add of Device :" textFill="WHITE">
+      <Label layoutX="648.0" layoutY="452.0" prefHeight="17.0" prefWidth="230.0" text="Add of Device :" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="28.0" />
          </font>

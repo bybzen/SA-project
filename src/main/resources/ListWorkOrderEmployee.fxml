@@ -8,13 +8,13 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.ListWorkOrderEmployeeController">
    <children>
-      <TableView fx:id="table_work_order_staff1" layoutX="64.0" layoutY="170.0" prefHeight="550.0" prefWidth="644.0" />
+      <TableView fx:id="table_work_order_staff1" layoutX="140.0" layoutY="174.0" prefHeight="485.0" prefWidth="743.0" />
       <Label layoutX="331.0" layoutY="23.0" text="List Work Order" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="50.0" />
          </font>
       </Label>
-      <Button layoutX="803.0" layoutY="415.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+      <Button layoutX="95.0" layoutY="690.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
          <font>
             <Font name="Bell MT Bold" size="25.0" />
          </font></Button>

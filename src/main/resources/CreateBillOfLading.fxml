@@ -12,18 +12,20 @@
 
 <AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.CreateBillOfLadingController">
    <children>
-      <AnchorPane layoutX="72.0" layoutY="171.0" opacity="0.81" prefHeight="569.0" prefWidth="890.0" style="-fx-background-color: #AAAAAA;" styleClass="otherBtn" stylesheets="@effect.css" />
+      <AnchorPane layoutX="72.0" layoutY="171.0" opacity="0.81" prefHeight="569.0" prefWidth="890.0" style="-fx-background-color: #AAAAAA;" styleClass="otherBtn" stylesheets="@effect.css">
+         <children>
+            <Button layoutX="72.0" layoutY="494.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="37.0" prefWidth="119.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+               <font>
+                  <Font name="Bell MT Bold" size="22.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
       <TextArea fx:id="nameAndQuantityText" layoutX="166.0" layoutY="283.0" prefHeight="200.0" prefWidth="690.0" />
       <DatePicker fx:id="datePicker" layoutX="333.0" layoutY="519.0" />
       <TextField fx:id="timeText" layoutX="612.0" layoutY="519.0" />
 
       <ComboBox fx:id="namePickerCBB" layoutX="495.0" layoutY="591.0" prefHeight="31.0" prefWidth="187.0" />
       <Button layoutX="441.0" layoutY="660.0" mnemonicParsing="false" onAction="#ConfirmButton" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #006633;" styleClass="selectBtn" stylesheets="@effect.css" text="CONFIRM" textFill="WHITE">
-         <font>
-            <Font name="Bell MT Bold" size="22.0" />
-         </font>
-      </Button>
-      <Button layoutX="790.0" layoutY="662.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="37.0" prefWidth="119.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
          <font>
             <Font name="Bell MT Bold" size="22.0" />
          </font>
