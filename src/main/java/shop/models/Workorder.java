@@ -27,7 +27,7 @@ public class Workorder {
         this.date = date;
         this.time = time;
         this.statusOrder = statusOrder;
-        this.liable = "Not specified"; // พนักงานผู้รับผิดชอบงาน
+        this.liable = liable; // พนักงานผู้รับผิดชอบงาน
     }
 
 

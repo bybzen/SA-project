@@ -26,7 +26,7 @@
       <TextField fx:id="tel_textfield" layoutX="363.0" layoutY="279.0" prefHeight="31.0" prefWidth="234.0" />
       <DatePicker fx:id="date_picker" layoutX="363.0" layoutY="346.0" prefHeight="31.0" prefWidth="234.0" />
       <TextField fx:id="time_textfield" layoutX="363.0" layoutY="413.0" prefHeight="31.0" prefWidth="234.0" />
-      <ComboBox fx:id="assign_person_name_combobox" layoutX="367.0" layoutY="477.0" prefHeight="31.0" prefWidth="234.0" />
+      <ComboBox fx:id="leaderCBB" layoutX="367.0" layoutY="477.0" prefHeight="31.0" prefWidth="234.0" />
       <TextField fx:id="price_textfield" layoutX="367.0" layoutY="540.0" prefHeight="31.0" prefWidth="234.0" />
       <ComboBox fx:id="status_combobox" layoutX="367.0" layoutY="601.0" prefHeight="31.0" prefWidth="234.0" />
       <Button layoutX="727.0" layoutY="696.0" mnemonicParsing="false" onAction="#ConfirmButton" prefHeight="48.0" prefWidth="177.0" style="-fx-background-color: #006633;" styleClass="selectBtn" stylesheets="@effect.css" text="CONFIRM" textFill="WHITE">

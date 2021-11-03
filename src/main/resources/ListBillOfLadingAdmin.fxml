@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.ListBillOfLadingAdminController">
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.ListBillOfLadingAdminController">
     <children>
       <AnchorPane layoutX="180.0" layoutY="446.0" opacity="0.81" prefHeight="232.0" prefWidth="712.0" style="-fx-background-color: #AAAAAA;" styleClass="otherBtn" stylesheets="@effect.css">
          <children>
-            <TitledPane animated="false" layoutY="-16.0" prefHeight="32.0" prefWidth="337.0" text="Update status of bill of lading">
+            <TitledPane animated="false" layoutY="-16.0" prefHeight="32.0" prefWidth="712.0" text="Update status of bill of lading">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0" />
                </content>
@@ -30,15 +30,15 @@
             </font>
         </Label>
         <ComboBox fx:id="status_combobox" layoutX="313.0" layoutY="501.0" prefHeight="31.0" prefWidth="156.0" />
-        <TextArea fx:id="noteText" layoutX="619.0" layoutY="501.0" prefHeight="159.0" prefWidth="194.0" />
+        <TextArea fx:id="noteText" layoutX="619.0" layoutY="501.0" prefHeight="141.0" prefWidth="194.0" />
         <Label layoutX="341.0" layoutY="34.0" text="List Bill Of Lading" textFill="WHITE">
             <font>
                 <Font name="Bell MT Bold" size="42.0" />
             </font>
         </Label>
-        <Button layoutX="28.0" layoutY="699.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="55.0" prefWidth="124.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+        <Button layoutX="67.0" layoutY="692.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="50.0" prefWidth="127.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
             <font>
-                <Font name="Bell MT Bold" size="29.0" />
+                <Font name="Bell MT Bold" size="19.0" />
             </font></Button>
         <Label layoutX="536.0" layoutY="501.0" text="Note :" textFill="WHITE">
             <font>
@@ -57,5 +57,6 @@
                   <Font name="Bell MT Bold" size="19.0" />
               </font>
           </Button>
+      <AnchorPane layoutX="1006.0" layoutY="-10.0" prefHeight="788.0" prefWidth="30.0" style="-fx-background-color: #AAAAAA;" />
     </children>
 </AnchorPane>

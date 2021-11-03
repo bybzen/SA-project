@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class CreateWorkorderController {
@@ -22,13 +23,14 @@ public class CreateWorkorderController {
     @FXML TextArea address_textfield;
     @FXML TextField tel_textfield;
     @FXML TextField time_textfield;
-    @FXML ComboBox<String> assign_person_name_combobox;
+    @FXML ComboBox<String> leaderCBB;
     @FXML TextField price_textfield;
     @FXML DatePicker date_picker;
     @FXML ComboBox<String> status_combobox;
     Workorder workorder;
     Workorder workorderList = new Workorder();
     Owner ow = new Owner();
+    ArrayList<String> arrayCount = new ArrayList<>();
 
     PreparedStatement preparedStatement, preparedStatement_all;
     ResultSet resultSet, resultSet2;
@@ -71,6 +73,24 @@ public class CreateWorkorderController {
         }
         System.out.println(workorderList.getWorkbook());
         System.out.println("Set all workorder");
+
+        String sql_picker = "SELECT Name_personal FROM User WHERE Role_user = ? ";
+        preparedStatement_all = con.prepareStatement(sql_picker);
+        preparedStatement_all.setString(1, "Employee");
+        resultSet = preparedStatement_all.executeQuery();
+
+        Owner staff = new Owner();
+
+        while (resultSet.next()){
+            arrayCount.add(resultSet.getString(1));
+            //System.out.println(arrayCount);
+        }
+        System.out.println(arrayCount);
+
+        for(int i = 0; i < arrayCount.size(); i++) {
+            leaderCBB.getItems().addAll(arrayCount.get(i));
+
+        }
 
     }
 
@@ -139,7 +159,7 @@ public class CreateWorkorderController {
                 time_textfield.clear();
                 price_textfield.clear();
                 status_combobox.setValue(null);
-                assign_person_name_combobox.setValue(null);
+                leaderCBB.setValue(null);
             }
 
 
@@ -163,6 +183,7 @@ public class CreateWorkorderController {
             String date_workorder = date_picker.getEditor().getText();
             String time_workorder = time_textfield.getText();
             String status_workorder = status_combobox.getValue();
+            String leader_workorder = leaderCBB.getValue();
 
 
         }
@@ -170,7 +191,7 @@ public class CreateWorkorderController {
         public void createWO() {
             showDataOfWO();
 
-            String sql = "INSERT INTO Work_order (ID_customer_workorder, Address_customer_workorder, Tel_customer_workorder, Status_workorder, Name_customer_workorder, Price_workorder, Installation_date_workorder, Installation_time_workorder)  VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Work_order (ID_customer_workorder, Address_customer_workorder, Tel_customer_workorder, Status_workorder, Name_customer_workorder, Price_workorder, Installation_date_workorder, Installation_time_workorder, Leader_workorder)  VALUES (?,?,?,?,?,?,?,?,?)";
 
             try {
 
@@ -183,6 +204,7 @@ public class CreateWorkorderController {
                 preparedStatement.setString(6, price_textfield.getText());
                 preparedStatement.setString(7, date_picker.getEditor().getText());
                 preparedStatement.setString(8, time_textfield.getText());
+                preparedStatement.setString(9, leaderCBB.getValue());
                 preparedStatement.executeUpdate();
                 System.out.println("Save data of WO in DB");
 
@@ -193,7 +215,7 @@ public class CreateWorkorderController {
             workorder = new Workorder("W" + workorderList.getLengthArrayList(), name_costomer_textfield.getText(), address_textfield.getText()
                     , tel_textfield.getText(), Float.parseFloat(price_textfield.getText())
                     , date_picker.getEditor().getText(), time_textfield.getText()
-                    , status_combobox.getValue());
+                    , status_combobox.getValue(), leaderCBB.getValue());
 
             workorderList.addWorkOrderToList(workorder);
 
