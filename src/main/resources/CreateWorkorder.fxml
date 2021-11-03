@@ -12,15 +12,7 @@
 
 <AnchorPane prefHeight="777.0" prefWidth="1016.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.CreateWorkorderController">
    <children>
-      <AnchorPane layoutX="57.0" layoutY="195.0" opacity="0.81" prefHeight="482.0" prefWidth="916.0" style="-fx-background-color: #AAAAAA;">
-         <children>
-            <Label layoutX="556.0" layoutY="348.0" prefHeight="27.0" prefWidth="162.0" text="Baht" textFill="WHITE">
-               <font>
-                  <Font name="Bell MT Bold" size="19.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
+      <AnchorPane layoutX="58.0" layoutY="189.0" opacity="0.81" prefHeight="482.0" prefWidth="916.0" style="-fx-background-color: #AAAAAA;" />
       <TextField fx:id="name_costomer_textfield" layoutX="363.0" layoutY="221.0" prefHeight="31.0" prefWidth="234.0" />
       <TextArea fx:id="address_textfield" layoutX="648.0" layoutY="260.0" prefHeight="266.0" prefWidth="293.0" />
       <TextField fx:id="tel_textfield" layoutX="363.0" layoutY="279.0" prefHeight="31.0" prefWidth="234.0" />
@@ -79,11 +71,6 @@
             <Font name="Bell MT Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="195.0" layoutY="438.0" prefHeight="27.0" prefWidth="162.0" text="Example ; 00:00am , 00:00pm" textFill="WHITE">
-         <font>
-            <Font name="Bell MT Bold" size="12.0" />
-         </font>
-      </Label>
       <TitledPane animated="false" layoutX="58.0" layoutY="163.0" prefHeight="32.0" prefWidth="916.0" text="Creating">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="200.0" />
@@ -117,5 +104,20 @@
       <AnchorPane layoutX="970.0" layoutY="3.0" prefHeight="126.0" prefWidth="26.0" style="-fx-background-color: #CC9933;" />
       <AnchorPane layoutX="925.0" layoutY="3.0" prefHeight="126.0" prefWidth="26.0" style="-fx-background-color: #CC9933;" />
       <AnchorPane layoutX="878.0" layoutY="3.0" prefHeight="126.0" prefWidth="26.0" style="-fx-background-color: #CC9933;" />
+      <Label layoutX="221.0" layoutY="318.0" prefHeight="27.0" prefWidth="162.0" text="Example ; 081-234-5678" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="201.0" layoutY="444.0" prefHeight="27.0" prefWidth="162.0" text="Example ; 00:00am , 00:00pm" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="622.0" layoutY="543.0" prefHeight="27.0" prefWidth="162.0" text="Baht" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="19.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
