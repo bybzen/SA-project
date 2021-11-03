@@ -65,20 +65,20 @@ public class CreateBillOfLadingController {
 //            System.out.println(ow.toString());
         }
 
-        String sql_all_workorder = "SELECT * FROM Work_order ";
-        preparedStatement_all = con.prepareStatement(sql_all_workorder);
-        resultSet = preparedStatement_all.executeQuery();
-
-        while (resultSet.next()) {
-
-            workorder = new Workorder(resultSet.getString(1), resultSet.getString(5), resultSet.getString(2), resultSet.getString(3),
-                    resultSet.getFloat(6), resultSet.getString(7), resultSet.getString(8), resultSet.getString(4));
-
-            workorderList.addWorkOrderToList(workorder);
-
-        }
-        System.out.println(workorderList.getWorkbook());
-        System.out.println("Set all workorder");
+//        String sql_all_workorder = "SELECT * FROM Work_order ";
+//        preparedStatement_all = con.prepareStatement(sql_all_workorder);
+//        resultSet = preparedStatement_all.executeQuery();
+//
+//        while (resultSet.next()) {
+//
+//            workorder = new Workorder(resultSet.getString(1), resultSet.getString(5), resultSet.getString(2), resultSet.getString(3),
+//                    resultSet.getFloat(6), resultSet.getString(7), resultSet.getString(8), resultSet.getString(4));
+//
+//            workorderList.addWorkOrderToList(workorder);
+//
+//        }
+//        System.out.println(workorderList.getWorkbook());
+//        System.out.println("Set all workorder");
 
         String sql_all_bill = "SELECT * FROM bill_of_lading ";
         preparedStatement_all = con.prepareStatement(sql_all_bill);
