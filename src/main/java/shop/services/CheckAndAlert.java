@@ -44,7 +44,7 @@ public class CheckAndAlert {
         }
     }
     public boolean validateId(String id){
-        Pattern p = Pattern.compile("[A-Za-z0-9]+");
+        Pattern p = Pattern.compile("[D][0-9]+"); // D+ตัวเลข ex. D12
         Matcher m = p.matcher(id);
         if(m.find()){
             return true ;

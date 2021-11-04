@@ -6,12 +6,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="1000.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.ListDeviceEmployeeController">
+<AnchorPane prefHeight="1000.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.ListDeviceEmployeeController">
    <children>
       <AnchorPane prefHeight="1010.0" prefWidth="1370.0" style="-fx-background-color: #222222;">
          <children>
-            <TableView fx:id="tableDeviceEmp" layoutX="166.0" layoutY="175.0" prefHeight="568.0" prefWidth="1038.0" />
+            <TableView fx:id="tableDeviceEmp" layoutX="446.0" layoutY="182.0" prefHeight="566.0" prefWidth="400.0" />
             <Label layoutX="513.0" layoutY="63.0" prefHeight="51.0" prefWidth="408.0" text="List Device" textFill="WHITE">
                <font>
                   <Font name="Bell MT Bold" size="63.0" />

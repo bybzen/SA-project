@@ -23,7 +23,6 @@ import java.util.Optional;
 
 public class ListDeviceControllers {
 
-
     private Device selectDevice;
     private ObservableList<Device> deviceList;
     private Device dList = new Device();

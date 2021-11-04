@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ListWorkOrderController {
 
@@ -223,43 +224,52 @@ public class ListWorkOrderController {
     @FXML public void EditButton(ActionEvent actionEvent) {
 //            try {
 
-                if (!(nameText.getText().equals("")) && !(addressText.getText().equals(""))
-                        && !(phoneText.getText().equals("")) && !(timeText.getText().equals(""))
-                        && !(datePicker.getEditor().getText().equals(""))
-                        && !(priceText.getText().equals("")) && statusCBB != null || leaderCBB != null)
-                {
-                    selectWorkorder.setNameCustomer(nameText.getText());
-                    selectWorkorder.setAddressCustomer(addressText.getText());
-                    selectWorkorder.setPhoneCustomer(phoneText.getText());
-                    selectWorkorder.setDate(datePicker.getEditor().getText());
-                    selectWorkorder.setTime(timeText.getText());
-                    selectWorkorder.setPrice(Float.parseFloat(priceText.getText()));
-                    selectWorkorder.setStatusOrder(statusCBB.getValue());
-                    selectWorkorder.setLiable(leaderCBB.getValue());
+        Alert alert = new Alert(javafx.scene.control.Alert.AlertType.CONFIRMATION);
+        alert.setHeight(100);
+        alert.setWidth(200);
+        alert.setTitle("CONFIRMATION");
+        alert.setHeaderText(null);
+        alert.setContentText("Do you want to edit ?");
+        Optional<ButtonType> result = alert.showAndWait();
 
-                    String sql = "UPDATE Work_order SET Address_customer_workorder = ?, Tel_customer_workorder = ?, Status_workorder = ?" +
-                            "                           , Name_customer_workorder = ?, Price_workorder = ?, Installation_date_workorder = ?, Installation_time_workorder = ?" +
-                            "                           , Leader_workorder = ? WHERE ID_customer_workorder = ?  ";
+        if (result.get() == ButtonType.OK)
+        {
+            if (!(nameText.getText().equals("")) && !(addressText.getText().equals(""))
+                    && !(phoneText.getText().equals("")) && !(timeText.getText().equals(""))
+                    && !(datePicker.getEditor().getText().equals(""))
+                    && !(priceText.getText().equals("")) && statusCBB != null || leaderCBB != null) {
+                selectWorkorder.setNameCustomer(nameText.getText());
+                selectWorkorder.setAddressCustomer(addressText.getText());
+                selectWorkorder.setPhoneCustomer(phoneText.getText());
+                selectWorkorder.setDate(datePicker.getEditor().getText());
+                selectWorkorder.setTime(timeText.getText());
+                selectWorkorder.setPrice(Float.parseFloat(priceText.getText()));
+                selectWorkorder.setStatusOrder(statusCBB.getValue());
+                selectWorkorder.setLiable(leaderCBB.getValue());
 
-                    try {
+                String sql = "UPDATE Work_order SET Address_customer_workorder = ?, Tel_customer_workorder = ?, Status_workorder = ?" +
+                        "                           , Name_customer_workorder = ?, Price_workorder = ?, Installation_date_workorder = ?, Installation_time_workorder = ?" +
+                        "                           , Leader_workorder = ? WHERE ID_customer_workorder = ?  ";
 
-                        preparedStatement = con.prepareStatement(sql);
-                        preparedStatement.setString(1, addressText.getText());
-                        preparedStatement.setString(2, phoneText.getText());
-                        preparedStatement.setString(3, statusCBB.getValue());
-                        preparedStatement.setString(4, nameText.getText());
-                        preparedStatement.setString(5, priceText.getText());
-                        preparedStatement.setString(6, datePicker.getEditor().getText());
-                        preparedStatement.setString(7, timeText.getText());
-                        preparedStatement.setString(8, leaderCBB.getValue());
-                        preparedStatement.setString(9, selectWorkorder.getOnOrder());
+                try {
 
-                        preparedStatement.executeUpdate();
-                        System.out.println("Edit data of WO in DB");
+                    preparedStatement = con.prepareStatement(sql);
+                    preparedStatement.setString(1, addressText.getText());
+                    preparedStatement.setString(2, phoneText.getText());
+                    preparedStatement.setString(3, statusCBB.getValue());
+                    preparedStatement.setString(4, nameText.getText());
+                    preparedStatement.setString(5, priceText.getText());
+                    preparedStatement.setString(6, datePicker.getEditor().getText());
+                    preparedStatement.setString(7, timeText.getText());
+                    preparedStatement.setString(8, leaderCBB.getValue());
+                    preparedStatement.setString(9, selectWorkorder.getOnOrder());
 
-                    }catch (SQLException ex){
-                        ex.printStackTrace();
-                    }
+                    preparedStatement.executeUpdate();
+                    System.out.println("Edit data of WO in DB");
+
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
 
 //                    workorder = new Workorder(nameText.getText(), addressText.getText()
 //                            , phoneText.getText(), Float.parseFloat(priceText.getText())
@@ -267,39 +277,24 @@ public class ListWorkOrderController {
 //
 //                    workorderList.addWorkOrderToList(workorder);
 
-                    System.out.println("ใน list " + workorderList.getWorkbook());
-                    System.out.println(workorderList.getLengthArrayList());
+                System.out.println("ใน list " + workorderList.getWorkbook());
+                System.out.println(workorderList.getLengthArrayList());
 
-                    if (!(datePicker.getEditor().getText().equals(""))){
-                        selectWorkorder.setDate(datePicker.getEditor().getText());
-                        System.out.println("วันที่ไม่ null ต้อง set");
-                    }
-
-                    else if (datePicker.getEditor().getText().isEmpty()){
-                        System.out.println("วันที่ null ไม่ต้อง set");
-                    }
-
-                    System.out.println("แก้ไขได้");
-
-                    clearSelectedWorkorder();
-                    tableWorkorder.refresh();
-                    tableWorkorder.getSelectionModel().clearSelection();
-
+                if (!(datePicker.getEditor().getText().equals(""))) {
+                    selectWorkorder.setDate(datePicker.getEditor().getText());
+                    System.out.println("วันที่ไม่ null ต้อง set");
+                } else if (datePicker.getEditor().getText().isEmpty()) {
+                    System.out.println("วันที่ null ไม่ต้อง set");
                 }
 
 
+                System.out.println("แก้ไขได้");
+
+                clearSelectedWorkorder();
+                tableWorkorder.refresh();
+                tableWorkorder.getSelectionModel().clearSelection();
 
             }
-
-
-//                FXRouter.goTo("EditWorkOrder");
-
-//            }
-//            catch (IOException e)
-//            {
-//                System.err.println("ไปที่หน้า EditWorkOrder ไม่ได้");
-//                System.err.println("ให้ตรวจสอบการกำหนด route");
-//                e.printStackTrace();
-//            }
-//        }
+        }
+    }
 }
