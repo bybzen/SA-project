@@ -31,9 +31,10 @@ public class Run extends Application {
         FXRouter.when("ListWorkOrder", "ListWorkOrder.fxml");
         FXRouter.when("ListWorkOrderEmployee", "ListWorkOrderEmployee.fxml");
         FXRouter.when("EditWorkOrder", "EditWorkOrder.fxml");
-        FXRouter.when("Test", "Test.fxml");
+        //FXRouter.when("Test", "Test.fxml");
         FXRouter.when("ListBillOfLadingEmployee", "ListBillOfLadingEmployee.fxml");
         FXRouter.when("ListBillOfLadingAdmin", "ListBillOfLadingAdmin.fxml");
+        FXRouter.when("ListDeviceEmployee", "ListDeviceEmployee.fxml");
 
 
 

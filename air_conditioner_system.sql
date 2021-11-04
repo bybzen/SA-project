@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2021 at 05:01 PM
+-- Generation Time: Nov 04, 2021 at 10:38 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -84,20 +84,6 @@ INSERT INTO `device` (`Device_name`, `ID_device`, `Quantity_of_device`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee_evaluation_sheet`
---
-
-CREATE TABLE `employee_evaluation_sheet` (
-  `ID_work_order_evaluation` varchar(10) COLLATE utf8_thai_520_w2 NOT NULL,
-  `email` varchar(50) COLLATE utf8_thai_520_w2 NOT NULL,
-  `time_of_completion` varchar(20) COLLATE utf8_thai_520_w2 NOT NULL,
-  `status_installtion` varchar(20) COLLATE utf8_thai_520_w2 NOT NULL,
-  `comment` varchar(50) COLLATE utf8_thai_520_w2 DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_thai_520_w2;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `user`
 --
 
@@ -163,12 +149,6 @@ ALTER TABLE `bill_of_lading`
 --
 ALTER TABLE `device`
   ADD PRIMARY KEY (`ID_device`);
-
---
--- Indexes for table `employee_evaluation_sheet`
---
-ALTER TABLE `employee_evaluation_sheet`
-  ADD PRIMARY KEY (`ID_work_order_evaluation`);
 
 --
 -- Indexes for table `user`
