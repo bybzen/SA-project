@@ -65,8 +65,11 @@ public class CreateWorkorderController {
 
         while (resultSet.next()) {
 
-            workorder = new Workorder(resultSet.getString(1), resultSet.getString(5), resultSet.getString(2), resultSet.getString(3),
-                    resultSet.getFloat(6), resultSet.getString(7), resultSet.getString(8), resultSet.getString(4));
+            workorder = new Workorder(resultSet.getString(1), resultSet.getString(5)
+                    , resultSet.getString(2), resultSet.getString(3)
+                    , resultSet.getFloat(6), resultSet.getString(7)
+                    , resultSet.getString(8), resultSet.getString(4)
+                    , resultSet.getString(9));
 
             workorderList.addWorkOrderToList(workorder);
 
@@ -204,7 +207,14 @@ public class CreateWorkorderController {
                 preparedStatement.setString(6, price_textfield.getText());
                 preparedStatement.setString(7, date_picker.getEditor().getText());
                 preparedStatement.setString(8, time_textfield.getText());
-                preparedStatement.setString(9, leaderCBB.getValue());
+
+                if (leaderCBB.getValue() == null){
+                preparedStatement.setString(9, "Not specified");
+                }
+                else {
+                    preparedStatement.setString(9, leaderCBB.getValue());
+                }
+
                 preparedStatement.executeUpdate();
                 System.out.println("Save data of WO in DB");
 
