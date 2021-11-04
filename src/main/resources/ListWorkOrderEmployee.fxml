@@ -6,26 +6,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.ListWorkOrderEmployeeController">
+<AnchorPane prefHeight="1000.0" prefWidth="1360.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.employee.ListWorkOrderEmployeeController">
    <children>
-      <TableView fx:id="table_work_order_staff1" layoutX="140.0" layoutY="174.0" prefHeight="485.0" prefWidth="743.0" />
-      <Label layoutX="331.0" layoutY="23.0" text="List Work Order" textFill="WHITE">
+      <TableView fx:id="table_work_order_staff1" layoutX="130.0" layoutY="233.0" prefHeight="602.0" prefWidth="1105.0" />
+      <Label layoutX="497.0" layoutY="53.0" text="List Work Order" textFill="WHITE">
          <font>
             <Font name="Bell MT Bold" size="50.0" />
          </font>
       </Label>
-      <Button layoutX="95.0" layoutY="690.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+      <Button layoutX="130.0" layoutY="888.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
          <font>
             <Font name="Bell MT Bold" size="25.0" />
          </font></Button>
-      <AnchorPane layoutY="104.0" prefHeight="47.0" prefWidth="1017.0" style="-fx-background-color: #AAAAAA;">
+      <AnchorPane layoutY="140.0" prefHeight="47.0" prefWidth="1017.0" style="-fx-background-color: #AAAAAA;">
          <children>
-            <AnchorPane prefHeight="27.0" prefWidth="1024.0" style="-fx-background-color: #CC9933;" />
+            <AnchorPane prefHeight="27.0" prefWidth="1331.0" style="-fx-background-color: #CC9933;" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="1011.0" prefHeight="796.0" prefWidth="23.0" style="-fx-background-color: #CC9933;" />
-      <AnchorPane layoutX="31.0" layoutY="-3.0" prefHeight="112.0" prefWidth="23.0" style="-fx-background-color: #CC9933;" />
-      <AnchorPane layoutX="92.0" layoutY="-3.0" prefHeight="112.0" prefWidth="23.0" style="-fx-background-color: #CC9933;" />
-      <AnchorPane layoutX="152.0" layoutY="-3.0" prefHeight="112.0" prefWidth="23.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="1326.0" prefHeight="1000.0" prefWidth="39.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="31.0" layoutY="-3.0" prefHeight="147.0" prefWidth="23.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="92.0" layoutY="-3.0" prefHeight="147.0" prefWidth="23.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="152.0" layoutY="-3.0" prefHeight="147.0" prefWidth="23.0" style="-fx-background-color: #CC9933;" />
    </children>
 </AnchorPane>

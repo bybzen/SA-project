@@ -9,7 +9,7 @@ public class Run extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXRouter.bind(this, primaryStage, "Air Conditioner System", 1024, 768);
+        FXRouter.bind(this, primaryStage, "Air Conditioner System", 1360, 1000);
         configRoute();
         FXRouter.goTo("Home");
 

@@ -9,41 +9,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" styleClass="otheBtn" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.HomeController">
+<AnchorPane prefHeight="1000.0" prefWidth="1360.0" style="-fx-background-color: #222222;" styleClass="otheBtn" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.HomeController">
    <children>
       <AnchorPane layoutX="19.0" layoutY="30.0" prefHeight="660.0" prefWidth="986.0" style="-fx-background-color: #AAAAAA;">
          <children>
-            <ImageView fx:id="p1" fitHeight="647.0" fitWidth="986.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="p1" fitHeight="890.0" fitWidth="1360.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@imageAll/air1.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="537.0" layoutY="-4.0" prefHeight="300.0" prefWidth="421.0" text="Air" textFill="#110000">
+            <Label layoutX="738.0" layoutY="19.0" prefHeight="300.0" prefWidth="421.0" text="Air" textFill="#110000">
                <font>
                   <Font name="Bell MT Bold" size="270.0" />
                </font>
             </Label>
-            <Label layoutX="530.0" layoutY="8.0" prefHeight="300.0" prefWidth="456.0" text="Air" textFill="WHITE">
+            <Label layoutX="730.0" layoutY="31.0" prefHeight="300.0" prefWidth="456.0" text="Air" textFill="WHITE">
                <font>
                   <Font name="Bell MT Bold" size="250.0" />
                </font>
             </Label>
-            <Label layoutX="430.0" layoutY="266.0" text="conditioner" textFill="#110000">
+            <Label layoutX="657.0" layoutY="297.0" text="conditioner" textFill="#110000">
                <font>
                   <Font name="Bell MT Bold" size="50.0" />
                </font>
             </Label>
-            <Label layoutX="700.0" layoutY="303.0" text="System" textFill="WHITE">
+            <Label layoutX="958.0" layoutY="297.0" text="System" textFill="WHITE">
                <font>
-                  <Font name="Bell MT Bold" size="60.0" />
+                  <Font name="Bell MT Bold" size="96.0" />
                </font>
             </Label>
-            <Label layoutX="703.0" layoutY="303.0" text="Syst" textFill="#110000">
+            <Label layoutX="958.0" layoutY="297.0" text="Syst" textFill="#110000">
                <font>
-                  <Font name="Bell MT Bold" size="60.0" />
+                  <Font name="Bell MT Bold" size="96.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="203.0" layoutY="434.0" opacity="0.89" prefHeight="228.0" prefWidth="581.0" style="-fx-background-color: #AAAAAA;">
+            <AnchorPane layoutX="387.0" layoutY="591.0" opacity="0.89" prefHeight="228.0" prefWidth="581.0" style="-fx-background-color: #AAAAAA;">
                <children>
                   <Button layoutX="225.0" layoutY="56.0" mnemonicParsing="false" onAction="#adminLoginButton" style="-fx-background-color: #110000;" styleClass="otherBtn" stylesheets="@effect.css" text="Admin" textFill="WHITE">
                      <font>
@@ -65,14 +65,14 @@
                   </TitledPane>
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="-3.0" prefHeight="16.0" prefWidth="986.0" style="-fx-background-color: #CC9933;" />
-            <AnchorPane layoutY="-2.0" prefHeight="697.0" prefWidth="17.0" style="-fx-background-color: #CC9933;" />
+            <AnchorPane layoutY="-3.0" prefHeight="16.0" prefWidth="1343.0" style="-fx-background-color: #CC9933;" />
+            <AnchorPane layoutY="-2.0" prefHeight="928.0" prefWidth="17.0" style="-fx-background-color: #CC9933;" />
             <AnchorPane layoutY="37.0" prefHeight="22.0" prefWidth="325.0" style="-fx-background-color: #CC9933;" />
             <AnchorPane layoutY="73.0" prefHeight="22.0" prefWidth="279.0" style="-fx-background-color: #CC9933;" />
             <AnchorPane layoutY="115.0" prefHeight="22.0" prefWidth="211.0" style="-fx-background-color: #CC9933;" />
             <AnchorPane layoutY="158.0" prefHeight="22.0" prefWidth="156.0" style="-fx-background-color: #CC9933;" />
             <AnchorPane layoutY="202.0" prefHeight="22.0" prefWidth="103.0" style="-fx-background-color: #CC9933;" />
-            <AnchorPane layoutY="679.0" prefHeight="16.0" prefWidth="986.0" style="-fx-background-color: #CC9933;" />
+            <AnchorPane layoutX="1.0" layoutY="906.0" prefHeight="22.0" prefWidth="1343.0" style="-fx-background-color: #CC9933;" />
          </children>
       </AnchorPane>
    </children>

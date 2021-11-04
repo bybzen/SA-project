@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.ListWorkOrderController">
+<AnchorPane prefHeight="1000.0" prefWidth="1360.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shop.controllers.admin.ListWorkOrderController">
     <children>
-        <AnchorPane layoutX="42.0" layoutY="324.0" opacity="0.81" prefHeight="340.0" prefWidth="963.0" style="-fx-background-color: #AAAAAA;">
+        <AnchorPane layoutX="239.0" layoutY="525.0" opacity="0.81" prefHeight="340.0" prefWidth="963.0" style="-fx-background-color: #AAAAAA;">
          <children>
             <Label layoutX="140.0" layoutY="85.0" prefHeight="27.0" prefWidth="258.0" text="Example : 081-234-5678">
                <font>
@@ -20,85 +20,86 @@
                </font>
             </Label>
          </children></AnchorPane>
-        <TableView fx:id="tableWorkorder" layoutX="159.0" layoutY="120.0" prefHeight="178.0" prefWidth="771.0" />
-        <Label layoutX="373.0" layoutY="43.0" text="List Work Order" textFill="WHITE">
+        <TableView fx:id="tableWorkorder" layoutX="140.0" layoutY="120.0" prefHeight="383.0" prefWidth="1123.0" />
+        <Label layoutX="586.0" layoutY="57.0" text="List Work Order" textFill="WHITE">
             <font>
                 <Font name="Bell MT Bold" size="43.0" />
             </font>
         </Label>
-        <TextField fx:id="nameText" layoutX="306.0" layoutY="339.0" prefHeight="25.0" prefWidth="227.0" />
-        <TextField fx:id="phoneText" layoutX="306.0" layoutY="387.0" prefHeight="25.0" prefWidth="227.0" />
-        <TextArea fx:id="addressText" layoutX="606.0" layoutY="367.0" prefHeight="137.0" prefWidth="322.0" />
-        <TextField fx:id="timeText" layoutX="306.0" layoutY="478.0" prefHeight="25.0" prefWidth="227.0" />
-        <ComboBox fx:id="leaderCBB" layoutX="306.0" layoutY="529.0" prefHeight="25.0" prefWidth="227.0" />
-        <ComboBox fx:id="statusCBB" layoutX="306.0" layoutY="572.0" prefHeight="25.0" prefWidth="227.0" />
-        <TextField fx:id="priceText" layoutX="306.0" layoutY="613.0" prefHeight="25.0" prefWidth="227.0" />
-        <Button fx:id="editBtn" layoutX="700.0" layoutY="554.0" mnemonicParsing="false" onAction="#EditButton" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: #006633;" styleClass="selectBtn" stylesheets="@effect.css" text="EDIT" textFill="#fffbfb">
+        <TextField fx:id="nameText" layoutX="503.0" layoutY="540.0" prefHeight="25.0" prefWidth="227.0" />
+        <TextField fx:id="phoneText" layoutX="503.0" layoutY="588.0" prefHeight="25.0" prefWidth="227.0" />
+        <TextArea fx:id="addressText" layoutX="803.0" layoutY="568.0" prefHeight="137.0" prefWidth="322.0" />
+        <TextField fx:id="timeText" layoutX="503.0" layoutY="679.0" prefHeight="25.0" prefWidth="227.0" />
+        <ComboBox fx:id="leaderCBB" layoutX="503.0" layoutY="730.0" prefHeight="25.0" prefWidth="227.0" />
+        <ComboBox fx:id="statusCBB" layoutX="503.0" layoutY="773.0" prefHeight="25.0" prefWidth="227.0" />
+        <TextField fx:id="priceText" layoutX="503.0" layoutY="814.0" prefHeight="25.0" prefWidth="227.0" />
+        <Button fx:id="editBtn" layoutX="897.0" layoutY="755.0" mnemonicParsing="false" onAction="#EditButton" prefHeight="43.0" prefWidth="122.0" style="-fx-background-color: #006633;" styleClass="selectBtn" stylesheets="@effect.css" text="EDIT" textFill="#fffbfb">
             <font>
                 <Font name="Bell MT Bold" size="23.0" />
             </font>
         </Button>
-        <Button layoutX="147.0" layoutY="685.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="52.0" prefWidth="137.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
+        <Button layoutX="117.0" layoutY="887.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="52.0" prefWidth="137.0" style="-fx-background-color: #FFFFFF;" styleClass="otherBtn" stylesheets="@effect.css" text="BACK">
             <font>
                 <Font name="Bell MT Bold" size="23.0" />
             </font>
         </Button>
-        <Label layoutX="163.0" layoutY="340.0" text="Name Costomer :">
+        <Label layoutX="360.0" layoutY="541.0" text="Name Costomer :">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="606.0" layoutY="336.0" prefHeight="30.0" prefWidth="82.0" text="Address :">
+        <Label layoutX="803.0" layoutY="537.0" prefHeight="30.0" prefWidth="82.0" text="Address :">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="263.0" layoutY="389.0" text="Tel :">
+        <Label layoutX="460.0" layoutY="590.0" text="Tel :">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
             </font>
         </Label>
-        <DatePicker fx:id="datePicker" layoutX="306.0" layoutY="435.0" prefHeight="25.0" prefWidth="227.0" />
-        <Label layoutX="256.0" layoutY="433.0" text="Date :">
+        <DatePicker fx:id="datePicker" layoutX="503.0" layoutY="636.0" prefHeight="25.0" prefWidth="227.0" />
+        <Label layoutX="453.0" layoutY="634.0" text="Date :">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="248.0" layoutY="480.0" text="Time :">
+        <Label layoutX="445.0" layoutY="681.0" text="Time :">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="147.0" layoutY="502.0" prefHeight="27.0" prefWidth="258.0" text="Example : 00:00am , 00:00pm">
+        <Label layoutX="344.0" layoutY="703.0" prefHeight="27.0" prefWidth="258.0" text="Example : 00:00am , 00:00pm">
             <font>
                 <Font name="Bell MT Bold" size="11.0" />
             </font>
         </Label>
-        <Label layoutX="76.0" layoutY="531.0" text="Leader of work order name :">
+        <Label layoutX="273.0" layoutY="732.0" text="Leader of work order name :">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="249.0" layoutY="614.0" text="Price :">
+        <Label layoutX="446.0" layoutY="815.0" text="Price :">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="241.0" layoutY="574.0" text="Status :">
+        <Label layoutX="438.0" layoutY="775.0" text="Status :">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="549.0" layoutY="614.0" text="Baht">
+        <Label layoutX="746.0" layoutY="815.0" text="Baht">
             <font>
                 <Font name="Bell MT Bold" size="18.0" />
             </font>
         </Label>
-        <AnchorPane layoutY="-4.0" prefHeight="30.0" prefWidth="1046.0" style="-fx-background-color: #CC9933;" />
-        <AnchorPane layoutX="5.0" layoutY="319.0" prefHeight="10.0" prefWidth="1046.0" style="-fx-background-color: #CC9933;" />
+        <AnchorPane layoutY="-4.0" prefHeight="30.0" prefWidth="1444.0" style="-fx-background-color: #CC9933;" />
+        <AnchorPane layoutX="202.0" layoutY="520.0" prefHeight="10.0" prefWidth="1046.0" style="-fx-background-color: #CC9933;" />
         <AnchorPane layoutX="-3.0" layoutY="14.0" prefHeight="186.0" prefWidth="30.0" style="-fx-background-color: #CC9933;" />
         <AnchorPane layoutX="55.0" layoutY="18.0" prefHeight="129.0" prefWidth="26.0" style="-fx-background-color: #CC9933;" />
         <AnchorPane layoutX="107.0" layoutY="14.0" prefHeight="92.0" prefWidth="26.0" style="-fx-background-color: #CC9933;" />
         <AnchorPane layoutX="159.0" layoutY="11.0" prefHeight="52.0" prefWidth="26.0" style="-fx-background-color: #CC9933;" />
+      <AnchorPane layoutX="1418.0" prefHeight="987.0" prefWidth="25.0" style="-fx-background-color: #AAAAAA;" />
     </children>
 </AnchorPane>
